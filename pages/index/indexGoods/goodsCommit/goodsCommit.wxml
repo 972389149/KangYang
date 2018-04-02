@@ -24,19 +24,12 @@
   <view class='left'>
     <text>购买数量</text>
   </view>
-  <!-- <view class='right'>
-    <view style='width:60%;float:left;margin-left:15%;'>
-       <view style='width:20%;float:left;'><button size='mini' catchtap='changeGood' id='1'>+</button> </view> 
-      <view style='width:30%;float:left;margin-left:20%;text-align:center;padding-top:4rpx;'> {{goodCount}} </view>
-       <view style='width:20%;float:left;'><button size='mini' catchtap='changeGood' id='0'>-</button></view> 
-    </view>
-  </view> -->
   <view class='right'>
-    <view style='float:left;padding-left: 28%;' >
+    <view style='float:left;padding-left: 30%;' >
        <view style='float:left'>
         <view catchtap='changeGood' id='1' class='countBtn'>+</view>
        </view> 
-      <view style='width:60rpx;float:left;text-align:center;padding-top:4rpx;'> {{goodCount}} </view>
+      <view style='width:50rpx;float:left;text-align:center;padding-top:4rpx;'> {{goodCount}} </view>
        <view style='float:right;'>
           <view catchtap='changeGood' id='0' class='countBtn'>-</view>
        </view> 

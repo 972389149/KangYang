@@ -12,7 +12,7 @@
   </view>
   <view class='content'>
     <text class='hotelName'>{{items.name}}\n</text>
-    <text class='hotelMarch'>评价：{{items.mark}}\n\n</text>
+    <text class='hotelMarch'>评价：{{items.mark}}\n</text>
     <text class='comment'>{{items.reviewCount}}条评论</text>
   </view>
   <view class='money'>{{items.money}}元</view>

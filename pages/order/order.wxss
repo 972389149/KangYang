@@ -73,20 +73,20 @@ page {
 .orderDetials{
   float: left;
   width: 270rpx;
-  height: 165rpx;
+  height: 175rpx;
   /* border: 4rpx solid #e4e4e4; */
-  margin-top: 5rpx;
+  /* margin-top: 5rpx; */
   margin-left: 20rpx;
   overflow: hidden;
 }
 .orderMoney{
   float: right;
-  height: 128rpx;
+  height: 138rpx;
   width: 230rpx; 
   /* margin-top:6rpx; */
   margin-right:20rpx;
   text-align: center;
-  padding-top: 10rpx;
+  /* padding-top: 10rpx; */
 }
 .orderName{
   font-size: 30rpx;

@@ -68,7 +68,7 @@
   float: left;
   height: 168rpx;
   width: 280rpx;
-  /* border: 2rpx solid #e4e4e4;  */
+   /* border: 2rpx solid #e4e4e4;   */
   margin-top: 20rpx;
   margin-left: 21rpx; 
   font-size: 35rpx;
@@ -94,5 +94,5 @@
 .comment{
   font-size:26rpx;
   color: #909090;
-  /* padding-left: 22rpx; */
+   /* padding-left: 22rpx;  */
 }

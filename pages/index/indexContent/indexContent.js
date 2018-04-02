@@ -50,6 +50,14 @@ Page({
       price: '300-560', //产品价格
       id: 5,
       url: 'hotelDetail/hotelDetail?id='
+    }, {
+      name: '广州酒店',  // 产品名称
+      mark: '5.0',   //产品评分
+      reviewCount: 1520,  //评论人数
+      distant: 500,   //需要调用第三方api计算出的距离
+      price: '300-560', //产品价格
+      id: 5,
+      url: 'hotelDetail/hotelDetail?id='
     } ]
   },
   toHotCitySearch: function (){

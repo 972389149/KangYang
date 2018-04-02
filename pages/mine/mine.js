@@ -77,5 +77,8 @@ Page({
         url: 'login/login?image=' + this.data.userInfo.avatarUrl + '&nickName=' + this.data.userInfo.nickName
       })
     }
+  },
+  onPullDownRefresh: function () {
+    wx.stopPullDownRefresh()
   }
 })

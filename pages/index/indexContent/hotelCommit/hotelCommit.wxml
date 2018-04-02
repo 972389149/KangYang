@@ -23,11 +23,11 @@
     <text>房间数量</text>
   </view>
   <view class='right'>
-    <view style='float:left;padding-left: 28%;' >
+    <view style='float:left;padding-left: 30%;' >
        <view style='float:left'>
         <view catchtap='changeRoom' id='1' class='countBtn'>+</view>
        </view> 
-      <view style='width:60rpx;float:left;text-align:center;padding-top:4rpx;'> {{roomCount}} </view>
+      <view style='width:50rpx;float:left;text-align:center;padding-top:4rpx;'> {{roomCount}} </view>
        <view style='float:right;'>
           <view catchtap='changeRoom' id='0' class='countBtn'>-</view>
        </view> 
