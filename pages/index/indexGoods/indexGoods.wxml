@@ -1,9 +1,15 @@
 <!--pages/index/indexGoods/indexGoods.wxml-->
-<view class='pageTop'>
+<!-- <view class='pageTop'>
   <view class='loca'>定位：{{loca}}</view>
   <view class='location'><button class='miniBtn' size='mini' catchtap='toGoodSearch'>{{location}}</button></view>
-</view>
-<view class='hotel' wx:for='{{goodItems}}' wx:for-item="items" wx:key='unique' hover-class='hotel_'>
+</view> -->
+<view class='pageTop'>
+    <view class='loca'>定位：{{loca}}</view>
+    <view class='location'>
+      <button class='miniBtn' size='mini' catchtap='toHotCitySearch'>{{location}}          </button>
+      </view>
+  </view>
+ <view class='hotel' wx:for='{{goodItems}}' wx:for-item="items" wx:key='unique' hover-class='hotel_'>
  <navigator url='{{items.url}}'>
   <view class='image'>
     <image src='../../../img/hotel.jpg'></image>
@@ -15,4 +21,4 @@
   </view>
   <view class='money'>{{items.money}}元</view>
  </navigator>
-</view>
+</view> 

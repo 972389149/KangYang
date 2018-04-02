@@ -1,6 +1,6 @@
 <!--pages/index/indexContent/indexContent.wxml-->
   <view class='pageTop'>
-    <view class='loca'>定位：{{loca}}</view>
+    <view class='loca'>图:{{loca}}</view>
     <view class='location'><button class='miniBtn' size='mini' catchtap='toHotCitySearch'>{{location}}</button></view>
   </view>
   <view class='hotel' wx:for='{{hotelItems}}' wx:for-item="items" wx:key='unique' hover-class='hotel_'>
@@ -10,9 +10,11 @@
         </view>
         <view class='content'>
           <text class='hotelName'>{{items.name}}\n</text>
-          <text class='hotelMarch'>评价：{{items.reviewCount}}分\n</text>
+          <text class='hotelMarch'>{{items.mark}}分</text>
           <text class='comment'>{{items.reviewCount}}条评论\n</text>
-          <text>距离定位{{items.distant}}米</text>
+          <view style='margin-top: 40rpx;'>
+            <text class='distant'>距定位 {{items.distant}} 米</text>
+          </view>
         </view>
         <view class='money'>{{items.price}}元</view>
     </navigator>

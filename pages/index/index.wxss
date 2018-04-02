@@ -27,7 +27,7 @@
 .searchButton{
   /* margin-left: 4%; */
   display: inline-block; 
-   width: 95%; 
+  width: 95%; 
   height: 30px;
   font-size: 24rpx;
   border-radius: 200rpx;

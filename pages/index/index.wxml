@@ -2,7 +2,9 @@
 <view class='contain'>
   <view class='header'>
     <view class='location'><text>图:{{address}}</text></view>
-    <view class='searchs'> <button class='searchButton' bindtap="switch">搜索</button> </view>
+    <view class='searchs'>
+     <button class='searchButton' bindtap="switch">搜索</button> 
+    </view>
   </view>
   <view class='content'>
     <swiper indicator-dots="{{indicatorDots}}"  

@@ -15,7 +15,7 @@ Page({
       mark: '5.0',   //产品评分
       reviewCount: 1520,  //评论人数
       distant: 500,   //需要调用第三方api计算出的距离
-      price: '1300-1560', //产品价格
+      price: '300-560', //产品价格
       id: 1,
       url: 'hotelDetail/hotelDetail?id='
     }, {
@@ -23,7 +23,7 @@ Page({
       mark: '5.0',   //产品评分
       reviewCount: 1520,  //评论人数
       distant: 500,   //需要调用第三方api计算出的距离
-      price: '1300-1560', //产品价格
+      price: '300-560', //产品价格
       id: 2,
       url: 'hotelDetail/hotelDetail?id='
     }, {
@@ -31,7 +31,7 @@ Page({
       mark: '5.0',   //产品评分
       reviewCount: 1520,  //评论人数
       distant: 500,   //需要调用第三方api计算出的距离
-      price: '1300-1560', //产品价格
+      price: '300-560', //产品价格
       id: 3,
       url: 'hotelDetail/hotelDetail?id='
     }, {
@@ -39,7 +39,7 @@ Page({
       mark: '5.0',   //产品评分
       reviewCount: 1520,  //评论人数
       distant: 500,   //需要调用第三方api计算出的距离
-      price: '1300-1560', //产品价格
+      price: '300-560', //产品价格
       id: 4,
       url: 'hotelDetail/hotelDetail?id='
     }, {
@@ -47,7 +47,7 @@ Page({
       mark: '5.0',   //产品评分
       reviewCount: 1520,  //评论人数
       distant: 500,   //需要调用第三方api计算出的距离
-      price: '1300-1560', //产品价格
+      price: '300-560', //产品价格
       id: 5,
       url: 'hotelDetail/hotelDetail?id='
     } ]
@@ -125,7 +125,7 @@ Page({
       mark: '5.0',   //产品评分
       reviewCount: 1520,  //评论人数
       distant: 500,   //需要调用第三方api计算出的距离
-      price: '1300-1560', //产品价格
+      price: '300-560', //产品价格
       id: 1,
       url: 'hotelDetail/hotelDetail?id='
     }, {
@@ -133,7 +133,7 @@ Page({
       mark: '5.0',   //产品评分
       reviewCount: 1520,  //评论人数
       distant: 500,   //需要调用第三方api计算出的距离
-      price: '1300-1560', //产品价格
+      price: '300-560', //产品价格
       id: 2,
       url: 'hotelDetail/hotelDetail?id='
       }, {
@@ -141,7 +141,7 @@ Page({
         mark: '5.0',   //产品评分
         reviewCount: 1520,  //评论人数
         distant: 500,   //需要调用第三方api计算出的距离
-        price: '1300-1560', //产品价格
+        price: '300-560', //产品价格
         id: 3,
         url: 'hotelDetail/hotelDetail?id='
     }, {
@@ -149,7 +149,7 @@ Page({
       mark: '5.0',   //产品评分
       reviewCount: 1520,  //评论人数
       distant: 500,   //需要调用第三方api计算出的距离
-      price: '1300-1560', //产品价格
+      price: '300-560', //产品价格
       id: 4,
       url: 'hotelDetail/hotelDetail?id='
     }]
