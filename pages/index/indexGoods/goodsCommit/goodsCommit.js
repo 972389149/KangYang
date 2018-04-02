@@ -9,7 +9,7 @@ Page({
     goodMoney: '',
     goodType: '',
     address: '',
-    goodCount: '',
+    goodCount: 0,
     imgSrc: '',
     total: 0
   },
@@ -41,7 +41,6 @@ Page({
       goodMoney: '25.5',
       goodType: '套餐A',
       address: '广东广州大学城',
-      goodCount: 0,
       imgSrc: '../../../../img/hotel.jpg',
     })
   },

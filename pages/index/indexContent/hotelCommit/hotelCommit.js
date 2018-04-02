@@ -12,7 +12,7 @@ Page({
     hotelType: '',
     userName: '',
     phoneNumber: '',
-    roomCount: 1,
+    roomCount: 0,
     total: 0
   },
   changeRoom: function(e){    
