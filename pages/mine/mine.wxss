@@ -1,54 +1,68 @@
 /* pages/mine/mine.wxss */
+.body{
+  background-color: #959595;
+}
 .top_{
   width: 100%;
-  height: 350rpx;
-  border-bottom: 2rpx solid #000; 
+  height: 382rpx;
+  border-bottom: 20rpx solid #F0EFF5; 
 }
 .image{
-  width: 200rpx;
-  height: 200rpx;
+  width: 147rpx;
+  height: 147rpx;
   border-radius: 50%;
-  border: 2rpx solid #000;
+  /* border: 2rpx solid #000; */
   overflow: hidden;
   /* margin: 20rpx 0 0 280rpx; */
   margin-left: auto;
   margin-right: auto;
-  margin-top: 20rpx;
+  margin-top: 80rpx;
+  background-color: #959595;
 }
 .image image{
   width: 200rpx;
   height: 200rpx;
 }
 .underImage{
-  margin-top: 20rpx; 
+  margin-top: 83rpx; 
   text-align: center;
 }
 .myOrder{
   width: 100%;
-  height: 100rpx;
-  border-bottom: 2rpx solid #000; 
+  height: 86rpx;
+  border-bottom: 2rpx solid #F0EFF5; 
+  font-size: 30rpx;
 }
 .myDiscount{
   width: 100%;
-  height: 100rpx;
-  border-bottom: 2rpx solid #000; 
+  height: 86rpx;
+  border-bottom: 2rpx solid #F0EFF5; 
+  font-size: 30rpx;
 }
 .service{
   width: 100%;
-  height: 100rpx;
-  border-bottom: 2rpx solid #000; 
+  height: 86rpx;
+  border-bottom: 2rpx solid #F0EFF5; 
+  font-size: 30rpx;
 }
 .circle{
   float: left;
-  width: 50rpx;
-  height: 50rpx;
+  width: 40rpx;
+  height: 40rpx;
   border-radius: 50%;
-  border: 2rpx solid #000;
+  border: 1rpx solid #000;
   margin-top: 25rpx;
-  margin-left: 25rpx;
+  margin-left: 30rpx;
 }
 .circleCon{
   float: left;
-  margin-left: 50rpx;
-  margin-top: 22rpx; 
+  margin-left: 30rpx;
+  margin-top: 27rpx; 
+}
+.to{
+  float: right;
+  margin-right: 30rpx;
+  font-size: 45rpx;
+  color: #959595;
+  margin-top: 15rpx;
 }

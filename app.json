@@ -1,13 +1,14 @@
 {
   "pages": [
+    "pages/mine/mine",
     "pages/order/order",
     "pages/index/index",
-    "pages/mine/mine",
     "pages/index/search/search",
     "pages/index/indexContent/indexContent",
     "pages/index/hotCitySearch/hotCitySearch",
     "pages/index/indexGoods/indexGoods",
     "pages/index/indexContent/hotelDetail/hotelDetail",
+    "pages/index/indexContent/hotelDetail/hotelDetail/date",
     "pages/index/indexContent/hotelCommit/hotelCommit",
     "pages/index/indexGoods/goodsDetail/goodsDetail",
     "pages/index/indexGoods/goodsCommit/goodsCommit",
