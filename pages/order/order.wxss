@@ -1,32 +1,39 @@
 /* pages/order/order.wxss */
-.allOrder{
-  
-}
+page {  
+  display: block;  
+  min-height: 100%;  
+  background-color: #F0EFF5;  
+}  
 .navTop{
   width: 100%;
-  height: 65rpx;
-  border-bottom: 12rpx solid #e4e4e4; 
-  margin-top: 10rpx;
+  height: 82rpx;
+  border-bottom: 20rpx solid #e4e4e4; 
+  padding-top: 10rpx;
+  background-color: #ffffff;  
 }
 .innerNav{
   float: left;
   width: 20%;
-  height: 59rpx;
+  height: 68rpx;
   text-align: center;
-  font-weight: bold;
+  padding-top: 20rpx;
+  font-size: 30rpx;
+  background-color: #ffffff; 
 }
 .innerNavChose{
-  border-bottom: 8rpx solid #000;
+  border-bottom: 5rpx solid #000;
+  color: #DCA500;
+  border-color: #DCA500;
 }
 .orderDetial{
   width: 100%;
-  height: 290rpx;
-  
-  margin-bottom: 10rpx;
-  /* margin-top: 10rpx; */
+  /* height: 290rpx; */
+  /* margin-bottom: 10rpx; */
+   padding-top: 26rpx;  
+   background-color: #ffffff; 
 }
 .orderItem{
-  width: 95%;
+  width: 100%;
   height: 198rpx;
   border-bottom: 4rpx solid #e4e4e4;
   font-size: 25rpx;
@@ -34,16 +41,20 @@
   margin-right: auto; 
 }
 .express{
-  width: 95%;
-  height: 84rpx;
-  border-bottom: 12rpx solid #e4e4e4;
+  width: 100%;
+  height: 86rpx;
+  border-bottom: 20rpx solid #e4e4e4;
   margin-left: auto;
   margin-right: auto; 
 }
 .inExpress{
   position: absolute;
   right: 20rpx;
-  margin-top: 10rpx;
+  margin-top: 12rpx;
+}
+.inExpress button{
+  border-color: #DCA500;
+  color: #DCA500;
 }
 .showWord{
   position: absolute;
@@ -53,44 +64,47 @@
 }
 .orderImg{
   float: left;
-  width: 126rpx;
-  height: 126rpx;
+  width: 162rpx;
+  height: 162rpx;
   border: 4rpx solid #e4e4e4;
-  margin-top: 20rpx; 
+  margin-top: 5rpx; 
   margin-left: 20rpx;
 }
 .orderDetials{
   float: left;
   width: 270rpx;
-  height: 148rpx;
+  height: 175rpx;
   /* border: 4rpx solid #e4e4e4; */
-  margin-top:16rpx;
+  /* margin-top: 5rpx; */
   margin-left: 20rpx;
   overflow: hidden;
 }
 .orderMoney{
   float: right;
-  height: 128rpx;
+  height: 138rpx;
   width: 230rpx; 
-  margin-top:16rpx;
+  /* margin-top:6rpx; */
   margin-right:20rpx;
   text-align: center;
-  padding-top: 10rpx;
+  /* padding-top: 10rpx; */
 }
 .orderName{
   font-size: 30rpx;
   width: 300rpx;
   overflow: hidden;
+  font-weight: bold;
 }
 .orderSize{
-  font-size: 25rpx;
+  font-size: 26rpx;
   width: 300rpx;
-  overflow: hidden;
+  overflow: hidden; 
+  line-height: 65rpx;
 }
 .orderStatus{
-  font-size: 25rpx;
+  font-size: 26rpx;
+  line-height: 49rpx;
 }
 .orderImg image{
-  width: 126rpx;
-  height: 126rpx;
+  width: 162rpx;
+  height: 162rpx;
 }

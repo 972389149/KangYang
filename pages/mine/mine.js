@@ -1,4 +1,4 @@
-// pages/mine/mine.js
+//pages/mine/mine.js
 //获取应用实例
 const app = getApp()
 
@@ -77,5 +77,8 @@ Page({
         url: 'login/login?image=' + this.data.userInfo.avatarUrl + '&nickName=' + this.data.userInfo.nickName
       })
     }
+  },
+  onPullDownRefresh: function () {
+    wx.stopPullDownRefresh()
   }
 })

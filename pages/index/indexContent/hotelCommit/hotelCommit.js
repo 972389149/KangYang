@@ -5,15 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    hotelName: '广州四季酒店',
-    hotelMoney: 500,
-    dateIn: '2018-3-16',
-    dateOut: '2018-3-18',
-    hotelType: '套餐A',
-    userName: '小叮当',
-    phoneNumber: '12306',
-    roomCount: 1,
-    total: 500
+    hotelName: '',
+    hotelMoney: '',
+    dateIn: '',
+    dateOut: '',
+    hotelType: '',
+    userName: '',
+    phoneNumber: '',
+    roomCount: 0,
+    total: 0
   },
   changeRoom: function(e){    
     if(e.target.id==1){
@@ -36,7 +36,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    // 这里从酒店详情页面传递过来的数据
+    // 模拟数据
+    this.setData({
+      hotelName: '广州白天鹅宾馆',
+      hotelMoney: 380,
+      dateIn: '04-02',
+      dateOut: '04-12',
+      hotelType: '特惠房',
+      imgSrc: '../../../../img/hotel.jpg'
+    })
   },
 
   /**

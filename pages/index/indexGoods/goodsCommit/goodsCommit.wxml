@@ -1,9 +1,16 @@
 <!--pages/index/indexGoods/goodsCommit/goodsCommit.wxml-->
 <view class='goodTop'>
-  <view class='goodName'>
+  <!-- <view class='goodName'>
     <text>{{goodName}}</text>
   </view>
-  <view class='goodMoney'>¥{{goodMoney}}元</view>
+  <view class='goodMoney'>¥{{goodMoney}}元</view> -->
+  <view class='image'>
+    <image src='{{imgSrc}}'></image>
+  </view>
+   <view class='goodName'>
+    <text>{{goodName}}</text>
+  </view>
+  <view class='goodMoney'>¥ <text style='font-size: 36rpx;color: #FD9C04;font-weight:bold'>{{goodMoney}}</text></view>  
 </view>
 <view class='underTop'>
   <view class='left'>
@@ -18,10 +25,14 @@
     <text>购买数量</text>
   </view>
   <view class='right'>
-    <view style='width:60%;float:left;margin-left:15%;'>
-       <view style='width:20%;float:left;'><button size='mini' catchtap='changeGood' id='1'>+</button> </view> 
-      <view style='width:30%;float:left;margin-left:20%;text-align:center;padding-top:4rpx;'> {{goodCount}} </view>
-       <view style='width:20%;float:left;'><button size='mini' catchtap='changeGood' id='0'>-</button></view> 
+    <view style='float:left;padding-left: 30%;' >
+       <view style='float:left'>
+        <view catchtap='changeGood' id='1' class='countBtn'>+</view>
+       </view> 
+      <view style='width:50rpx;float:left;text-align:center;padding-top:4rpx;'> {{goodCount}} </view>
+       <view style='float:right;'>
+          <view catchtap='changeGood' id='0' class='countBtn'>-</view>
+       </view> 
     </view>
   </view>
 </view>
@@ -33,10 +44,12 @@
     <text>{{address}}</text>
   </view>
 </view>
-<view class='left' style='margin-left:2.5%;'>
-  选择优惠券
+<view class='underTop' style='border-bottom: none'>
+  <view class='left'>
+    选择优惠券
+  </view>
 </view>
 <view class='hotelBottom'>
-  <view class='totalMoney'>总额：{{total}}元</view>
+  <view class='totalMoney'>总额 ： <text style='font-size: 24rpx;'>¥  </text><text style='font-size: 48rpx;'>{{total}}</text></view>
   <view class='commit'>提交订单</view>
 </view>

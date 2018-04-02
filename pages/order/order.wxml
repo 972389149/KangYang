@@ -17,28 +17,29 @@
       退款
     </view>
   </view>
+  
   <view class='orderDetial' wx:for='{{orderItems}}' wx:for-item="items" wx:key='unique' wx:if='{{showOrders}}'>
     <view class='orderItem'>
-      <view class='orderImg'  id='123' catchtap='toDetail'>
+      <view class='orderImg'>
         <image src='../../img/hotel.jpg'></image>
       </view>
-      <view class='orderDetials'  id='{{items.url}}' catchtap='toDetail'>
+      <view class='orderDetials'>
         <text class='orderName'>{{items.name}}\n</text>
-        <text class='orderSize'>规格大小： {{items.numbers}}\n</text>
+        <text class='orderSize'>规格/套餐： {{items.numbers}}\n</text>
         <text class='orderTime'>下单时间: {{items.orderTime}}\n</text>
         <text class='orderTime' wx:if='{{items.book}}'>订房时间: {{items.long}}</text>
       </view>
       <view class='orderMoney'>
         <text class='orderStatus'>状态： {{items.status}}\n\n</text>
         <text>套餐： {{items.packages}}\n</text>
-        <text>金额： {{items.price}}</text>
+        <text>金额： ¥ {{items.price}}</text>
       </view>
     </view>
     <text class='showWord' wx:if='{{items.showWord}}'>如需退款请联系客服</text>
     <view class='express' wx:if='{{items.shows}}'>
       <view class='inExpress'>
-         <button size='mini' wx:if='{{items.orderBtn}}'>查看物流</button> 
-         <navigator url='evulate/evulate'><button size='mini' wx:if='{{!items.orderBtn}}'>评价</button></navigator>
+         <button size='mini' wx:if='{{items.orderBtn}}' plain='true'>查看物流</button> 
+         <navigator url='evulate/evulate'><button size='mini' wx:if='{{!items.orderBtn}}' plain='true'>评价</button></navigator>
       </view>
     </view>
   </view>

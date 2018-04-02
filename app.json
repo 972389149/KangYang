@@ -8,6 +8,7 @@
     "pages/index/hotCitySearch/hotCitySearch",
     "pages/index/indexGoods/indexGoods",
     "pages/index/indexContent/hotelDetail/hotelDetail",
+    "pages/index/indexContent/hotelDetail/hotelDetail/date",
     "pages/index/indexContent/hotelCommit/hotelCommit",
     "pages/index/indexGoods/goodsDetail/goodsDetail",
     "pages/index/indexGoods/goodsCommit/goodsCommit",
@@ -31,6 +32,7 @@
     "color": "#000000",
     "position": "bottom",
     "selectedColor": "#09BB07",
+    "backgroundColor": "#ffffff",
     "list": [
       {
         "pagePath": "pages/index/index",

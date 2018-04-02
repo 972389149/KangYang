@@ -52,10 +52,18 @@ Page({
         img: '',  //图片地址
         id: 1, //商品id
         url: 'goodsDetail/goodsDetail?id='
+    }, {
+      name: '商品A',  //商品名字
+      mark: '5.0分',  //商品评分
+      reviewCount: 1520,  //评论人数
+      money: '130', //商品价格
+      img: '',  //图片地址
+      id: 1, //商品id
+      url: 'goodsDetail/goodsDetail?id='
     }]
   },
   toGoodSearch: function () {
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../hotCitySearch/hotCitySearch?searchType=A&loca=' + this.data.loca+'&pageType=1'
     })
   },
@@ -101,7 +109,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    wx.stopPullDownRefresh()
   },
 
   /**
