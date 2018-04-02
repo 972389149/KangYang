@@ -1,13 +1,14 @@
 <!--pages/index/indexContent/hotelCommit/hotelCommit.wxml-->
 <view class='hotelTop'>
-  <view class='hotelName'>
+  <view class='image'>
+    <image src='{{imgSrc}}'></image>
+  </view>
+   <view class='hotelName'>
     <text>{{hotelName}}</text>
   </view>
-  <view class='hotelMoney'>¥{{hotelMoney}}元</view>
-  <view class='hotelDate'>
-    <view class='dateIn'>入住日期：{{dateIn}}</view>
-    <view class='dateOut'>离店日期：{{dateOut}}</view>
-  </view>
+  <view class='dateIn'>入住日期：{{dateIn}} </view>
+  <view class='dateOut'> 离店日期：{{dateOut}}</view>
+  <view class='hotelMoney'>¥ <text style='font-size: 36rpx;color: #FD9C04;font-weight:bold'>{{hotelMoney}}</text></view>  
 </view>
 <view class='underTop'>
   <view class='left'>
@@ -21,11 +22,15 @@
   <view class='left'>
     <text>房间数量</text>
   </view>
-  <view class='right'>
-    <view style='width:60%;float:left;margin-left:15%;'>
-       <view style='width:20%;float:left;'><button size='mini' catchtap='changeRoom' id='1'>+</button> </view> 
-      <view style='width:30%;float:left;margin-left:20%;text-align:center;padding-top:4rpx;'> {{roomCount}} </view>
-       <view style='width:20%;float:left;'><button size='mini' catchtap='changeRoom' id='0'>-</button></view> 
+  <view class='right' style=''>
+    <view style='float:left;padding-left: 28%;' >
+       <view style='float:left'>
+        <view catchtap='changeRoom' id='1' class='countBtn'>+</view>
+       </view> 
+      <view style='width:60rpx;float:left;text-align:center;padding-top:4rpx;'> {{roomCount}} </view>
+       <view style='float:right;'>
+          <view catchtap='changeRoom' id='0' class='countBtn'>-</view>
+       </view> 
     </view>
   </view>
 </view>
@@ -34,7 +39,8 @@
     <text>入住人姓名</text>
   </view>
   <view class='right'>
-    <text>{{userName}}</text>
+    <!-- <text>{{userName}}</text> -->
+    <input placeholder='输入姓名' type='text' confirm-type='done' maxlength='8'></input>
   </view>
 </view>
 <view class='underTop'>
@@ -42,13 +48,16 @@
     <text>手机号</text>
   </view>
   <view class='right'>
-    <text>{{phoneNumber}}</text>
+    <!-- <text>{{phoneNumber}}</text> -->
+    <input placeholder='输入手机号' type='number' confirm-type='done' maxlength='11'></input>
   </view>
 </view>
-<view class='left' style='margin-left:2.5%;'>
-  选择优惠券
+<view class='underTop' style='border-bottom: none'>
+  <view class='left'>
+    选择优惠券
+  </view>
 </view>
 <view class='hotelBottom'>
-  <view class='totalMoney'>总额：{{total}}元</view>
+  <view class='totalMoney'>总额 ： <text style='font-size: 24rpx;'>¥  </text><text style='font-size: 48rpx;'>{{total}}</text></view>
   <view class='commit'>提交订单</view>
 </view>

@@ -1,65 +1,108 @@
 /* pages/index/indexContent/hotelCommit/hotelCommit.wxss */
+page {  
+  display: block;  
+  min-height: 100%;  
+  background-color: #efeff4;  
+}  
 .hotelTop{
   width: 95%;
-  height: 230rpx;
-  border-bottom: 4rpx solid #e4e4e4;
+  height: 180rpx; 
+  padding-left:5%; 
+  border-bottom: 20rpx solid #e4e4e4;
   margin-left: auto;
   margin-right: auto; 
+  background-color: #ffffff;
+}
+.image{
+  float: left;
+  width: 120rpx;
+  height: 120rpx;
+  border: 2rpx solid #e4e4e4;
+  margin-top: 30rpx;
+}
+.hotelTop image{
+  width: 120rpx;
+  height: 120rpx;
 }
 .hotelName{
   float: left;
-  width: 65%;
-  height: 110rpx;
-  margin-top: 60rpx;
-  /* border: 2rpx solid #000; */
+  width: 400rpx;
+  /* height: 120rpx; */
+  margin-top: 37rpx;
+  margin-left: 21rpx;
+  /* border: 2rpx solid #000;  */
 }
 .hotelName text{
+  float: left;
+  width: 100%;
   font-weight: bold;
-  font-size: 40rpx;
+  font-size: 30rpx;
 }
 .hotelMoney{
   float: left;
-  width: 35%;
   height: 110rpx;
-  margin-top: 60rpx;
-  /* border: 2rpx solid #000; */
+  margin-left: 10%;
   text-align: center;
+  font-size: 24rpx;
+  color: #FD9C04;
 }
 .dateIn{
   float: left;
-  width: 50%;
-  height: 60rpx;
-  font-size: 30rpx;
+  /* height: 60rpx; */
+  font-size: 24rpx;
+  margin-left: 21rpx;
+  margin-top: 40rpx;
+   /* border: 2rpx solid #000;  */
 }
 .dateOut{
   float: left;
-  width: 50%;
-  height: 60rpx;
-  font-size: 30rpx;
+  /* height: 60rpx; */
+  font-size: 24rpx;
+  margin-left: 21rpx;
+  margin-top: 40rpx;
+   /* border: 2rpx solid #000;  */
+}
+.countBtn{
+  width: 48rpx;
+  height: 48rpx;
+  /* padding-top: -20rpx; */
+  border: 3rpx solid #acacac;
+  border-radius: 15%;
+  text-align: center;
+  font-size: 35rpx;
+  font-weight: bold;
+  color: #acacac;
 }
 .underTop{
-  width: 95%;
-  margin-left: auto;
-  margin-right: auto;
-  height: 70rpx;
+  width: 100%; 
+  /* margin-left: auto;
+  margin-right: auto; */
+  /* padding-left: 5%;  */
+  height: 86rpx;
   border-bottom: 4rpx solid #e4e4e4;
+  background-color: #ffffff;
 }
 .left{
-  float:left;
-  width: 30%; 
+  float:left; 
+  width: 60%; 
   height: 53rpx;
-  font-size: 35rpx;
-  margin-top: 9rpx;
+  font-size: 30rpx;
+  margin-top: 27rpx;
+  margin-left: 30rpx; 
   /* border: 1rpx solid #000; */
 }
 .right{
-  float:right;
-  width: 50%;
+  float: right; 
+  width: 30%; 
   height: 53rpx;
-  font-size: 35rpx;
-  margin-top: 9rpx;
-  /* border: 1rpx solid #000; */
-  text-align: center;
+  font-size: 30rpx;
+  margin-top: 27rpx;
+  margin-right: 30rpx;
+   /* border: 1rpx solid #000;   */
+  /* text-align: center; */
+}
+.right text{
+  float: right;
 }
 .hotelBottom{
   position: fixed;
@@ -73,14 +116,18 @@
   width: 50%;
   height: 62rpx;
   text-align: center;
-  background-color: #e4e4e4;
+  background-color: #ffffff;
   padding-top: 18rpx;
+  font-size: 30rpx;
+  color: #eb9413;
 }
 .commit{
   float: right;
   width: 50%;
-  height: 62rpx;
-  padding-top: 18rpx;
+  height: 65rpx;
+  padding-top: 25rpx;
   text-align: center;
-  background-color: #666666;
+  font-size: 30rpx;
+  color: #ffffff;
+  background-color: #eb9413;
 }
