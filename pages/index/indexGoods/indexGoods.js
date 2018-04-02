@@ -55,7 +55,7 @@ Page({
     }]
   },
   toGoodSearch: function () {
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../hotCitySearch/hotCitySearch?searchType=A&loca=' + this.data.loca+'&pageType=1'
     })
   },

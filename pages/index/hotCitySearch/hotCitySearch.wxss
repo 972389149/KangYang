@@ -19,13 +19,13 @@
   height: 60rpx;
   width: 94%;
   background-color: #fff;
-  border-radius: 4%;
+  border-radius: 200rpx;
   text-align: center; 
   left: 3%;
   z-index: 1;
 }
 .cityCon_{
-  font-size: 35rpx;
+  font-size: 30rpx;
   height: 60rpx;
 }
 .searchIcon{
@@ -36,53 +36,54 @@
   /* display: none; */
 }
 .thisCity{
-  width: 90%;
+  width: 95%;
   height: 150rpx;
-  /* border: 2rpx solid #000; */
-  margin-top: 15rpx;
+  margin-top: 30rpx;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 5%;
-  font-size: 35rpx;
+  font-size: 30rpx;
 }
-.thisCity text{
+ .thisCity text{
   position: absolute;
-  font-weight: bold;
-}
+} 
 .hotCitys{
   width: 95%;
-  height: 200rpx;
-  /* border: 2rpx solid #000; */
+  /* border: 2rpx solid #000;   */
   margin-left: auto;
   margin-right: auto;
-}
-.hotCitys{
-  /* position: absolute;   */
-  /* font-weight: bold; */
-  font-size: 35rpx;
+  font-size: 30rpx;
 }
 .hotCitys text{
-  font-weight: bold;
-  float: left;
-  width: 80%;
-  margin-left: 5%;
+  /* position: absolute; */
+  width: 100%;
 }
 .cityName{
   float: left;
-  background-color: #e4e4e4;
-  width: 170rpx;
+  background-color: #cccccc;
+  width: 200rpx;
   height: 50rpx;
   text-align: center; 
-  border-radius: 5%;
+  border-radius: 200rpx;
   margin-top: 60rpx;
+  font-size: 26rpx;
+  color: #F5F5F5;
+  padding-top: 10rpx;
+}
+.hotCityCon_{
+  float: left;
+  /* border: 2rpx solid #000; */
+  margin-left: -5%;
 }
 .hotCityCon{
   float: left; 
-  background-color: #e4e4e4;
-  width: 170rpx;
+  background-color: #cccccc;
+  font-size: 26rpx;
+  color: #F5F5F5;
+  width: 200rpx;
   height: 50rpx;
   text-align: center; 
-  border-radius: 5%;
-  margin-top: 20rpx;
-  margin-left: 5%;
+  border-radius: 200rpx;
+  margin-top: 30rpx;
+  margin-left: 5%; 
+  padding-top: 10rpx;
 }

@@ -39,52 +39,60 @@
 .hotel{
   margin-left: auto;
   margin-right: auto; 
+  /* margin-bottom: 20rpx; */
   width: 95%;
-  height: 260rpx;
-  border-bottom: 3rpx solid #e4e4e4;
+  height: 212rpx; 
+  border-bottom: 3rpx solid #F3F3F3;
 }
 .hotel_{
   margin-left: auto;
   margin-right: auto; 
+  /* margin-bottom: 20rpx; */
   width: 95%;
-  height: 260rpx;
-  border-bottom: 3rpx solid #e4e4e4;
+  height: 212rpx; 
+  border-bottom: 3rpx solid #F3F3F3;
   background-color: #e4e4e4; 
 }
 .image{
   float: left;
-  width: 200rpx;
-  height: 200rpx;
+  width: 162rpx;
+  height: 162rpx;
   border: 4rpx solid #e4e4e4;
   margin-top: 20rpx;
 }
 .image image{
-  width: 200rpx;
-  height: 200rpx;
+  width: 162rpx;
+  height: 162rpx;
 }
 .content{
   float: left;
-  height: 200rpx;
+  height: 168rpx;
   width: 280rpx;
-  /* border: 2rpx solid #e4e4e4; */
-  margin-top: 23rpx;
-  margin-left: 20rpx; 
+  /* border: 2rpx solid #e4e4e4;  */
+  margin-top: 20rpx;
+  margin-left: 21rpx; 
   font-size: 35rpx;
 }
 .money{
   float: right;
   height: 40rpx;
-  width: 190rpx;
-  /* border: 2rpx solid #e4e4e4; */
-  margin-top: 180rpx;
-  font-size: 30rpx;
+  /* width: 190rpx; */
+  /* border: 2rpx solid #e4e4e4;  */
+  margin-top: 147rpx;
+  font-size: 36rpx;
+  color: #FE9A00;
 }
 .hotelName{
-  font-size: 45rpx;
+  font-size: 30rpx;
+  font-weight: bold;
 }
 .hotelMarch{
-  font-size: 40rpx;
+  font-size: 30rpx;
+  color: #FE9A00;
+
 }
 .comment{
-  font-size:35rpx;
+  font-size:26rpx;
+  color: #909090;
+  /* padding-left: 22rpx; */
 }
