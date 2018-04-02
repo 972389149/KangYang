@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/order/order",
+    "pages/index/index",
     "pages/mine/mine",
     "pages/index/search/search",
     "pages/index/indexContent/indexContent",
@@ -32,6 +32,7 @@
     "color": "#000000",
     "position": "bottom",
     "selectedColor": "#09BB07",
+    "backgroundColor": "#ffffff",
     "list": [
       {
         "pagePath": "pages/index/index",

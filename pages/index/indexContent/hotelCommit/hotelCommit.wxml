@@ -22,7 +22,7 @@
   <view class='left'>
     <text>房间数量</text>
   </view>
-  <view class='right' style=''>
+  <view class='right'>
     <view style='float:left;padding-left: 28%;' >
        <view style='float:left'>
         <view catchtap='changeRoom' id='1' class='countBtn'>+</view>

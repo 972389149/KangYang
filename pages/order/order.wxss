@@ -1,12 +1,15 @@
 /* pages/order/order.wxss */
-.allOrder{
-  
-}
+page {  
+  display: block;  
+  min-height: 100%;  
+  background-color: #F0EFF5;  
+}  
 .navTop{
   width: 100%;
-  height: 92rpx;
+  height: 82rpx;
   border-bottom: 20rpx solid #e4e4e4; 
-  margin-top: 10rpx;
+  padding-top: 10rpx;
+  background-color: #ffffff;  
 }
 .innerNav{
   float: left;
@@ -15,6 +18,7 @@
   text-align: center;
   padding-top: 20rpx;
   font-size: 30rpx;
+  background-color: #ffffff; 
 }
 .innerNavChose{
   border-bottom: 5rpx solid #000;
@@ -25,7 +29,8 @@
   width: 100%;
   /* height: 290rpx; */
   /* margin-bottom: 10rpx; */
-   margin-top: 26rpx; 
+   padding-top: 26rpx;  
+   background-color: #ffffff; 
 }
 .orderItem{
   width: 100%;

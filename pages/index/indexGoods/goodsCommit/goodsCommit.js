@@ -5,12 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    goodName: '小叮当',
-    goodMoney: 500,
-    goodType: '套餐A',
-    address: '广州大学城',
-    goodCount: 1,
-    total: 500
+    goodName: '',
+    goodMoney: '',
+    goodType: '',
+    address: '',
+    goodCount: '',
+    imgSrc: '',
+    total: 0
   },
   changeGood: function (e) {
     if (e.target.id == 1) {
@@ -33,7 +34,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // 从商品详情页面传过来的数据
+    // 先模拟数据
+    this.setData({
+      goodName: '六神花露水',
+      goodMoney: '25.5',
+      goodType: '套餐A',
+      address: '广东广州大学城',
+      goodCount: 0,
+      imgSrc: '../../../../img/hotel.jpg',
+    })
   },
 
   /**
