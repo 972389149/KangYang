@@ -1,0 +1,88 @@
+/* pages/index/indexContent/hotCitySearch/hotCitySearch.wxss */
+.hotCityTop{
+  width: 100%;
+  height: 70rpx;
+  background-color: #e4e4e4;
+  padding-top: 10rpx; 
+}
+/* .cityCon{
+  height: 60rpx;
+  width: 94%;
+  background-color: #fff;
+  border-radius: 4%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+} */
+.cityCon{
+  position: absolute;
+  height: 60rpx;
+  width: 94%;
+  background-color: #fff;
+  border-radius: 4%;
+  text-align: center; 
+  left: 3%;
+  z-index: 1;
+}
+.cityCon_{
+  font-size: 35rpx;
+  height: 60rpx;
+}
+.searchIcon{
+  position: absolute;
+  z-index: 2;
+  top: 15rpx;
+  left: 38%;
+  /* display: none; */
+}
+.thisCity{
+  width: 90%;
+  height: 150rpx;
+  /* border: 2rpx solid #000; */
+  margin-top: 15rpx;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 5%;
+  font-size: 35rpx;
+}
+.thisCity text{
+  position: absolute;
+  font-weight: bold;
+}
+.hotCitys{
+  width: 95%;
+  height: 200rpx;
+  /* border: 2rpx solid #000; */
+  margin-left: auto;
+  margin-right: auto;
+}
+.hotCitys{
+  /* position: absolute;   */
+  /* font-weight: bold; */
+  font-size: 35rpx;
+}
+.hotCitys text{
+  font-weight: bold;
+  float: left;
+  width: 80%;
+  margin-left: 5%;
+}
+.cityName{
+  float: left;
+  background-color: #e4e4e4;
+  width: 170rpx;
+  height: 50rpx;
+  text-align: center; 
+  border-radius: 5%;
+  margin-top: 60rpx;
+}
+.hotCityCon{
+  float: left; 
+  background-color: #e4e4e4;
+  width: 170rpx;
+  height: 50rpx;
+  text-align: center; 
+  border-radius: 5%;
+  margin-top: 20rpx;
+  margin-left: 5%;
+}

@@ -1,0 +1,27 @@
+<!--pages/order/evulate/evulate.wxml-->
+<view class='header'>
+   <view class='header_pic'>
+      <image src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+   </view>
+   <view class='header_grade'>
+      <view class='grade'>评分</view>
+      <view class='radio'></view>
+      <view class='radio'></view>
+      <view class='radio'></view>
+      <view class='radio'></view>
+      <view class='radio'></view>
+      <text class='gradeNum'>4分</text>
+   </view>
+</view>
+<view class='comment'>
+  <view class='commentTitle'>评论</view>
+  <view>
+      <textarea placeholder="点击输入评论"></textarea>
+  </view>
+</view>
+<view class='anonymity'>
+   <checkbox>匿名评价</checkbox>
+</view>
+<view class='footer'>
+   <button>提交评价</button>
+</view>

@@ -1,0 +1,45 @@
+<!--index.wxml-->
+<view class='contain'>
+  <view class='header'>
+    <view class='location'><text>图:{{address}}</text></view>
+    <view class='searchs'> <button class='searchButton' bindtap="switch">搜索</button> </view>
+  </view>
+  <view class='content'>
+    <swiper indicator-dots="{{indicatorDots}}"  
+            autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">  
+          <block wx:for="{{imgUrls}}" wx:key='unquine'>  
+            <swiper-item>  
+               <navigator url="{{item.link}}" hover-class="navigator-hover">  
+                <image src="{{item.url}}" class="slide-image" style='height:200px'/>  
+               </navigator>   
+            </swiper-item>  
+          </block>  
+    </swiper>  
+  </view>
+  <view class='list'>
+     <button class='villa' catchtap='tohotelLists' id='1'>山庄</button>
+     <button class='villa' catchtap='tohotelLists' id='2'>民宿</button>
+     <button class='villa' catchtap='tohotelLists' id='0'>酒店</button>
+     <button class='villa' catchtap='tohotelLists' id='3'>酒坊</button>
+  </view>
+  <view class='footer'>
+    <view class='listPart' wx:for='{{goodDatas}}' wx:key="dvjkbfea" wx:for-item="item">
+      <navigator url='{{item.link}}'>
+       <view class='classify'>
+         <image src='{{item.img}}'></image>
+       </view>
+       <view class='listCon'>
+          <text class='listText'>{{item.name}}</text>
+       </view>
+      </navigator>     
+    </view>
+    <view class='listPart' catchtap='toGoodsMore'>
+       <view class='classify'>
+         <image src='../../img/home.png'></image>
+       </view>
+       <view class='listCon'>
+          <text class='listText'>更多</text>
+       </view>     
+    </view>
+  </view>
+</view>

@@ -1,0 +1,59 @@
+/* pages/index/search/search.wxss */
+ .header{
+  width: 100%;
+  height: 40px;
+}
+.selectClass{
+  line-height: 40px;
+  margin-left: 15px;
+  margin-right: 6px;
+}
+.selectHotel{
+  line-height: 40px;
+  margin-right: 20px;
+}
+.selectTab{
+  padding-bottom: 2px;
+  color: green;
+  border-bottom:2px solid green;
+}
+.content{
+  width: 100%;
+}
+.searchText{
+  padding-left: 10px;
+  display: inline-block;
+  margin: 10px 15px;
+  height: 40px;
+  width: 70%;
+  border: 1px solid #666;
+  border-radius: 3px;
+}
+.searchButton{
+  position: relative;
+  top: -10px;
+  left: -10px;
+  display: inline-block;
+  height: 42px;
+  width: 42px;
+}
+.searchWord{
+  width: 100%;
+  height: 50px;
+}
+.searchExp{
+  float: left;
+  width: 33.3%;
+  height: 50px;
+}
+.searchExp button{
+  width: 90%;
+  height: 40px;
+  margin: 0 auto;
+  line-height: 40px;
+}
+.hotSearch{
+  display: inline-block;
+  margin-left: 15px;
+  margin-bottom: 10px;
+}

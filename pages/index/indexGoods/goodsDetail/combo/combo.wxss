@@ -1,0 +1,65 @@
+/* pages/index/indexContent/hotelCommit/combo/combo.wxss */
+.header{
+  width: 100%;
+  height: 100px;
+  margin-bottom: 10px;
+}
+.header_left{
+  width: 40%;
+  float: left;
+}
+.header_left image{
+  display: inline-block;
+  height: 100px;
+  width: 100px;
+  margin-left: 10px;
+}
+.header_right{
+  width: 60%;
+  float: left;
+}
+.productName{
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.productPice{
+  margin-bottom: 30px;
+}
+.comboSelect{
+  clear: both;
+  width: 94%;
+  margin: 0 auto;
+}
+.comboTitle{
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.comboSelect button{
+   margin-right: 20px;
+   margin-bottom: 5px;
+}
+.comboIntro{
+  color: #666;
+  font-size: 0.9em;
+  text-indent: 20px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #666;
+}
+.count{
+  margin-left: 10px;
+  height: 40px;
+ 
+}
+.purchase{
+  margin-right: 110px;
+  line-height:40px;
+}
+.count button{
+   margin-left: 10px;
+   margin-right: 10px;
+}
+.footer{
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+}

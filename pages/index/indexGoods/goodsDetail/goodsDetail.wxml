@@ -1,0 +1,52 @@
+<!--pages/index/indexGoods/goodsDetail/goodsDetail.wxml-->
+<view class='header'> 
+    <swiper indicator-dots="{{indicatorDots}}"  
+            autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">  
+          <block wx:for="{{imgUrls}}" wx:key='unquine'>  
+            <swiper-item>  
+                <image src="{{item}}" class="slide-image" style='height:200px'/>    
+            </swiper-item>  
+          </block>  
+    </swiper>  
+  </view>
+  <view class='content_price'>
+     <text class='price'>￥{{price}}元</text>
+  </view>
+  <view class='content_intruduce'>
+     <view>
+        <text class='hotelName'>{{name}}</text>
+     </view>
+     <view class='hotel_deta'>
+         <text class='hotelIntro'>{{intro}}</text>
+     </view>
+  </view>
+  <view class='hotelEvluate'>
+     <view class='evluate_content'>
+        <text>评价（{{evulateNum}}）</text>
+     </view>
+     <view class='evluate' wx:for="{{reviewList}}" wx:key="nvzbv" wx:for-item="item">
+        <view class='evluate_left'>
+            <view class='evluate_pic'>
+              <image src="http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg"></image>
+            </view>
+        </view>
+        <view class='evluate_right'>
+            <view class='evl_left'>{{item.username}}</view>
+            <view class='evl_right'>2018-03-10</view>
+        </view>
+        <view class='evl_detail'>
+            <text>{{item.content}}</text>
+        </view>
+     </view>
+  </view>
+  <view class='footNav'>
+    <view class='footLeft'> 
+      <view>
+          <navigator url='combo/combo'><text>选择套餐</text></navigator>
+      </view>
+    </view>
+    <view class='footRight'>
+      <navigator url='../goodsCommit/goodsCommit'><text>下单</text></navigator>
+    </view>
+  </view>
+  <view class='instea'></view>

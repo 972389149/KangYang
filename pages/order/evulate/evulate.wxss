@@ -1,0 +1,59 @@
+/* pages/order/evulate/evulate.wxss */
+.header{
+  width: 90%;
+  margin: 0 auto;
+  height: 120px;
+  border-bottom: 1px solid black;
+}
+.header_pic{
+  width: 50%;
+  float: left;
+}
+.header_pic image{
+  margin-left: 10px;
+  width: 100px;
+  height: 100px;
+}
+.header_grade{
+  width: 50%;
+  float: left;
+}
+.grade{
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+.radio{
+  float: left;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border:1px solid gray;
+  margin-left: 5px;
+}
+.gradeNum{
+  position: relative;
+  top: -4px;
+  margin-left: 15px;
+  font-weight: bold;
+}
+.comment{
+  width: 90%;
+  margin: 0 auto;
+  clear: both;
+  border-bottom: 1px solid black;
+}
+.commentTitle{
+  margin: 10px 0px;
+  font-weight: bold;
+}
+.comment textarea{
+  height: 120px;
+}
+.anonymity{
+  margin: 10px 15px;
+}
+.footer{
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+}

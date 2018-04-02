@@ -1,0 +1,96 @@
+/* pages/order/order.wxss */
+.allOrder{
+  
+}
+.navTop{
+  width: 100%;
+  height: 65rpx;
+  border-bottom: 12rpx solid #e4e4e4; 
+  margin-top: 10rpx;
+}
+.innerNav{
+  float: left;
+  width: 20%;
+  height: 59rpx;
+  text-align: center;
+  font-weight: bold;
+}
+.innerNavChose{
+  border-bottom: 8rpx solid #000;
+}
+.orderDetial{
+  width: 100%;
+  height: 290rpx;
+  
+  margin-bottom: 10rpx;
+  /* margin-top: 10rpx; */
+}
+.orderItem{
+  width: 95%;
+  height: 198rpx;
+  border-bottom: 4rpx solid #e4e4e4;
+  font-size: 25rpx;
+  margin-left: auto;
+  margin-right: auto; 
+}
+.express{
+  width: 95%;
+  height: 84rpx;
+  border-bottom: 12rpx solid #e4e4e4;
+  margin-left: auto;
+  margin-right: auto; 
+}
+.inExpress{
+  position: absolute;
+  right: 20rpx;
+  margin-top: 10rpx;
+}
+.showWord{
+  position: absolute;
+  left: 20rpx;
+  margin-top: 23rpx;
+  font-size: 25rpx;
+}
+.orderImg{
+  float: left;
+  width: 126rpx;
+  height: 126rpx;
+  border: 4rpx solid #e4e4e4;
+  margin-top: 20rpx; 
+  margin-left: 20rpx;
+}
+.orderDetials{
+  float: left;
+  width: 270rpx;
+  height: 148rpx;
+  /* border: 4rpx solid #e4e4e4; */
+  margin-top:16rpx;
+  margin-left: 20rpx;
+  overflow: hidden;
+}
+.orderMoney{
+  float: right;
+  height: 128rpx;
+  width: 230rpx; 
+  margin-top:16rpx;
+  margin-right:20rpx;
+  text-align: center;
+  padding-top: 10rpx;
+}
+.orderName{
+  font-size: 30rpx;
+  width: 300rpx;
+  overflow: hidden;
+}
+.orderSize{
+  font-size: 25rpx;
+  width: 300rpx;
+  overflow: hidden;
+}
+.orderStatus{
+  font-size: 25rpx;
+}
+.orderImg image{
+  width: 126rpx;
+  height: 126rpx;
+}

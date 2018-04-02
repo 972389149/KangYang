@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/order/order",
+    "pages/mine/mine",
+    "pages/index/search/search",
+    "pages/index/indexContent/indexContent",
+    "pages/index/hotCitySearch/hotCitySearch",
+    "pages/index/indexGoods/indexGoods",
+    "pages/index/indexContent/hotelDetail/hotelDetail",
+    "pages/index/indexContent/hotelCommit/hotelCommit",
+    "pages/index/indexGoods/goodsDetail/goodsDetail",
+    "pages/index/indexGoods/goodsCommit/goodsCommit",
+    "pages/index/indexGoods/goodsDetail/combo/combo",
+    "pages/order/evulate/evulate",
+    "pages/mine/login/login",
+    "pages/order/orderDetail/orderDetail",
+    "pages/order/logistics/logistics"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#eacd75",
+    "navigationBarTitleText": "小程序",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#eeeeee",
+    "enablePullDownRefresh": true,
+    "onReachBottom": true,
+    "onReachBottomDistance": 5
+  },
+  "tabBar": {
+    "color": "#000000",
+    "position": "bottom",
+    "selectedColor": "#09BB07",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "img/home.png",
+        "selectedIconPath": "img/home.png"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "text": "订单",
+        "iconPath": "img/purchase.png",
+        "selectedIconPath": "img/purchase.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "img/me.png",
+        "selectedIconPath": "img/me.png"
+      }
+    ]
+  }
+}

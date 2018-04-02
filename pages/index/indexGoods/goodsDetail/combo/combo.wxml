@@ -1,0 +1,27 @@
+<!--pages/index/indexContent/hotelCommit/combo/combo.wxml-->
+<view class='header'>
+  <view class='header_left'>
+    <image src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+  </view>
+  <view class='header_right'>
+     <view class='productName'>商品名称</view>
+     <view class='productPice'>￥300元</view>
+     <view>已选：套餐一</view>
+  </view>
+</view>
+<view class='comboSelect'>
+  <view class='comboTitle'>选择套餐</view>
+  <button size="mini">套餐一</button>
+  <button size="mini">套餐二</button>
+  <button size="mini">套餐三</button>
+  <view class='comboIntro'>套餐介绍套餐介绍套餐介绍套餐介绍套餐介绍套餐介绍套餐介绍套餐介绍套餐介绍套餐介绍</view>
+</view>
+<view class='count'>
+  <text class='purchase'>购买数量</text>
+  <button size='mini'>+</button>
+  <text>1</text>
+  <button size='mini'>-</button>
+</view>
+<view class="footer">
+  <button>确定</button>
+</view>

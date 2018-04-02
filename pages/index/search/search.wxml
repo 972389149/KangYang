@@ -1,0 +1,27 @@
+<!--pages/index/search/search.wxml-->
+<view class='header'>
+   <text class='selectClass'>选择类别 : </text>
+   <text class='selectHotel {{currentTab==0 ? "selectTab" : "" }}' data-current="0" bindtap='switchNav'>酒店</text>
+   <text class='selectHotel {{currentTab==1 ? "selectTab" : "" }}' data-current="1" bindtap='switchNav'>特产</text>
+</view>
+<view class='content'>
+  <view>
+       <input type='text' placeholder='搜索' class='searchText'></input>
+       <image class='searchButton' src="../../../img/search.png"></image>
+  </view>
+  <view>
+    <text class='hotSearch'>热门搜索</text>
+    <view class='searchWord'>
+       <view class='searchExp' wx:for="{{searchList}}" wx:key="{{nfjzbkjz}}">
+            <navigator url="{{item.link}}">
+                <button>{{item.name}}</button>
+            </navigator>
+       </view>
+       <!-- <view class='searchExp'><button>热搜词1</button></view>
+       <view class='searchExp'><button>热搜词1</button></view>
+       <view class='searchExp'><button>热搜词1</button></view>
+       <view class='searchExp'><button>热搜词1</button></view>
+       <view class='searchExp'><button>热搜词1</button></view> -->
+    </view>
+  </view>
+</view>

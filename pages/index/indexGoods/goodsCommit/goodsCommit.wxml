@@ -1,0 +1,42 @@
+<!--pages/index/indexGoods/goodsCommit/goodsCommit.wxml-->
+<view class='goodTop'>
+  <view class='goodName'>
+    <text>{{goodName}}</text>
+  </view>
+  <view class='goodMoney'>¥{{goodMoney}}元</view>
+</view>
+<view class='underTop'>
+  <view class='left'>
+    <text>套餐详情</text>
+  </view>
+  <view class='right'>
+    <text>{{goodType}}</text>
+  </view>
+</view>
+<view class='underTop'>
+  <view class='left'>
+    <text>购买数量</text>
+  </view>
+  <view class='right'>
+    <view style='width:60%;float:left;margin-left:15%;'>
+       <view style='width:20%;float:left;'><button size='mini' catchtap='changeGood' id='1'>+</button> </view> 
+      <view style='width:30%;float:left;margin-left:20%;text-align:center;padding-top:4rpx;'> {{goodCount}} </view>
+       <view style='width:20%;float:left;'><button size='mini' catchtap='changeGood' id='0'>-</button></view> 
+    </view>
+  </view>
+</view>
+<view class='underTop'>
+  <view class='left'>
+    <text>地址</text>
+  </view>
+  <view class='right'>
+    <text>{{address}}</text>
+  </view>
+</view>
+<view class='left' style='margin-left:2.5%;'>
+  选择优惠券
+</view>
+<view class='hotelBottom'>
+  <view class='totalMoney'>总额：{{total}}元</view>
+  <view class='commit'>提交订单</view>
+</view>

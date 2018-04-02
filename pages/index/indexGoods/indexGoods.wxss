@@ -1,0 +1,75 @@
+/* pages/index/indexContent/indexContent.wxss */
+.pageTop{
+  width: 100%;
+  height: 60rpx;
+  border-bottom: 4rpx solid #e4e4e4; 
+  margin-top: 20rpx;
+}
+.loca{
+  width: 40%;
+  float: left;
+  font-size: 35rpx;
+  text-align: center;
+  margin-top: 7rpx; 
+}
+.location{
+  width: 50%;
+  float: left;
+  text-align: center;
+  margin-right: 10%;
+}
+.miniBtn{
+  width: 100%;
+}
+.hotel{
+  margin-left: auto;
+  margin-right: auto; 
+  width: 95%;
+  height: 260rpx;
+  border-bottom: 3rpx solid #e4e4e4;
+}
+.hotel_{
+  margin-left: auto;
+  margin-right: auto; 
+  width: 95%;
+  height: 260rpx;
+  border-bottom: 3rpx solid #e4e4e4;
+  background-color: #e4e4e4; 
+}
+.image{
+  float: left;
+  width: 200rpx;
+  height: 200rpx;
+  border: 4rpx solid #e4e4e4;
+  margin-top: 20rpx;
+}
+.image image{
+  width: 200rpx;
+  height: 200rpx;
+}
+.content{
+  float: left;
+  height: 200rpx;
+  width: 280rpx;
+  /* border: 2rpx solid #e4e4e4; */
+  margin-top: 23rpx;
+  margin-left: 20rpx; 
+  font-size: 35rpx;
+}
+.money{
+  float: right;
+  height: 40rpx;
+  width: 190rpx;
+  /* border: 2rpx solid #e4e4e4; */
+  margin-top: 180rpx;
+  font-size: 30rpx;
+}
+.hotelName{
+  font-size: 45rpx;
+}
+.hotelMarch{
+  font-size: 40rpx;
+}
+.comment{
+  font-size:35rpx;
+}

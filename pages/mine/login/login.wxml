@@ -1,0 +1,29 @@
+<!--pages/mine/login/login.wxml-->
+<view class='top_'>
+  <view class='image'>
+    <image class="userinfo-avatar" src="{{image}}" background-size="cover"></image>
+  </view>
+  <view class='underImage'>
+    <!-- <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" size='mini'> 授权登录 </button> -->
+    <text class="userinfo-nickname">{{nickName}}</text>
+  </view>
+</view>
+<view class='mid_'>
+  <view class='midCon'>通过短信认证登录</view>
+</view>
+<view class='form'>
+  <view class='phone'>
+    <text>手机号：</text>
+    <input type='number' class='phoneInput' maxlength='11'></input>
+  </view>
+  <view class='code'>
+    <text>验证码：</text>
+    <input type='number' class='codeInput' maxlength='6'></input>
+    <view class='sendCode'>
+      <button size='mini' class='codeBtn' catchtap='getCode' disabled='{{codeDis}}'>{{codeCon}}</button>
+    </view>
+  </view>
+</view>
+<view class='loginComfirm'>
+  <button size='mini' catchtap='login'>登录</button>
+</view>

@@ -1,0 +1,15 @@
+<!--pages/index/indexContent/hotCitySearch/hotCitySearch.wxml-->
+<view class='hotCityTop'>
+  <view class='cityCon'>
+    <!-- <icon type='search' class='searchIcon' size='16' wx:if='{{showIcon}}'></icon> -->
+    <input type='text' class='cityCon_' maxlength='20' placeholder='搜索' placeholder-style='font-size:35rpx;' bindinput='focus' confirm-type='search' value='{{city}}' bindconfirm='commit' bindinput='writeCity'></input>
+  </view>
+</view>
+<view class='thisCity'>
+  <text>当前城市</text>
+  <view class='cityName' catchtap='selected' id='{{thisCity_}}'>{{thisCity_}}</view>
+</view>
+<view class='hotCitys'>
+   <text>热门城市</text> 
+  <view class='hotCityCon' wx:for='{{hotCitys}}' wx:for-item='item' wx:key='unquie' catchtap='selected' id='{{item}}'>{{item}}</view>
+</view>

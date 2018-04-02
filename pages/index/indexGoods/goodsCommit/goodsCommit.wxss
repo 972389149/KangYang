@@ -1,0 +1,74 @@
+/* pages/index/indexGoods/goodsCommit/goodsCommit.wxss */
+.goodTop{
+  width: 95%;
+  height: 230rpx;
+  border-bottom: 4rpx solid #e4e4e4;
+  margin-left: auto;
+  margin-right: auto; 
+}
+.goodName{
+  float: left;
+  width: 65%;
+  height: 110rpx;
+  margin-top: 60rpx;
+   /* border: 2rpx solid #000;  */
+}
+.goodName text{
+  font-weight: bold;
+  font-size: 40rpx;
+}
+.goodMoney{
+  float: left;
+  width: 35%;
+  height: 110rpx;
+  margin-top: 60rpx;
+  /* border: 2rpx solid #000; */
+  text-align: center;
+}
+.underTop{
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 70rpx;
+  border-bottom: 4rpx solid #e4e4e4;
+}
+.left{
+  float:left;
+  width: 30%; 
+  height: 53rpx;
+  font-size: 35rpx;
+  margin-top: 9rpx;
+  /* border: 1rpx solid #000; */
+}
+.right{
+  float:right;
+  width: 50%;
+  height: 53rpx;
+  font-size: 35rpx;
+  margin-top: 9rpx;
+  /* border: 1rpx solid #000; */
+  text-align: center;
+}
+.hotelBottom{
+  position: fixed;
+  bottom: 0rpx;
+  border: 2rpx solid #e4e4e4;
+  height: 80rpx;
+  width: 100%;
+}
+.totalMoney{
+  float: left;
+  width: 50%;
+  height: 62rpx;
+  text-align: center;
+  background-color: #e4e4e4;
+  padding-top: 18rpx;
+}
+.commit{
+  float: right;
+  width: 50%;
+  height: 62rpx;
+  padding-top: 18rpx;
+  text-align: center;
+  background-color: #666666;
+}

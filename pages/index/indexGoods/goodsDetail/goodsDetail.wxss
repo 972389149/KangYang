@@ -1,0 +1,131 @@
+/* pages/index/indexGoods/goodsDetail/goodsDetail.wxss */
+.header{
+  display: block;
+  width: 100%;
+  height: 200px;
+}
+swiper{
+  height: 200px;
+}
+.slide-image{  
+  display: inline-block;
+  width: 100%;  
+  height: 100%;
+  margin-bottom: 10px;
+}
+.content_price{
+  height: 40px;
+  width: 90%;
+  margin: 0 auto;
+  border-bottom: 1px solid #666;
+}
+.price{
+  display: inline-block;
+  padding-top: 8px;
+}
+.content_intruduce{
+  margin-top: 10px;
+  width: 100%;
+}
+.hotelName{
+  font-weight: blod;
+  display: inline-block;
+  margin-left: 15px;
+  margin-bottom: 5px;
+}
+.hotel_deta{
+  width: 90%;
+  margin: 0 auto;
+  padding-bottom: 5px; 
+  border-bottom: 1px solid #666;
+}
+.hotelIntro{
+   color: #666;
+   line-height: 25px;
+}
+.hotelEvluate{
+  width: 95%;
+  margin: 5px auto;
+}
+.evluate{
+  width: 100%;
+}
+.evluate_content{
+  margin-bottom: 10px;
+}
+.evluate_left{
+  width: 20%;
+  float: left;
+}
+.evluate_pic{
+  width: 40px;
+  margin: 0 auto;
+  height:40px;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+.evluate_pic image{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.evluate_right{
+  width: 80%;
+  float: left;
+  height: 42px;
+}
+.evl_left{
+  float: left;
+  line-height: 42px;
+}
+.evl_right{
+  float: right;
+  line-height: 42px;
+}
+.evl_detail{
+  margin: 0 auto;
+  clear: both;
+  width: 90%;
+  margin-bottom: 15px;
+   text-indent: 30px; 
+}
+.evl_detail text{
+   line-height: 25px; 
+   color: #666;   
+   font-style:normal;
+}
+.footNav{
+  border-top: 1px solid black;
+  position: fixed; 
+  bottom: 0px; 
+  z-index: 99;
+  width: 100%;
+  height: 60px;
+  text-align: center;
+}
+.footNav text{
+   line-height: 60px;
+}
+.footLeft{
+  border-right: 1px solid black;
+  height: 60px;
+  background: gray;
+  float: left;
+  width: 49.9%;
+}
+.footLeft text{
+   font-size: 20px;
+}
+.footRight{
+  height: 60px;
+  background: gray;
+  float: left;
+  width: 49.7%;
+}
+.footRight text{
+  font-size: 20px;
+}
+.instea{
+  height: 61px;
+  width: 100%;
+}

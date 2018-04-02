@@ -1,0 +1,22 @@
+<!--pages/mine/mine.wxml-->
+<view class='top_'>
+  <view class='image'>
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+  </view>
+  <view class='underImage'>
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" size='mini'> 授权登录 </button>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+</view>
+<view class='myOrder' bindtap='toOrder'>
+   <view class='circle'></view>
+   <view class='circleCon'><text>我的订单</text></view>
+</view>
+<view class='myDiscount'>
+   <view class='circle'></view>
+   <view class='circleCon'><text>折扣卷</text></view>
+</view>
+<view class='service' catchtap='service'>
+   <view class='circle'></view>
+   <view class='circleCon'><text>联系客服</text></view>
+</view>
