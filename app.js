@@ -2,7 +2,9 @@
 App({
   data: {
     loginToMine: true,
-    iconUrl: 'https://www.holyhire.cn/ky/img/icon/'
+    iconUrl: 'https://www.holyhire.cn/ky/img/icon/', //icon路径
+    url: 'https://www.holyhire.cn/ky/api/v1/', //请求路径
+    imgUrl: 'https://www.holyhire.cn/ky/' //图片路径
   },
   onLaunch: function () {
     // 展示本地存储能力

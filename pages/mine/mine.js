@@ -4,6 +4,10 @@ const app = getApp()
 
 Page({
   data: {
+    headImg_: '',  //显示用户头像
+    nickName_: '', //显示用户名
+    headImg: '', // 储存用户头像
+    nickName: '', //储存用户名
     orderLogo: app.data.iconUrl+'mine01.png', //订单logo
     zkqLogo: app.data.iconUrl +'mine02.png', // 折扣券logo
     kfLogo: app.data.iconUrl +'mine03.png', // 客服logo
@@ -11,73 +15,114 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    openId_: '', //储存用户的openid
     firstLogin: true, //判断当前是否第一次登录,
     showRegister: false, //控制是否显示注册页面
     phone: '', //储存手机号码
     code: '', // 储存验证码
     codeCon: '获取验证码', //验证码按钮内容
     codeDis: false, //控制是否可以点击获取验证码
-    loginDis: false, //控制是否可以点击登录
+    loginDis: true, //控制是否可以点击登录
     loging: false, // 登录中显示loading图标
     codeOpacity: 1.0, //验证码按钮的透明底
     LoginOpacity: 0.5 //登录按钮的透明底
   },
-  // onLoad: function () {
-  //   if (app.globalData.userInfo) {
-  //     this.setData({
-  //       userInfo: app.globalData.userInfo,
-  //       hasUserInfo: true
-  //     })
-  //   } else if (this.data.canIUse) {
-  //     // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-  //     // 所以此处加入 callback 以防止这种情况
-  //     app.userInfoReadyCallback = res => {
-  //       this.setData({
-  //         userInfo: res.userInfo,
-  //         hasUserInfo: true
-  //       })
-  //     }
-  //   } else {
-  //     // 在没有 open-type=getUserInfo 版本的兼容处理
-  //     wx.getUserInfo({
-  //       success: res => {
-  //         app.globalData.userInfo = res.userInfo
-  //         this.setData({
-  //           userInfo: res.userInfo,
-  //           hasUserInfo: true
-  //         })
-  //       }
-  //     })
-  //   }
-  // },
+  onload: function(options){
+
+  },
   getUserInfo: function (e) {
-    // console.log(e)
-    // app.globalData.userInfo = e.detail.userInfo
-    // this.setData({
-    //   userInfo: e.detail.userInfo,
-    //   hasUserInfo: true
-    // })
-    // var that = this
-    // wx.getUserInfo({
-    //   success: function (res) {
-    //     that.setData({
-    //       userInfo: res.userInfo,
-    //       hasUserInfo: true
-    //     })
-    //     if(that.data.firstLogin){
-    //       wx.navigateTo({
-    //         url: 'login/login?image=' + that.data.userInfo.avatarUrl + '&nickName=' + that.data.userInfo.nickName
-    //       })
-    //     }
-    //   }
-    // })
-    wx.showLoading({
-      title: '登陆中'
+    var that = this
+    wx.getUserInfo({
+      success: function (res) {
+        // console.log(res.userInfo)
+        that.setData({
+          nickName: res.userInfo.nickName,
+          headImg: res.userInfo.avatarUrl,
+        })
+      },
+      fail: function(){
+        wx.showToast({
+          title: '获取用户信息失败',
+          icon: 'none',
+          duration: 2000
+        })
+      }
     })
-    this.setData({
-      showRegister: true
-    })
-    wx.hideLoading()
+    wx.login({
+      success: function (res) {
+        if (res.code) {
+          wx.request({
+            url: app.data.url+'login',
+            method: 'POST',
+            dataType: 'json',
+            data: {
+              jscode: res.code
+            },
+            header: {
+              'content-type': 'application/x-www-form-urlencoded', // 默认值
+              'charset': 'UTF - 8'
+            },
+            // 向后台请求成功
+            success: function(res){
+              console.log(res.data)
+              if(res.data != 'error'){
+
+                //openid保存
+                that.setData({
+                  openId_: res.data.openid
+                })
+                // 拉起模态框
+                wx.showLoading({
+                  title: '登陆中'
+                })
+
+                // 1:进入注册状态 0:进入登录状态
+                if (res.data.signup == 1){
+                  that.setData({
+                    showRegister: true,
+                    hasUserInfo: false
+                  })
+                }else{
+                  that.setData({
+                    hasUserInfo: true,
+                    nickName_: that.data.nickName,
+                    headImg_: that.data.headImg,
+                    showRegister: false
+                  })
+                  
+                }
+
+                // 关闭模态框
+                wx.hideLoading()
+              }
+            }
+            // 向后台请求失败
+            // fail: function(){
+            //   wx.showToast({
+            //     title: '因服务器原因，登录失败！',
+            //     icon: 'none',
+            //     duration: 2000
+            //   })
+            // }
+          })
+        // 下面这个else是拉起微信登录失败
+        } else {
+          wx.showToast({
+            title: '获取用户信息失败',
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      },
+      // 用户阻止了拉起微信登录
+      fail: function(res){
+        wx.showToast({
+          title: '授权失败',
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    });
   },
   cancelRegister: function(){
     this.setData({
@@ -86,19 +131,56 @@ Page({
   },
   getCode: function () {
     var that = this
-    var time = 60  //用于控制多长时间再获取验证码
-    var time_ = setInterval(function () {
-      that.setData({
-        codeCon: time + 's 后再试',
-        codeDis: true,
-        codeOpacity: 0.5,
-        LoginOpacity: 1.0
+    if(this.data.phone.length < 11){
+      wx.showToast({
+        title: '请填写正确的手机号码',
+        icon: 'none',
+        duration: 2000
       })
-      --time
-      if (time < 0) {
-        that.stopInterval(time_)
-      }
-    }, 1000)
+    }else{
+      wx.request({
+        url: app.data.url+'signup',
+        method: 'POST',
+        dataType: 'json',
+        data: {
+          phone: that.data.phone
+        },
+        header: {
+          'content-type': 'application/x-www-form-urlencoded', // 默认值
+          'charset': 'UTF - 8'
+        },
+        success: function(res){
+
+          if(res.data.success == 1){
+            var time = 60  //用于控制多长时间再获取验证码
+            var time_ = setInterval(function () {
+              that.setData({
+                codeCon: time + 's 后再试',
+                codeDis: true,
+                codeOpacity: 0.5,
+                LoginOpacity: 1.0
+              })
+              --time
+              if (time < 0) {
+                that.stopInterval(time_)
+              }
+            }, 1000)
+
+            that.setData({
+              loginDis: false
+            })
+          }else{
+            wx.showToast({
+              title: '获取验证码失败',
+              icon: 'none',
+              duration: 2000
+            })
+          }
+
+        }
+      })
+    }
+    
   },
   // 用于取消定时器
   stopInterval: function (e) {
@@ -109,20 +191,25 @@ Page({
       codeOpacity: 1.0
     })
   },
+
   // 把手机号写入phone
   writeInPhone: function(e){
     this.setData({
       phone: e.detail.value
     })
   },
+
+  // 把验证码写入code
   writeInCode: function(e){
     this.setData({
       code: e.detail.value
     })
   },
+
   // 登录函数
   login: function(){
-    if((this.data.phone.length != 11) || (this.data.code.length != 4)){
+    var that = this
+    if((this.data.phone.length != 11) || (this.data.code.length != 6)){
       // console.log(this.data.phone)
       wx.showToast({
         title: '输入信息有误，请重新输入',
@@ -130,15 +217,65 @@ Page({
         duration: 2000
       })
     }else{
-      console.log(this.data.phone.length)
-      console.log(this.data.code.length)
+      that.setData({
+        loginDis: false, 
+        loging: true 
+      })
+      wx.request({
+        url: app.data.url +'checkVertifyCode',
+        method: 'POST',
+        dataType: 'json',
+        data: {
+          phone: that.data.phone,
+          code: that.data.code,
+          openid: that.data.openId_,
+          name: that.data.nickName
+        },
+        header: {
+          'content-type': 'application/x-www-form-urlencoded', // 默认值
+          'charset': 'UTF - 8'
+        },
+        success: function(res){
+          // 1为注册成功，0为注册失败
+          if (res.data.success == 1){
+            wx.showToast({
+              title: '注册成功',
+              icon: 'none',
+              duration: 2000
+            })
+            that.setData({
+              hasUserInfo: true,
+              nickName_: that.data.nickName,
+              headImg_: that.data.headImg,
+              showRegister: false
+            })
+          }else{
+            wx.showToast({
+              title: '注册失败',
+              icon: 'none',
+              duration: 2000
+            })
+          }
+        },
+        fail: function(){
+          wx.showToast({
+            title: '注册失败',
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      })
     }
   },
+
+  // 订单跳转
   toOrder: function () {
     wx.switchTab({
       url: '../order/order',   
     })
   },
+
+  // 拉起客服电话
   service: function () {
     wx.makePhoneCall({
       phoneNumber: '10086' //仅为示例，并非真实的电话号码
