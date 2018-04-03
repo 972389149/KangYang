@@ -1,19 +1,21 @@
 {
-  "pages": [
+  "pages": [ 
     "pages/index/index",
-    "pages/order/order",
-    "pages/mine/mine",
+    "pages/order/evulate/evulate",
+    "pages/index/indexGoods/goodsDetail/goodsDetail",
+    "pages/index/indexGoods/goodsDetail/combo/combo",
     "pages/index/search/search",
+    "pages/index/indexContent/hotelDetail/hotelDetail",    
+    "pages/order/order",
+    "pages/mine/mine",  
     "pages/index/indexContent/indexContent",
     "pages/index/hotCitySearch/hotCitySearch",
-    "pages/index/indexGoods/indexGoods",
-    "pages/index/indexContent/hotelDetail/hotelDetail",
-    "pages/index/indexContent/hotelDetail/hotelDetail/date",
-    "pages/index/indexContent/hotelCommit/hotelCommit",
-    "pages/index/indexGoods/goodsDetail/goodsDetail",
+    "pages/index/indexGoods/indexGoods", 
+    "pages/index/indexContent/hotelCommit/hotelCommit", 
     "pages/index/indexGoods/goodsCommit/goodsCommit",
     "pages/index/indexGoods/goodsDetail/combo/combo",
     "pages/order/evulate/evulate",
+
     "pages/order/orderDetail/orderDetail",
     "pages/order/logistics/logistics"
   ],

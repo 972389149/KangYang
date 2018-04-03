@@ -10,8 +10,10 @@
     </swiper>  
   </view>
   <view class='content_price'>
-     <text class='price'>￥{{price}}元</text>
+     <text class='priceOld'>￥140</text>
+     <text class='priceNew'>￥{{price}}</text>
   </view>
+  <view style='border-bottom: 1px solid rgb(216, 216, 216)'></view> 
   <view class='content_intruduce'>
      <view>
         <text class='hotelName'>{{name}}</text>
@@ -20,7 +22,17 @@
          <text class='hotelIntro'>{{intro}}</text>
      </view>
   </view>
-  <view class='hotelEvluate'>
+  <view style='height:13px;background:#f7f8f8'></view> 
+  <view class='goods_evla'>
+     <text>评价（135）</text>
+     <image></image>
+  </view>
+  <view style='border-bottom: 1px solid rgb(216, 216, 216)'></view> 
+  <view class='goods_detail'>
+     <text>商品详情</text>
+  </view>
+  <view style='border-bottom: 1px solid rgb(216, 216, 216)'></view> 
+  <!-- <view class='hotelEvluate'>
      <view class='evluate_content'>
         <text>评价（{{evulateNum}}）</text>
      </view>
@@ -38,7 +50,7 @@
             <text>{{item.content}}</text>
         </view>
      </view>
-  </view>
+  </view> -->
   <view class='footNav'>
     <view class='footLeft'> 
       <view>

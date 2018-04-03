@@ -4,21 +4,23 @@
       <image src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
    </view>
    <view class='header_grade'>
-      <view class='grade'>评分</view>
-      <view class='radio'></view>
-      <view class='radio'></view>
-      <view class='radio'></view>
-      <view class='radio'></view>
-      <view class='radio'></view>
-      <text class='gradeNum'>4分</text>
+      <view class='grade'>产品名称</view>
+      <view class='size'>
+        <text>规格/套装</text>
+      </view>
+      <view class='graded'>
+         <text>评分</text>
+      </view>
    </view>
 </view>
+<view style='border-bottom: 1px solid rgb(216, 216, 216)'></view> 
 <view class='comment'>
-  <view class='commentTitle'>评论</view>
+  <view class='commentTitle'>评价</view>
   <view>
       <textarea placeholder="点击输入评论"></textarea>
   </view>
 </view>
+<view style='border-bottom: 1px solid rgb(216, 216, 216)'></view> 
 <view class='anonymity'>
    <checkbox>匿名评价</checkbox>
 </view>
