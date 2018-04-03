@@ -6,6 +6,12 @@ var wxMarkerData = [];
 
 Page({
   data: {
+    iconLocation: app.data.iconUrl + 'location.png', //地点图标
+    searchIcon: app.data.iconUrl + 'headSearch.png', //搜索图标
+    shanZhuang: app.data.iconUrl+'homeCon1.png', //山庄图片
+    minSu: app.data.iconUrl + 'homeCon2.png', //民宿图片
+    jiuDian: app.data.iconUrl + 'HomeCon3.png', //酒店图片
+    jiuFang: app.data.iconUrl + 'HomeCon4.png', //酒坊图片
     ak: "lOt3lY6gozyoMqGaEVFDhkKDq0msaiAK", //填写申请到的ak       
     address: '广州',     //地址    
     imgUrls:[
@@ -82,6 +88,7 @@ Page({
     });  
     this.getUrl()
     this.getGoods()
+    
   },  
   switch:function(){
     wx.navigateTo({

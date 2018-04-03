@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    locaLogo: '../../../img/logo/location.png', //位置logo
     type_: '', //用户点击了产品的类型
     start: 0, //分页开始
     count: 5, //显示个数

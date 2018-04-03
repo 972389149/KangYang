@@ -1,8 +1,8 @@
 <!--pages/index/indexContent/hotCitySearch/hotCitySearch.wxml-->
 <view class='hotCityTop'>
   <view class='cityCon'>
-    <!-- <icon type='search' class='searchIcon' size='16' wx:if='{{showIcon}}'></icon> -->
-    <input type='text' class='cityCon_' maxlength='20' placeholder='搜索' placeholder-style='font-size:30rpx;' bindinput='focus' confirm-type='search' value='{{city}}' bindconfirm='commit' bindinput='writeCity'></input>
+     <icon type='search' class='searchIcon' size='16' wx:if='{{showIcon}}'></icon> 
+    <input type='text' class='cityCon_' maxlength='12' placeholder='{{placeHolder}}' placeholder-style='font-size:30rpx;' bindfocus='focus' bindblur='blur' confirm-type='search' value='{{city}}' bindconfirm='commit' bindinput='writeCity'></input>
   </view>
 </view>
 <view class='thisCity'>
