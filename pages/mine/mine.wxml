@@ -1,25 +1,52 @@
 <!--pages/mine/mine.wxml-->
 <view class='top_'>
-  <view class='image'>
+   <view class='image'>
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-  </view>
+  </view> 
   <view class='underImage'>
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" size='mini' plain='true' style='border-color: #DCA500;color: #DCA500;'> 授权登录 </button>
     <text class="userinfo-nickname">{{userInfo.nickName}}</text>
   </view>
 </view>
 <view class='myOrder' bindtap='toOrder'>
-   <view class='circle'></view>
+   <view class='circle' style='background-image: url({{orderLogo}});background-size:100% 100%;'></view>
    <view class='circleCon'><text>我的订单</text></view>
-   <view class='to'>></view>
+   <view class='to' style='background-image: url({{toLogo}});background-size:100% 100%;'></view>
 </view>
 <view class='myDiscount'>
-   <view class='circle'></view>
+   <view class='circle' style='background-image: url({{zkqLogo}});background-size:100% 100%;'></view>
    <view class='circleCon'><text>折扣卷</text></view>
-   <view class='to'>></view>
+   <view class='to' style='background-image: url({{toLogo}});background-size:100% 100%;'></view>
 </view>
 <view class='service' catchtap='service'>
-   <view class='circle'></view>
+   <view class='circle' style='background-image: url({{kfLogo}});background-size:100% 100%;'></view>
    <view class='circleCon'><text>联系客服</text></view>
-   <view class='to'>></view>
+   <view class='to' style='background-image: url({{toLogo}});background-size:100% 100%;'></view>
+</view>
+<view class='registerTop' wx:if='{{showRegister}}' catchtap='cancelRegister'>
+  <!-- 遮罩层 -->
+</view>
+<view class='register' wx:if='{{showRegister}}'>
+  <view style='position: fixed; top:38%;left:5%;'>
+    <image src='../../img/logo/phoneLogin.png' style='width:38rpx;height:38rpx' catchtap='cancelRegister'></image>
+  </view>
+  <view class='mid_'>
+    <view class='midCon'>短信认证登录</view>
+  </view>
+  <view class='form'>
+    <view class='phone'>
+      <text>手机号</text>
+      <input type='number' class='phoneInput' maxlength='11' placeholder='请输入手机号' value='{{phone}}' type='number' confirm-type='done' bindinput='writeInPhone'></input>
+    </view>
+    <view class='code'>
+      <text>验证码</text>
+      <input type='number' class='codeInput' maxlength='6' placeholder='短信验证码' value='{{code}}' type='text' confirm-type='done' bindinput='writeInCode'></input>
+      <view class='sendCode'>
+        <button size='mini' class='codeBtn' catchtap='getCode' disabled='{{codeDis}}' plain='true' style='background-color: #F9B552;color: #ffffff;font-size: 23rpx;border: none;padding-top: 5rpx;opacity:{{codeOpacity}}'>{{codeCon}}</button>
+      </view>
+    </view>
+  </view>
+  <view class='loginComfirm'>
+    <button size='mini' catchtap='login'  style='background-color: #F9B552;color: #ffffff;font-size: 36rpx;border: none;padding-top: 5rpx; opacity:{{LoginOpacity}}' loading='{{loging}}' disabled='{{loginDis}}'>登 录</button>
+  </view>
 </view>

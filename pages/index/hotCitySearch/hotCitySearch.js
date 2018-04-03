@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    // showIcon: true,
+    showIcon: true, // 用于控制是否显示搜索框的logo
+    placeHolder: '输入城市名称' , // 用户控制显示placeholder内容
     type_: '', //用于存储搜索类别
     thisCity_: '', //当前城市
     hotCitys: [], //储存的城市
@@ -14,18 +15,34 @@ Page({
   },
   focus: function (e){
     // if (e.detail.value.length==0){
-    //   this.setData({
-    //     showIcon: true
-    //   })
+      // this.setData({
+      //   showIcon: true
+      // })
     // }else{
     //   this.setData({
     //     showIcon: false
     //   })
     // }
+    // console.log(e)
+    this.setData({
+        showIcon: false,
+        placeHolder: ''
+      })
+  },
+  blur: function(){
+    if (this.data.city.length==0){
+      this.setData({
+        showIcon: true,
+        placeHolder: '输入城市名称'
+      })
+    }else{
+      return 
+    }
   },
   selected: function(e){
     this.setData({
-      city: e.target.id
+      city: e.target.id,
+      showIcon: false
     })
     if(this.data.pageType == '0'){
       wx.navigateTo({
@@ -53,12 +70,13 @@ Page({
     }
     if(this.data.city.length>=4){
       var name = this.data.city.slice(0,3)+'...'
-      this.setData({
-        city:name
-      })
+      // 显示效果不好
+      // this.setData({
+      //   city:name
+      // })
     }
     wx.navigateTo({
-      url: '../indexContent/indexContent?address=' + this.data.city + '&type_=' + this.data.type_ + '&detailAddress=暂无当前详细位置信息'
+      url: '../indexContent/indexContent?address=' + name + '&type_=' + this.data.type_ + '&detailAddress=暂无当前详细位置信息'
     })
   },
   /**
@@ -89,7 +107,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    console.log(this.data.city)
   },
 
   /**

@@ -32,7 +32,7 @@
   position: absolute;
   z-index: 2;
   top: 15rpx;
-  left: 38%;
+  left: 30%;
   /* display: none; */
 }
 .thisCity{

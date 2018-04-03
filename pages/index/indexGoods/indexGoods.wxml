@@ -1,6 +1,6 @@
 <!--pages/index/indexGoods/indexGoods.wxml-->
 <view class='pageTop'>
-    <view class='loca'>定位：{{loca}}</view>
+    <view class='loca'><image src='{{locaLogo}}' style='width: 25rpx;height: 36rpx;'></image><text>{{loca}}</text></view>
     <view class='location'>
       <button class='miniBtn' size='mini' catchtap='toGoodSearch'>{{location}}          </button>
       </view>
