@@ -1,6 +1,6 @@
 <!--pages/index/indexContent/indexContent.wxml-->
   <view class='pageTop'>
-    <view class='loca'>图:{{loca}}</view>
+    <view class='loca'><image src='{{locaLogo}}' style='width: 25rpx;height: 36rpx;'></image><text>{{loca}}</text></view>
     <view class='location'><button class='miniBtn' size='mini' catchtap='toHotCitySearch'>{{location}}</button></view>
   </view>
   <view class='hotel' wx:for='{{hotelItems}}' wx:for-item="items" wx:key='unique' hover-class='hotel_'>

@@ -1,9 +1,9 @@
 <!--index.wxml-->
 <view class='contain'>
   <view class='header'>
-    <view class='location'><text>图:{{address}}</text></view>
+    <view class='location'><image src='{{iconLocation}}' style='width: 25rpx;height: 36rpx;'></image><text>{{address}}</text></view>
     <view class='searchs'>
-     <button class='searchButton' bindtap="switch">搜索</button> 
+     <button class='searchButton' catchtap="switch" style='background-image: url({{searchIcon}})'>搜索</button> 
     </view>
   </view>
   <view class='content'>
@@ -19,10 +19,11 @@
     </swiper>  
   </view>
   <view class='list'>
-     <button class='villa' catchtap='tohotelLists' id='1'>山庄</button>
-     <button class='villa' catchtap='tohotelLists' id='2'>民宿</button>
-     <button class='villa' catchtap='tohotelLists' id='0'>酒店</button>
-     <button class='villa' catchtap='tohotelLists' id='3'>酒坊</button>
+  <!-- wx并不允许把图片的url写入到wxss中，所以要写到wxml -->
+     <button class='villa' catchtap='tohotelLists' id='1' style='background-image: url({{shanZhuang}});background-size:100% 100%;'>山庄</button>
+     <button class='villa' catchtap='tohotelLists' id='2' style='background-image: url({{minSu}});background-size:100% 100%;'>民宿</button>
+     <button class='villa' catchtap='tohotelLists' id='0' style='background-image: url({{jiuDian}});background-size:100% 100%;'>酒店</button>
+     <button class='villa' catchtap='tohotelLists' id='3' style='background-image: url({{jiuFang}});background-size:100% 100%;'>酒坊</button>
   </view>
   <view class='footer'>
     <view class='listPart' wx:for='{{goodDatas}}' wx:key="dvjkbfea" wx:for-item="item">

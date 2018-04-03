@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    locaLogo: '../../../img/logo/location.png', //位置logo
     latitude: '',
     longitude: '',
     type_: '',

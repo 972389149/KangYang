@@ -7,16 +7,21 @@
   background-color: #EACD75;
 }
 .loca{
-  width: 20%;
-  padding-left: 5%;
+  width: 16%;
+  padding-left: 4%;
   float: left;
   text-align: center;
   margin-top: 7rpx; 
   font-size: 30rpx;
   color: #353535;
 }
+.loca image{
+  float: left;
+  margin-top: 3rpx;
+  /* border: 3rpx solid #000; */
+}
 .location{
-  width: 75%;
+  width: 80%;
   float: left;
   text-align: center;
   font-size: 24rpx;

@@ -14,7 +14,6 @@
     "pages/index/indexGoods/goodsCommit/goodsCommit",
     "pages/index/indexGoods/goodsDetail/combo/combo",
     "pages/order/evulate/evulate",
-    "pages/mine/login/login",
     "pages/order/orderDetail/orderDetail",
     "pages/order/logistics/logistics"
   ],
@@ -31,26 +30,25 @@
   "tabBar": {
     "color": "#000000",
     "position": "bottom",
-    "selectedColor": "#09BB07",
     "backgroundColor": "#ffffff",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "img/home.png",
-        "selectedIconPath": "img/home.png"
+        "iconPath": "img/logo/home.png",
+        "selectedIconPath": "img/logo/homeSelect.png"
       },
       {
         "pagePath": "pages/order/order",
         "text": "订单",
-        "iconPath": "img/purchase.png",
-        "selectedIconPath": "img/purchase.png"
+        "iconPath": "img/logo/order.png",
+        "selectedIconPath": "img/logo/orderSelect.png"
       },
       {
         "pagePath": "pages/mine/mine",
         "text": "我的",
-        "iconPath": "img/me.png",
-        "selectedIconPath": "img/me.png"
+        "iconPath": "img/logo/mine.png",
+        "selectedIconPath": "img/logo/mineSelect.png"
       }
     ]
   }

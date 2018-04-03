@@ -1,7 +1,8 @@
 //app.js
 App({
   data: {
-    loginToMine: true
+    loginToMine: true,
+    iconUrl: 'https://www.holyhire.cn/ky/img/icon/'
   },
   onLaunch: function () {
     // 展示本地存储能力
