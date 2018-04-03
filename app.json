@@ -13,9 +13,6 @@
     "pages/index/indexGoods/indexGoods", 
     "pages/index/indexContent/hotelCommit/hotelCommit", 
     "pages/index/indexGoods/goodsCommit/goodsCommit",
-    "pages/index/indexGoods/goodsDetail/combo/combo",
-    "pages/order/evulate/evulate",
-
     "pages/order/orderDetail/orderDetail",
     "pages/order/logistics/logistics"
   ],

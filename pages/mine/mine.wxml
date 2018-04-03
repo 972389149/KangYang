@@ -1,11 +1,12 @@
 <!--pages/mine/mine.wxml-->
 <view class='top_'>
    <view class='image'>
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <!-- <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image> -->
+    <image class="userinfo-avatar" src="{{headImg_}}" background-size="cover"></image>
   </view> 
   <view class='underImage'>
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" size='mini' plain='true' style='border-color: #DCA500;color: #DCA500;'> 授权登录 </button>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" catchtap="getUserInfo" size='mini' plain='true' style='border-color: #DCA500;color: #DCA500;'> 授权登录 </button>
+     <text class="userinfo-nickname">{{nickName_}}</text> 
   </view>
 </view>
 <view class='myOrder' bindtap='toOrder'>
@@ -36,7 +37,7 @@
   <view class='form'>
     <view class='phone'>
       <text>手机号</text>
-      <input type='number' class='phoneInput' maxlength='11' placeholder='请输入手机号' value='{{phone}}' type='number' confirm-type='done' bindinput='writeInPhone'></input>
+      <input type='number' class='phoneInput' maxlength='11' placeholder='请输入手机号' value='{{phone}}' type='number' confirm-type='done' bindinput='writeInPhone' ></input>
     </view>
     <view class='code'>
       <text>验证码</text>

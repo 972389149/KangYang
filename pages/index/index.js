@@ -102,28 +102,33 @@ Page({
     // wx.hideLoading(); 
   },
   getUrl:function(){
-    var _data = [
-    {
-      "productId":"01",
-      "img":"http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"
-    },{
-        "productId": "02",
-        "img": "http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg"
-    },{
-        "productId": "03",
-        "img": "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg"
-    }];
-    // var recImgSrc = ['http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',        'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg','http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'];
-    for(var i=0;i<3;i++){
-      this.setData({
-        'imgUrls[0].url': _data[0].img,
-        'imgUrls[1].url': _data[1].img,
-        'imgUrls[2].url': _data[2].img,
-        "imgUrls[0].link":"indexContent/hotelDetail/hotelDetail?"+_data[0].productId,
-        "imgUrls[1].link": "indexContent/hotelDetail/hotelDetail?" + _data[1].productId,
-        "imgUrls[2].link": "indexContent/hotelDetail/hotelDetail?" + _data[2].productId,
-      }) 
-    }
+    var that = this
+    var _data = []
+    wx.request({
+      url: app.data.url+'lunbo',
+      method: 'POST',
+      dataType: 'json',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded', // 默认值
+        'charset': 'UTF - 8'
+      },
+      success: function(res){
+        for(var i=0;i<3;i++){
+          _data.push({
+            "productId": res.data[i].productId,
+            "img": app.data.imgUrl+res.data[i].img
+          })
+        }
+         that.setData({
+            'imgUrls[0].url': _data[0].img,
+            'imgUrls[1].url': _data[1].img,
+            'imgUrls[2].url': _data[2].img,
+            "imgUrls[0].link":"indexContent/hotelDetail/hotelDetail?"+_data[0].productId,
+            "imgUrls[1].link": "indexContent/hotelDetail/hotelDetail?" + _data[1].productId,
+            "imgUrls[2].link": "indexContent/hotelDetail/hotelDetail?" + _data[2].productId,
+          }) 
+      }
+    })
   },
   tohotelLists: function(e){
     wx.navigateTo({
@@ -139,31 +144,31 @@ Page({
     var _data=[
     {
         "name":"商品A",
-        "img":"../../img/home.png",
+        "img":"../../img/hotel.jpg",
         "productId":"01",
     },{
         "name": "商品B",
-        "img": "../../img/home.png",
+        "img": "../../img/hotel.jpg",
         "productId": "02",
     },{
         "name": "商品C",
-        "img": "../../img/home.png",
+        "img": "../../img/hotel.jpg",
         "productId": "03",
     },{
         "name": "商品D",
-        "img": "../../img/home.png",
+        "img": "../../img/hotel.jpg",
         "productId": "04",
     }, {
         "name": "商品E",
-        "img": "../../img/home.png",
+        "img": "../../img/hotel.jpg",
         "productId": "05",
     },{
         "name": "商品F",
-        "img": "../../img/home.png",
+        "img": "../../img/hotel.jpg",
         "productId": "06",
     },{
         "name": "商品G",
-        "img": "../../img/home.png",
+        "img": "../../img/hotel.jpg",
         "productId": "07",
     },];
     for(var i=0;i<7;i++){
