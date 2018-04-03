@@ -2,50 +2,195 @@
 .header{
   display: block;
   width: 100%;
-  height: 200px;
+  height: 421rpx;
 }
 swiper{
-  height: 200px;
+  height: 421rpx;
+  width: 100%;
 }
 .slide-image{  
   display: inline-block;
   width: 100%;  
-  height: 100%;
-  margin-bottom: 10px;
+  height: 421rpx;
 }
+
+
+
+
+
 .content_price{
-  height: 40px;
+  height: 50px;
   width: 90%;
   margin: 0 auto;
-  border-bottom: 1px solid #666;
 }
-.price{
+.content_left{
+  width: 60%;
+  float: left;
+}
+.grade{
   display: inline-block;
-  padding-top: 8px;
+  line-height: 50px;
+  font-size: 28px;
+  color: rgb(255,156,0);
 }
+.good{
+  display: inline-block;
+  line-height: 50px;
+  font-size: 20px;
+  color: rgb(255,156,0);
+}
+.content_right{
+  width: 30%;
+  float: left;
+}
+.eval{
+  display: inline-block;
+  line-height: 50px;
+  font-size: 18px;
+  color: rgb(9,187,7);
+}
+.content_right image{
+  display: inline;
+}
+
+
+
 .content_intruduce{
-  margin-top: 10px;
-  width: 100%;
+  width: 90%;
+  margin:0 auto;
+  margin-top: 10px; 
 }
 .hotelName{
-  font-weight: bold;
+  font-weight: 550;
+  font-size: 20px;
   display: inline-block;
-  margin-left: 15px;
   margin-bottom: 5px;
 }
 .hotel_deta{
-  width: 90%;
   margin: 0 auto;
   padding-bottom: 5px; 
-  border-bottom: 1px solid #666;
+  position: relative;
+}
+.hotel_distance{
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  color: #666;
 }
 .hotelIntro{
-   color: #666;
-   line-height: 25px;
+  display: inline-block;
+  width: 70%;
+  color: #666;
+  line-height: 30px;
 }
+
+
+
+.content_time{
+  width: 96%;
+  margin: 0 auto;
+  height: 80px;
+}
+.time_in{
+  width: 43%;
+  float: left;
+}
+.time_a{
+  line-height: 80px;
+  color: #666;
+  font-size: 15px;
+}
+.time_c{
+  line-height: 80px;
+  color: #666;
+  font-size: 15px;
+}
+.time_d{
+  line-height: 80px;
+  color: #666;
+  font-size: 15px;
+}
+.time_out{
+  width: 40%;
+  float: left;
+}
+.time_total{
+  width: 17%;
+  float: left;
+}
+.time_total text{
+  line-height: 80px;
+  color: rgb(9,187,7);
+}
+.time_total image{
+  display: inline;
+}
+
+
+
+
+.room{
+  height: 130px;
+  width: 90%;
+  margin:0 auto;
+}
+.room_title{
+  display: inline-block;
+  margin-top: 15px;
+}
+.room_left{
+   width: 50%;
+   float: left;
+}
+.room_kind{
+  display: inline-block;
+  margin-top: 10px;
+  color: #666;
+  font-size: 16px;
+}
+.price_old{
+  display: inline-block;
+  text-decoration:line-through;
+  color: #666;
+  font-size: 16px;
+}
+.price_new{
+  color: rgb(255,156,0);
+  font-size: 22px;
+}
+.room_right{
+   width: 50%;
+   float: left;
+}
+.room_right button{
+  display: inline-block;
+  height: 50px;
+  width: 100px;
+  float: right;
+  margin-top: 20px;
+  background: rgb(248,181,81);
+  border: 2px solid rgb(235,148,19);
+  color: #fff;
+}
+
+
+.modal-box{
+  position:fixed;
+  width:100%;
+  height:100%;
+  top:0px;
+  background:rgba(0,0,0,0.4);
+  overflow: hidden;
+  }
+.modal-body{
+  margin-top: 300px;
+  width: 100%;
+  background: #fff;
+  }
 .hotelEvluate{
   width: 95%;
   margin: 5px auto;
+  position:relative;
 }
 .evluate{
   width: 100%;
@@ -94,7 +239,9 @@ swiper{
    color: #666;   
    font-style:normal;
 }
-.footNav{
+
+
+/* .footNav{
   border-top: 1px solid black;
   position: fixed; 
   bottom: 0px; 
@@ -132,7 +279,13 @@ swiper{
   font-size: 20px;
   line-height: 60px;
 }
+ */
+/* 
 .instea{
   height: 61px;
   width: 100%;
-}
+}*/
+/* .content_left{
+  width: 70%;
+  float: left;
+}  */

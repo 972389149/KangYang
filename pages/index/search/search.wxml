@@ -5,9 +5,8 @@
    <text class='selectHotel {{currentTab==1 ? "selectTab" : "" }}' data-current="1" bindtap='switchNav'>特产</text>
 </view>
 <view class='content'>
-  <view>
-       <input type='text' placeholder='搜索' class='searchText'></input>
-       <image class='searchButton' src="../../../img/search.png"></image>
+  <view style='background:#f7f8f8;height:70px;'>
+       <input class='searchs' type="text" placeholder='搜索'></input>
   </view>
   <view>
     <text class='hotSearch'>热门搜索</text>
@@ -17,11 +16,6 @@
                 <button>{{item.name}}</button>
             </navigator>
        </view>
-       <!-- <view class='searchExp'><button>热搜词1</button></view>
-       <view class='searchExp'><button>热搜词1</button></view>
-       <view class='searchExp'><button>热搜词1</button></view>
-       <view class='searchExp'><button>热搜词1</button></view>
-       <view class='searchExp'><button>热搜词1</button></view> -->
     </view>
   </view>
 </view>
