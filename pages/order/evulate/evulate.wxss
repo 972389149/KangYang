@@ -2,49 +2,38 @@
 .header{
   width: 90%;
   margin: 0 auto;
-  height: 120px;
-  border-bottom: 1px solid black;
+  height: 135px;
 }
 .header_pic{
-  width: 50%;
+  width: 35%;
   float: left;
 }
 .header_pic image{
-  margin-left: 10px;
+  margin-top:15px;
   width: 100px;
   height: 100px;
 }
 .header_grade{
-  width: 50%;
+  width: 65%;
   float: left;
+  margin-top: 15px;
 }
 .grade{
   font-weight: bold;
-  margin-bottom: 30px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
-.radio{
-  float: left;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border:1px solid gray;
-  margin-left: 5px;
-}
-.gradeNum{
-  position: relative;
-  top: -4px;
-  margin-left: 15px;
-  font-weight: bold;
+.size{
+  margin-bottom: 20px;
+  font-size: 15px;
 }
 .comment{
   width: 90%;
   margin: 0 auto;
   clear: both;
-  border-bottom: 1px solid black;
 }
 .commentTitle{
   margin: 10px 0px;
-  font-weight: bold;
 }
 .comment textarea{
   height: 120px;
@@ -56,4 +45,7 @@
   position: fixed;
   bottom: 0px;
   width: 100%;
+}
+.footer button{
+  background: #eacd75;
 }

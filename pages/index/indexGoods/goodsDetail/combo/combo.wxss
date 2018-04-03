@@ -1,8 +1,7 @@
 /* pages/index/indexContent/hotelCommit/combo/combo.wxss */
 .header{
   width: 100%;
-  height: 100px;
-  margin-bottom: 10px;
+  height: 125px;
 }
 .header_left{
   width: 40%;
@@ -10,56 +9,88 @@
 }
 .header_left image{
   display: inline-block;
-  height: 100px;
-  width: 100px;
-  margin-left: 10px;
+  margin-left: 15px;
+  margin-top: 15px;
+  height: 115px;
+  width: 115px;
 }
 .header_right{
   width: 60%;
   float: left;
 }
 .productName{
-  font-weight: bold;
-  margin-bottom: 5px;
+  margin-top: 19px;
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 .productPice{
-  margin-bottom: 30px;
+  margin-bottom: 26px;
+  color: rgb(255, 156, 0);
+  font-size: 20px;
+}
+.combo{
+  color: rgb(255, 156, 0);
 }
 .comboSelect{
   clear: both;
-  width: 94%;
-  margin: 0 auto;
+  width: 90%;
+  margin: 0 auto;  
 }
 .comboTitle{
-  margin-bottom: 10px;
-  font-weight: bold;
+  margin-bottom: 15px;
+  color: rgb(53,53,53);
+  margin-top: 20px; 
 }
 .comboSelect button{
-   margin-right: 20px;
-   margin-bottom: 5px;
+  display: inline-block;
+  height: 40px;
+  width: 85px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  line-height: 40px;
+  font-size: 14px;
+  background: #dfdfdf;
+  color: rgb(136,136,136);
+  border: 1px solid #c9c9c9;
 }
 .comboIntro{
   color: #666;
-  font-size: 0.9em;
+  font-size: 16px;
   text-indent: 20px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid #666;
+  margin-bottom: 15px;
+  line-height: 25px;
 }
 .count{
-  margin-left: 10px;
+  width: 90%;
+  margin: 5px auto;
   height: 40px;
- 
 }
 .purchase{
-  margin-right: 110px;
+  margin-right: 150px;
   line-height:40px;
 }
-.count button{
+.zheng{
+   display: inline-block;
+   left: 10px;
    margin-left: 10px;
-   margin-right: 10px;
+   margin-right: 10px; 
+   width: 25px;
+   height: 25px;
+   line-height: 25px;
+   background: #fff;
+   border: 1px solid #666;
+   font-size: 18px;
+   text-align: center;
+   border-radius: 5px 5px;
 }
+
+
 .footer{
   position: fixed;
   bottom: 0px;
   width: 100%;
+}
+.footer button{
+  background: #ecda75;
+  color: #fff;
 }

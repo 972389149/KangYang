@@ -9,22 +9,132 @@
           </block>  
     </swiper>  
   </view>
+<view style='width:100%'>
   <view class='content_price'>
-     <text class='price'>￥{{price}}元</text>
+      <view class='content_left'>
+        <text class='grade'>4.8</text>
+        <text decode="{{true}}" class='good'>分&nbsp;很好</text>
+      </view>
+      <view class='content_right'>
+        <text class='eval' bindtap='modalcnt'>1252条评论</text>
+        <image></image>
+      </view>
   </view>
+  <view style='border-bottom: 1px solid rgb(216, 216, 216)'></view> 
   <view class='content_intruduce'>
      <view>
         <text class='hotelName'>{{name}}</text>
      </view>
      <view class='hotel_deta'>
          <text class='hotelIntro'>{{intro}}</text>
+         <text class='hotel_distance'>距我1.1km</text>
      </view>
+  </view>   
+  <view style='height:13px;background:#f7f8f8'></view>  
+  <view class='content_time'>
+    <view class='time_in'>
+      <text class='time_a'>入住</text>
+      <text class='time_b'>11月20号</text>
+      <text class='time_c'>今天</text>
+      <text decode="{{true}}" class='time_d'>&nbsp;|&nbsp;</text>
+    </view>
+    <view class='time_out'>
+      <text class='time_a'>离店</text>
+      <text>11月22号</text>
+      <text class='time_c'>后天</text>
+    </view>
+    <view class='time_total'>
+      <text>共2晚</text>
+      <image></image>
+    </view>
   </view>
-  <view class='hotelEvluate'>
-     <view class='evluate_content'>
+  <view style='height:13px;background:#f7f8f8'></view>  
+
+  <view>
+    <view class='room'>
+      <view>
+        <view>
+          <text class='room_title'>优惠特价房</text>
+        </view>
+        <view>
+          <view class='room_left'>
+                <view>
+                    <text class='room_kind' decode="{{true}}">双床&nbsp;|&nbsp;无窗&nbsp;|&nbsp;不含早餐    
+                    </text>
+                </view>
+              <view style='margin-top:20px;'>
+                <text class='price_old'>￥170</text>
+                <text class='price_new'>￥140</text>
+              </view>
+          </view>
+          <view class='room_right'>
+            <button>预定</button>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view style='border-bottom: 1px solid rgb(216, 216, 216)'></view> 
+  </view>
+  <view>
+    <view class='room'>
+      <view>
+        <view>
+          <text class='room_title'>优惠特价房</text>
+        </view>
+        <view>
+          <view class='room_left'>
+                <view>
+                    <text class='room_kind' decode="{{true}}">双床&nbsp;|&nbsp;无窗&nbsp;|&nbsp;不含早餐    
+                    </text>
+                </view>
+              <view style='margin-top:20px;'>
+                <text class='price_old'>￥170</text>
+                <text class='price_new'>￥140</text>
+              </view>
+          </view>
+          <view class='room_right'>
+            <button>预定</button>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view style='border-bottom: 1px solid rgb(216, 216, 216)'></view> 
+  </view>
+  <view>
+    <view class='room'>
+      <view>
+        <view>
+          <text class='room_title'>优惠特价房</text>
+        </view>
+        <view>
+          <view class='room_left'>
+                <view>
+                    <text class='room_kind' decode="{{true}}">双床&nbsp;|&nbsp;无窗&nbsp;|&nbsp;不含早餐    
+                    </text>
+                </view>
+              <view style='margin-top:20px;'>
+                <text class='price_old'>￥170</text>
+                <text class='price_new'>￥140</text>
+              </view>
+          </view>
+          <view class='room_right'>
+            <button>预定</button>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view style='border-bottom: 1px solid rgb(216, 216, 216)'></view> 
+  </view>
+</view>
+
+ <!-- 弹出层的效果    -->
+ <!-- <view class="modal-box"  hidden='{{flag}}'>
+   <view class='modal-body'>
+     <view class='hotelEvluate'>
+      <view class='evluate_content'>
         <text>评价（{{evulateNum}}）</text>
-     </view>
-     <view class='evluate' wx:for="{{reviewList}}" wx:key="nvzbv" wx:for-item="item">
+      </view>
+      <view class='evluate' wx:for="{{reviewList}}" wx:key="nvzbv" wx:for-item="item">
         <view class='evluate_left'>
             <view class='evluate_pic'>
               <image src="http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg"></image>
@@ -37,87 +147,7 @@
         <view class='evl_detail'>
             <text>{{item.content}}</text>
         </view>
+      </view>
      </view>
-     <!-- <view class='evluate'>
-        <view class='evluate_left'>
-             <view class='evluate_pic'></view>
-        </view>
-        <view class='evluate_right'>
-            <view class='evl_left'>昵称</view>
-            <view class='evl_right'>2018-03-10</view>
-        </view>
-        <view class='evl_detail'>
-            <text>本的样式都是一样的，展示出来的却不一样，发生这种情况的根本原因是文字和数字默认的行高不同，找到原因我们就可以解决它了，只要我们指定行高不就行了吗</text>
-        </view>
-     </view>
-     <view class='evluate'>
-        <view class='evluate_left'>
-             <view class='evluate_pic'></view>
-        </view>
-        <view class='evluate_right'>
-            <view class='evl_left'>昵称</view>
-            <view class='evl_right'>2018-03-10</view>
-        </view>
-        <view class='evl_detail'>
-              <text>本的样式都是一样的，展示出来的却不一样，发生这种情况的根本原因是文字和数字默认的行高不同，找到原因我们就可以解决它了，只要我们指定行高不就行了吗</text>
-        </view>
-     </view>
-     <view class='evluate'>
-        <view class='evluate_left'>
-             <view class='evluate_pic'></view>
-        </view>
-        <view class='evluate_right'>
-            <view class='evl_left'>昵称</view>
-            <view class='evl_right'>2018-03-10</view>
-        </view>
-        <view class='evl_detail'>
-              <text>本的样式都是一样的，展示出来的却不一样，发生这种情况的根本原因是文字和数字默认的行高不同，找到原因我们就可以解决它了，只要我们指定行高不就行了吗</text>
-        </view>
-     </view> -->
   </view>
-  <view class='footNav'>
-    <view class='footLeft' bindtap='modalcnt'> 
-      <view><text>入住时间</text></view>
-      <view><text>{{year}}年{{month}}月{{day}}日</text></view>
-    </view>
-    <view class='footMiddle' bindtap='modalchange'>
-      <view><text>离店时间</text></view>
-      <view><text>{{_year}}年{{_month}}月{{_day}}日</text></view>
-    </view>
-    <view class='footRight'>
-      <navigator url='../hotelCommit/hotelCommit'><text>下单</text></navigator>
-    </view>
-  </view>
-  <view class='instea'></view>
-  
- <!-- 弹出层的效果    -->
- <modal hidden="{{hiddenmodal}}" bindcancel="cancel" bindconfirm="confirm">
-   <view>
-    <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}"            bindchange="bindChange">
-      <picker-view-column>
-         <view wx:for="{{years}}" wx:key="mfksb" style="line-height: 50px">{{item}}年</view>
-      </picker-view-column>
-      <picker-view-column>
-        <view wx:for="{{months}}" wx:key="mfksb" style="line-height: 50px">{{item}}月</view>
-      </picker-view-column>
-      <picker-view-column>
-        <view wx:for="{{days}}" wx:key="mfksb" style="line-height: 50px">{{item}}日</view>
-      </picker-view-column>
-    </picker-view>
-   </view> 
-</modal>
- <modal hidden="{{hiddenmodalput}}" bindcancel="cancel" bindconfirm="confirm">
-   <view>
-    <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}"            bindchange="bindCha">
-      <picker-view-column>
-         <view wx:for="{{years}}" wx:key="mfksb" style="line-height: 50px">{{item}}年</view>
-      </picker-view-column>
-      <picker-view-column>
-        <view wx:for="{{months}}" wx:key="mfksb" style="line-height: 50px">{{item}}月</view>
-      </picker-view-column>
-      <picker-view-column>
-        <view wx:for="{{days}}" wx:key="mfksb" style="line-height: 50px">{{item}}日</view>
-      </picker-view-column>
-    </picker-view>
-   </view> 
-</modal>
+</view> -->

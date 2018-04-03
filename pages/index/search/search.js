@@ -32,6 +32,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //模拟数据
     var _data=[{
        "name":"热搜1",
        "productId":"01"
@@ -70,7 +71,7 @@ Page({
        that.setData({
          currentTab: e.target.dataset.current
        });
-      //  console.log(this.data.currentTab);
+       console.log(this.data.currentTab);
      }
   }
 })
