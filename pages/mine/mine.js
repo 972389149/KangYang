@@ -12,6 +12,7 @@ Page({
     zkqLogo: app.data.iconUrl +'mine02.png', // 折扣券logo
     kfLogo: app.data.iconUrl +'mine03.png', // 客服logo
     toLogo: app.data.iconUrl +'to.png', // > logo
+    closeLogo: app.data.iconUrl + 'phoneLogin.png', //关闭按钮logo 
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),

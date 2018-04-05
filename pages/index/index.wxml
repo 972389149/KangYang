@@ -38,7 +38,7 @@
     </view>
     <view class='listPart' catchtap='toGoodsMore'>
        <view class='classify'>
-         <image src='../../img/hotel.jpg'></image>
+         <image src='../../img/logo/more.png'></image>
        </view>
        <view class='listCon'>
           <text class='listText'>更多</text>

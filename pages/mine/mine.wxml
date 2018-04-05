@@ -29,7 +29,7 @@
 </view>
 <view class='register' wx:if='{{showRegister}}'>
   <view style='position: fixed; top:38%;left:5%;'>
-    <image src='../../img/logo/phoneLogin.png' style='width:38rpx;height:38rpx' catchtap='cancelRegister'></image>
+    <image src='{{closeLogo}}' style='width:38rpx;height:38rpx' catchtap='cancelRegister'></image>
   </view>
   <view class='mid_'>
     <view class='midCon'>短信认证登录</view>
