@@ -1,2 +1,35 @@
 <!--pages/order/logistics/logistics.wxml-->
-<text>这是物流页面</text>
+<view class='top'>
+  <view class='topImg'>
+    <image src='../../../img/hotel.jpg'></image>
+  </view>
+  <view class='topText'>
+    <view class='name'><text>{{name_}}</text></view>
+    <view class='size'><text>规格/套餐 : {{size_}}</text></view>
+    <view class='type'><text>{{type_}}</text></view>
+  </view>
+  <view class='topStatus'>
+    <view class='status'><text>{{status}}</text></view>
+  </view>
+</view>
+<view class='bottom'>
+  <view class='orderDetail' wx:for='{{res.data}}' wx:for-item="items" wx:key='unique'>
+    <view class='time'>
+      <text style='font-size:30rpx;'>{{items.time1}}\n</text>
+      <text style='font-size:24rpx'>{{items.time2}}</text>
+    </view>
+    <view class='mid'>
+      <view class='circle' style='background-color: {{items.circleColor}}'></view>
+      <view class='line' wx:if='{{items.showLine}}'></view>
+    </view>
+    <view class='content'>
+      <view class='status_'>
+        <text wx:if='{{items.on}}'>{{status}}</text>
+        <text wx:if='{{items.off}}'>已完成</text>
+      </view>
+      <view class='status_detail'>
+        {{items.context}}
+      </view>
+    </view>
+  </view>
+</view>

@@ -32,14 +32,18 @@ Page({
 
   },
   getUserInfo: function (e) {
+    // 拉起模态框
+    wx.showLoading({
+      title: '登陆中'
+    })
     var that = this
     wx.getUserInfo({
       success: function (res) {
-        // console.log(res.userInfo)
         that.setData({
           nickName: res.userInfo.nickName,
           headImg: res.userInfo.avatarUrl,
         })
+        app.data.userName = that.data.nickName
       },
       fail: function(){
         wx.showToast({
@@ -47,10 +51,13 @@ Page({
           icon: 'none',
           duration: 2000
         })
+        // 关闭模态框
+        wx.hideLoading()
       }
     })
     wx.login({
       success: function (res) {
+
         if (res.code) {
           wx.request({
             url: app.data.url+'login',
@@ -65,16 +72,11 @@ Page({
             },
             // 向后台请求成功
             success: function(res){
-              console.log(res.data)
               if(res.data != 'error'){
 
                 //openid保存
                 that.setData({
                   openId_: res.data.openid
-                })
-                // 拉起模态框
-                wx.showLoading({
-                  title: '登陆中'
                 })
 
                 // 1:进入注册状态 0:进入登录状态
@@ -90,7 +92,8 @@ Page({
                     headImg_: that.data.headImg,
                     showRegister: false
                   })
-                  
+                  //全局保存openId
+                  app.data.openId = that.data.openId_
                 }
 
                 // 关闭模态框
@@ -108,6 +111,8 @@ Page({
           })
         // 下面这个else是拉起微信登录失败
         } else {
+          // 关闭模态框
+          wx.hideLoading()
           wx.showToast({
             title: '获取用户信息失败',
             icon: 'none',
@@ -250,6 +255,8 @@ Page({
               headImg_: that.data.headImg,
               showRegister: false
             })
+            //全局保存openId
+            app.data.openId = that.data.openId_
           }else{
             wx.showToast({
               title: '注册失败',

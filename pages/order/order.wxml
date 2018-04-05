@@ -18,7 +18,7 @@
     </view>
   </view>
   
-  <view class='orderDetial' wx:for='{{orderItems}}' wx:for-item="items" wx:key='unique' wx:if='{{showOrders}}'>
+  <view class='orderDetial' wx:for='{{orderItems}}' wx:for-item="items" wx:key='unique' wx:if='{{showOrders}}' wx:if='{{_login_}}'>
     <view class='orderItem'>
       <view class='orderImg'>
         <image src='../../img/hotel.jpg'></image>
@@ -38,9 +38,12 @@
     <text class='showWord' wx:if='{{items.showWord}}'>如需退款请联系客服</text>
     <view class='express' wx:if='{{items.shows}}'>
       <view class='inExpress'>
-         <button size='mini' wx:if='{{items.orderBtn}}' plain='true'>查看物流</button> 
-         <navigator url='evulate/evulate'><button size='mini' wx:if='{{!items.orderBtn}}' plain='true'>评价</button></navigator>
+         <button size='mini' plain='true' wx:if='{{items.orderBtn}}' catchtap='toLogistics' id='{{items.productId}}'>查看物流</button> 
+         <navigator url='evulate/evulate'><button size='mini' plain='true' wx:if='{{!items.orderBtn}}' catchtap='toEvulate' id='{{items.orderBtn}}'>评价</button></navigator>
       </view>
     </view>
   </view>
+</view>
+<view class='NoLogin' wx:if='{{!_login_}}'>
+  <text>立即<text style='color:#EACD75'> 登录 </text>查看订单信息</text>
 </view>

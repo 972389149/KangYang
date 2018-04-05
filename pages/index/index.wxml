@@ -27,6 +27,7 @@
   </view>
   <view class='footer'>
     <view class='listPart' wx:for='{{goodDatas}}' wx:key="dvjkbfea" wx:for-item="item">
+      <!-- 这里点击没传参 -->
       <navigator url='{{item.link}}'>
        <view class='classify'>
          <image src='{{item.img}}'></image>

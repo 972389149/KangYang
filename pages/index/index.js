@@ -119,6 +119,7 @@ Page({
             "img": app.data.imgUrl+res.data[i].img
           })
         }
+        console.log(res.data)
          that.setData({
             'imgUrls[0].url': _data[0].img,
             'imgUrls[1].url': _data[1].img,
@@ -205,6 +206,7 @@ Page({
     
 
   },
+  // 下拉刷新
   onPullDownRefresh: function () {
     wx.stopPullDownRefresh()
   }
