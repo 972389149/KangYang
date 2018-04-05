@@ -45,5 +45,5 @@
   </view>
 </view>
 <view class='NoLogin' wx:if='{{!_login_}}'>
-  <text>立即<text style='color:#EACD75'> 登录 </text>查看订单信息</text>
+  <text>立即<text style='color:#EACD75' catchtap='toLogin'> 登录 </text>查看订单信息</text>
 </view>

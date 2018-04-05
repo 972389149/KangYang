@@ -1,6 +1,5 @@
 {
   "pages": [ 
-    "pages/order/order",
     "pages/index/index",
     "pages/index/hotCitySearch/hotCitySearch", 
     "pages/index/indexContent/indexContent",
@@ -11,6 +10,7 @@
     "pages/index/indexContent/hotelDetail/hotelDetail",
     "pages/index/indexContent/hotelCommit/hotelCommit",
     "pages/index/indexGoods/goodsCommit/goodsCommit",
+    "pages/order/order",
     "pages/order/logistics/logistics",
     "pages/order/evulate/evulate",
     "pages/mine/mine"

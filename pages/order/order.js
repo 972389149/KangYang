@@ -112,6 +112,11 @@ Page({
       url: e.currentTarget.id
     })
   },
+  toLogin: function(){
+    wx.switchTab({
+      url: '../mine/mine'
+    })
+  },
   changeOrderType: function (type){
     switch (type) {
       case 'typeA':
