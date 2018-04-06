@@ -8,14 +8,17 @@ Page({
     nickName_: '', //显示用户名
     headImg: '', // 储存用户头像
     nickName: '', //储存用户名
+
     orderLogo: app.data.iconUrl+'mine01.png', //订单logo
     zkqLogo: app.data.iconUrl +'mine02.png', // 折扣券logo
     kfLogo: app.data.iconUrl +'mine03.png', // 客服logo
     toLogo: app.data.iconUrl +'to.png', // > logo
     closeLogo: app.data.iconUrl + 'phoneLogin.png', //关闭按钮logo 
+
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
+
     openId_: '', //储存用户的openid
     firstLogin: true, //判断当前是否第一次登录,
     showRegister: false, //控制是否显示注册页面
@@ -26,7 +29,46 @@ Page({
     loginDis: true, //控制是否可以点击登录
     loging: false, // 登录中显示loading图标
     codeOpacity: 1.0, //验证码按钮的透明底
-    LoginOpacity: 0.5 //登录按钮的透明底
+    LoginOpacity: 0.5, //登录按钮的透明底
+
+    showCoupon: false,  //显示优惠券
+    dotted: [5,30,55,80,105,130,155], //小圆点位置
+    Coupon: [{
+      "img": '../../img/hotel.jpg',
+      "name": '一号酒店',
+      "price": '5',
+      "fillPrice": '200',
+      "date": '2018-05-01',
+      "hotelId": 1
+    }, {
+        "img": '../../img/hotel.jpg',
+        "name": '二号酒店',
+        "price": '10',
+        "fillPrice": '300',
+        "date": '2018-05-02',
+        "hotelId": 1
+    }, {
+        "img": '../../img/hotel.jpg',
+        "name": '三号酒店',
+        "price": '15',
+        "fillPrice": '400',
+        "date": '2018-05-03',
+        "hotelId": 1
+    }, {
+        "img": '../../img/hotel.jpg',
+        "name": '四号酒店',
+        "price": '20',
+        "fillPrice": '500',
+        "date": '2018-05-04',
+        "hotelId": 1
+    }, {
+        "img": '../../img/hotel.jpg',
+        "name": '五号酒店',
+        "price": '25',
+        "fillPrice": '600',
+        "date": '2018-05-05',
+        "hotelId": 1
+    }]
   },
   onload: function(options){
 
@@ -130,11 +172,13 @@ Page({
       }
     });
   },
+  // 取消注册
   cancelRegister: function(){
     this.setData({
       showRegister: false
     })
   },
+  // 获取验证码
   getCode: function () {
     var that = this
     if(this.data.phone.length < 11){
@@ -275,9 +319,58 @@ Page({
       })
     }
   },
+  // 打开折扣券
+  toCoupon:  function(){
+
+    if (app.data.openId.length == 0){
+      wx.showToast({
+        title: '请先登录',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
+
+    // 拉起模态框
+    wx.showLoading({
+      title: '拼命获取中....'
+    })
+
+    // 进行ajax请求
+    this.setData({
+      showCoupon: true
+    })
+
+    // 关闭模态框
+    wx.hideLoading()
+  },
+
+  // 折扣券调整
+  toHotel: function(e){
+    console.log(e.currentTarget.id)
+    wx.navigateTo({
+      url: '../index/indexContent/hotelDetail/hotelDetail?id='+e.currentTarget.id
+    })
+  },
+  // 关闭折扣券
+  closeCoupon: function(){
+    this.setData({
+      showCoupon: false
+    })
+  },
 
   // 订单跳转
   toOrder: function () {
+
+    if (app.data.openId.length == 0) {
+      wx.showToast({
+        title: '请先登录',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
+
     wx.switchTab({
       url: '../order/order',   
     })

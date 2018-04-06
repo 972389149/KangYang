@@ -67,7 +67,7 @@ Page({
         orderStatus = '物流单号暂无结果'
         break
       case 3:
-        orderStatus = '在途'
+        orderStatus = '在途中'
         break
       case 4:
         orderStatus = '揽件'
