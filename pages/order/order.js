@@ -1,10 +1,12 @@
 // pages/order/order.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    _login_: false, //检测是否登录
     orderTypeA_: 'innerNav innerNavChose',
     orderTypeB_: 'innerNav',
     orderTypeC_: 'innerNav',
@@ -108,6 +110,11 @@ Page({
   toDetail: function(e){
     wx.navigateTo({
       url: e.currentTarget.id
+    })
+  },
+  toLogin: function(){
+    wx.switchTab({
+      url: '../mine/mine'
     })
   },
   changeOrderType: function (type){
@@ -430,6 +437,18 @@ Page({
         break
     }
   },
+  // 订单物流跳转
+  toLogistics: function(e){
+    wx.navigateTo({
+      url: 'logistics/logistics?productId=' + e.currentTarget.id
+    })
+  },
+  // 订单评价跳转
+  toEvulate: function(e){
+    wx.navigateTo({
+      url: 'evulate/evulate?productId=' + e.currentTarget.id
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -578,7 +597,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    if(app.data.openId.length == 0){
+      this.setData({
+        _login_: false
+      })
+    }else{
+      this.setData({
+        _login_: true
+      })
+    }
   },
 
   /**

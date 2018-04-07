@@ -102,7 +102,7 @@ swiper{
   margin:0 auto;
   height: 43px;
   width: 43px;
-  border: 1px solid #383838;
+  border: 1px solid #efeff4;
   border-radius: 50%;
 }
 .classify image{

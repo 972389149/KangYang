@@ -14,7 +14,7 @@
    <view class='circleCon'><text>我的订单</text></view>
    <view class='to' style='background-image: url({{toLogo}});background-size:100% 100%;'></view>
 </view>
-<view class='myDiscount'>
+<view class='myDiscount' catchtap='toCoupon'>
    <view class='circle' style='background-image: url({{zkqLogo}});background-size:100% 100%;'></view>
    <view class='circleCon'><text>折扣卷</text></view>
    <view class='to' style='background-image: url({{toLogo}});background-size:100% 100%;'></view>
@@ -29,7 +29,7 @@
 </view>
 <view class='register' wx:if='{{showRegister}}'>
   <view style='position: fixed; top:38%;left:5%;'>
-    <image src='../../img/logo/phoneLogin.png' style='width:38rpx;height:38rpx' catchtap='cancelRegister'></image>
+    <image src='{{closeLogo}}' style='width:38rpx;height:38rpx' catchtap='cancelRegister'></image>
   </view>
   <view class='mid_'>
     <view class='midCon'>短信认证登录</view>
@@ -50,4 +50,47 @@
   <view class='loginComfirm'>
     <button size='mini' catchtap='login'  style='background-color: #F9B552;color: #ffffff;font-size: 36rpx;border: none;padding-top: 5rpx; opacity:{{LoginOpacity}}' loading='{{loging}}' disabled='{{loginDis}}'>登 录</button>
   </view>
+</view>
+<view class='Coupon_' wx:if='{{showCoupon}}' catchtap='closeCoupon'>
+  <!-- 遮罩层 -->
+</view>
+<view class='Coupon' wx:if='{{showCoupon}}'>
+  <view class='underCoupon'>
+    <image src='{{closeLogo}}' catchtap='closeCoupon'></image>
+    <text>所有折扣券</text>
+  </view>
+  <scroll-view scroll-y  style="height: 620rpx;">
+    <view class='CouponDetail' wx:for='{{Coupon}}' wx:for-item='items' wx:key='Coupon'>
+      <view class='left'>
+        <view class='dotted' wx:for='{{dotted}}' wx:for-item='item' wx:key='dotted' style='top: 3rpx'></view>
+      </view>
+      <view class='CouponImage'>
+        <image src='{{items.img}}'></image>
+      </view>
+      <view class='CouponContent'>
+        <view class='content'>
+          <view class='content1'>
+            <text style='color: #FF9B00;font-size: 30rpx;'>¥ </text><text style='color: #FF9B00;font-size: 48rpx;'>{{items.price}}  </text><text style='color: #9D9D9D;font-size: 24rpx;'>  满{{items.fillPrice}}可用</text>
+          </view>
+          <view class='content2'>
+            <text>{{items.name}}</text>
+          </view>
+          <view class='content3'>
+            <text>有效期至：{{items.date}}</text>
+          </view>
+        </view> 
+        <view class='decoration'>
+          <view class='circle1'></view>
+          <view class='line'></view>
+          <view class='circle2'></view>
+        </view>
+        <view class='useNow' id='{{items.hotelId}}' catchtap='toHotel'>
+          <text>前往使用</text>
+        </view> 
+      </view>
+      <view class='right'>
+        <view class='dotted_' wx:for='{{dotted}}' wx:for-item='item' wx:key='dotted' style='top: 3rpx'></view>
+      </view>
+    </view>
+  </scroll-view>
 </view>

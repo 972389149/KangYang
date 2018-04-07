@@ -119,6 +119,7 @@ Page({
             "img": app.data.imgUrl+res.data[i].img
           })
         }
+        console.log(res.data)
          that.setData({
             'imgUrls[0].url': _data[0].img,
             'imgUrls[1].url': _data[1].img,
@@ -141,51 +142,71 @@ Page({
     })
   },
   getGoods:function(){
-    var _data=[
-    {
-        "name":"商品A",
-        "img":"../../img/hotel.jpg",
-        "productId":"01",
-    },{
-        "name": "商品B",
-        "img": "../../img/hotel.jpg",
-        "productId": "02",
-    },{
-        "name": "商品C",
-        "img": "../../img/hotel.jpg",
-        "productId": "03",
-    },{
-        "name": "商品D",
-        "img": "../../img/hotel.jpg",
-        "productId": "04",
-    }, {
-        "name": "商品E",
-        "img": "../../img/hotel.jpg",
-        "productId": "05",
-    },{
-        "name": "商品F",
-        "img": "../../img/hotel.jpg",
-        "productId": "06",
-    },{
-        "name": "商品G",
-        "img": "../../img/hotel.jpg",
-        "productId": "07",
-    },];
-    for(var i=0;i<7;i++){
-      this.data.goodDatas[i].link = "indexGoods/goodsDetail/goodsDetail?" + _data[i].productId;
-    }
-    for (var i = 0; i < 7; i++) {
-      this.data.goodDatas[i].name = _data[i].name;
-    }
-    for (var i = 0; i < 7; i++) {
-      this.data.goodDatas[i].img = _data[i].img;
-    }
-    // console.log(this.data.goodDatas);
-      this.setData({
-        goodDatas: this.data.goodDatas
-      })
+    var that = this
+    wx.request({
+      url: app.data.url +'hotProduct',
+      method: 'POST',
+      dataType: 'json',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded', // 默认值
+        'charset': 'UTF - 8'
+      },
+      success: function(res){
+        // console.log(res.data)
+        var _data = []
+        for(var i=0 ;i<7;i++){
+          _data.push({
+            "name": res.data.product[i].name,
+            "img": app.data.imgUrl+res.data.product[i].img,
+            "productId": res.data.product[i].productId
+          })
+        }
+        for (var i = 0; i < 7; i++) {
+          that.data.goodDatas[i].link = "indexGoods/goodsDetail/goodsDetail?" + _data[i].productId;
+          that.data.goodDatas[i].name = _data[i].name;
+          that.data.goodDatas[i].img = _data[i].img;
+        }
+        console.log(that.data.goodDatas);
+        that.setData({
+          goodDatas: that.data.goodDatas
+        })
+      }
+    })
+    
+    // var _data=[
+    // {
+    //     "name":"商品A",
+    //     "img":"../../img/hotel.jpg",
+    //     "productId":"01",
+    // },{
+    //     "name": "商品B",
+    //     "img": "../../img/hotel.jpg",
+    //     "productId": "02",
+    // },{
+    //     "name": "商品C",
+    //     "img": "../../img/hotel.jpg",
+    //     "productId": "03",
+    // },{
+    //     "name": "商品D",
+    //     "img": "../../img/hotel.jpg",
+    //     "productId": "04",
+    // }, {
+    //     "name": "商品E",
+    //     "img": "../../img/hotel.jpg",
+    //     "productId": "05",
+    // },{
+    //     "name": "商品F",
+    //     "img": "../../img/hotel.jpg",
+    //     "productId": "06",
+    // },{
+    //     "name": "商品G",
+    //     "img": "../../img/hotel.jpg",
+    //     "productId": "07",
+    // },];
+    
 
   },
+  // 下拉刷新
   onPullDownRefresh: function () {
     wx.stopPullDownRefresh()
   }

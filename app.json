@@ -1,20 +1,19 @@
 {
-  "pages": [ 
+  "pages": [
     "pages/index/index",
-    "pages/order/evulate/evulate",
+    "pages/index/hotCitySearch/hotCitySearch", 
+    "pages/index/indexContent/indexContent",
+    "pages/index/indexGoods/indexGoods",
+    "pages/index/search/search",
     "pages/index/indexGoods/goodsDetail/goodsDetail",
     "pages/index/indexGoods/goodsDetail/combo/combo",
-    "pages/index/search/search",
-    "pages/index/indexContent/hotelDetail/hotelDetail",    
-    "pages/order/order",
-    "pages/mine/mine",  
-    "pages/index/indexContent/indexContent",
-    "pages/index/hotCitySearch/hotCitySearch",
-    "pages/index/indexGoods/indexGoods", 
-    "pages/index/indexContent/hotelCommit/hotelCommit", 
+    "pages/index/indexContent/hotelDetail/hotelDetail",
+    "pages/index/indexContent/hotelCommit/hotelCommit",
     "pages/index/indexGoods/goodsCommit/goodsCommit",
-    "pages/order/orderDetail/orderDetail",
-    "pages/order/logistics/logistics"
+    "pages/order/order",
+    "pages/order/logistics/logistics",
+    "pages/order/evulate/evulate",
+    "pages/mine/mine"
   ],
   "window": {
     "backgroundTextStyle": "light",
