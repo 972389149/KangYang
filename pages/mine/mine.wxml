@@ -9,21 +9,27 @@
      <text class="userinfo-nickname">{{nickName_}}</text> 
   </view>
 </view>
-<view class='myOrder' bindtap='toOrder'>
-   <view class='circle' style='background-image: url({{orderLogo}});background-size:100% 100%;'></view>
-   <view class='circleCon'><text>我的订单</text></view>
-   <view class='to' style='background-image: url({{toLogo}});background-size:100% 100%;'></view>
-</view>
-<view class='myDiscount' catchtap='toCoupon'>
-   <view class='circle' style='background-image: url({{zkqLogo}});background-size:100% 100%;'></view>
-   <view class='circleCon'><text>折扣卷</text></view>
-   <view class='to' style='background-image: url({{toLogo}});background-size:100% 100%;'></view>
-</view>
-<view class='service' catchtap='service'>
-   <view class='circle' style='background-image: url({{kfLogo}});background-size:100% 100%;'></view>
-   <view class='circleCon'><text>联系客服</text></view>
-   <view class='to' style='background-image: url({{toLogo}});background-size:100% 100%;'></view>
-</view>
+<navigator url=''>
+  <view class='myOrder' bindtap='toOrder'>
+    <view class='circle' style='background-image: url({{orderLogo}});background-size:100% 100%;'></view>
+    <view class='circleCon'><text>我的订单</text></view>
+    <view class='to' style='background-image: url({{toLogo}});background-size:100% 100%;'></view>
+  </view>
+</navigator>
+<navigator url=''>
+  <view class='myDiscount' catchtap='toCoupon'>
+    <view class='circle' style='background-image: url({{zkqLogo}});background-size:100% 100%;'></view>
+    <view class='circleCon'><text>折扣卷</text></view>
+    <view class='to' style='background-image: url({{toLogo}});background-size:100% 100%;'></view>
+  </view>
+</navigator>
+<navigator url=''>
+  <view class='service' catchtap='service'>
+    <view class='circle' style='background-image: url({{kfLogo}});background-size:100% 100%;'></view>
+    <view class='circleCon'><text>联系客服</text></view>
+    <view class='to' style='background-image: url({{toLogo}});background-size:100% 100%;'></view>
+  </view>
+</navigator>
 <view class='registerTop' wx:if='{{showRegister}}' catchtap='cancelRegister'>
   <!-- 遮罩层 -->
 </view>

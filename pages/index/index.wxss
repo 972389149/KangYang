@@ -17,25 +17,22 @@
    font-size: 30rpx;
    color: #353535;
    padding-left: 4%;
-    /* border: 3rpx solid #000;  */
 }
 .location image{
   float: left;
   margin-top: 3rpx;
-  /* border: 3rpx solid #000; */
+  position: relative;
+  bottom: 2px;
 }
 .location text{
   float: left;
   margin-left: 16rpx;
-  /* border: 3rpx solid #000; */
 }
 .searchs{
   float: left;
   width: 80%;
-  /* border: 3rpx solid #000; */
 }
 .searchButton{
-  /* margin-left: 4%; */
   display: inline-block; 
   width: 95%; 
   padding-left: 12%;

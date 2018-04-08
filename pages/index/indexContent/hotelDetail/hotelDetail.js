@@ -50,4 +50,9 @@ Page({
       flag:false
     });
   },
+  modalclose: function () {
+    this.setData({
+      flag: true
+    });
+  }
 }) 

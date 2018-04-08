@@ -10,6 +10,12 @@
       </view>
       <view class='graded'>
          <text>评分</text>
+         <image src='../../../img/logo/startSelect.png' class='start'></image>
+         <image src='../../../img/logo/startSelect.png' class='start'></image>
+         <image src='../../../img/logo/startSelect.png' class='start'></image>
+         <image src='../../../img/logo/startSelect.png' class='start'></image>
+         <image src='../../../img/logo/start.png' class='start'></image>
+         <text class='graded_rank'>好</text>
       </view>
    </view>
 </view>

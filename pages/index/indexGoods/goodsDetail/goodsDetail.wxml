@@ -1,56 +1,40 @@
 <!--pages/index/indexGoods/goodsDetail/goodsDetail.wxml-->
-<view class='header'> 
-    <swiper indicator-dots="{{indicatorDots}}"  
-            autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">  
-          <block wx:for="{{imgUrls}}" wx:key='unquine'>  
-            <swiper-item>  
-                <image src="{{item}}" class="slide-image" style='height:200px'/>    
-            </swiper-item>  
-          </block>  
-    </swiper>  
-  </view>
-  <view class='content_price'>
-     <text class='priceOld'>￥140</text>
-     <text class='priceNew'>￥{{price}}</text>
-  </view>
-  <view style='border-bottom: 1px solid rgb(216, 216, 216)'></view> 
-  <view class='content_intruduce'>
-     <view>
-        <text class='hotelName'>{{name}}</text>
-     </view>
-     <view class='hotel_deta'>
-         <text class='hotelIntro'>{{intro}}</text>
-     </view>
-  </view>
-  <view style='height:13px;background:#f7f8f8'></view> 
-  <view class='goods_evla'>
-     <text>评价（135）</text>
-     <image></image>
-  </view>
-  <view style='border-bottom: 1px solid rgb(216, 216, 216)'></view> 
-  <view class='goods_detail'>
-     <text>商品详情</text>
-  </view>
-  <view style='border-bottom: 1px solid rgb(216, 216, 216)'></view> 
-  <!-- <view class='hotelEvluate'>
-     <view class='evluate_content'>
-        <text>评价（{{evulateNum}}）</text>
-     </view>
-     <view class='evluate' wx:for="{{reviewList}}" wx:key="nvzbv" wx:for-item="item">
-        <view class='evluate_left'>
-            <view class='evluate_pic'>
-              <image src="http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg"></image>
-            </view>
-        </view>
-        <view class='evluate_right'>
-            <view class='evl_left'>{{item.username}}</view>
-            <view class='evl_right'>2018-03-10</view>
-        </view>
-        <view class='evl_detail'>
-            <text>{{item.content}}</text>
-        </view>
-     </view>
-  </view> -->
+<view style="{{flag?'':'position:fixed;width:100%;height:100%;'}}">
+  <view class='header'> 
+      <swiper indicator-dots="{{indicatorDots}}"  
+              autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">  
+            <block wx:for="{{imgUrls}}" wx:key='unquine'>  
+              <swiper-item>  
+                  <image src="{{item}}" class="slide-image" style='height:200px'/>    
+              </swiper-item>  
+            </block>  
+      </swiper>  
+    </view>
+    <view class='content_price'>
+      <text class='priceOld'>￥140</text>
+      <text class='priceNew'>￥{{price}}</text>
+    </view>
+    <view style='border-bottom: 1px solid rgb(216, 216, 216)'></view> 
+    <view class='content_intruduce'>
+      <view>
+          <text class='hotelName'>{{name}}</text>
+      </view>
+      <view class='hotel_deta'>
+          <text class='hotelIntro'>{{intro}}</text>
+      </view>
+    </view>
+    <view style='height:13px;background:#f7f8f8'></view> 
+    <navigator>
+      <view class='goods_evla' bindtap='modalcnt'>
+        <text>评价（135）</text>
+        <image src='https://www.holyhire.cn/ky/img/icon/to.png' class='to'></image>
+      </view>
+    </navigator>
+    <view style='border-bottom: 1px solid rgb(216, 216, 216)'></view> 
+    <view class='goods_detail'>
+      <text>商品详情</text>
+    </view>
+    <view style='border-bottom: 1px solid rgb(216, 216, 216)'></view>  
   <view class='footNav'>
     <view class='footLeft'> 
       <view>
@@ -62,3 +46,30 @@
     </view>
   </view>
   <view class='instea'></view>
+</view>
+
+ <view class="modal-box"  hidden='{{flag}}'>
+    <view class='modal-body'>
+      <view class='hotelEvluate'>
+        <view class='evluate_content'>
+          <text class='evulateNum'>评价（{{evulateNum}}）</text>
+          <image src='https://www.holyhire.cn/ky/img/icon/phoneLogin.png' class='close' bindtap='modalclose'></image>
+        </view>
+        <view class='evluate' wx:for="{{reviewList}}" wx:key="nvzbv" wx:for-item="item">
+          <view class='evluate_left'>
+              <view class='evluate_pic'>
+                <image src="http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg"></image>
+              </view>
+          </view>
+          <view class='evluate_right'>
+              <view class='evl_left'>{{item.username}}</view>
+              <view class='evl_right'>2018-03-10</view>
+          </view>
+          <view class='evl_detail'>
+              <text>{{item.content}}</text>
+          </view>
+          <view style='border-bottom: 1px solid rgb(216, 216, 216)'></view> 
+        </view>
+      </view>
+    </view>
+ </view>
