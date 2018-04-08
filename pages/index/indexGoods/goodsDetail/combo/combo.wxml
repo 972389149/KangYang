@@ -11,9 +11,9 @@
 </view>
 <view class='comboSelect'>
   <view class='comboTitle'>选择套餐</view>
-  <button size="mini">套餐一</button>
-  <button size="mini">套餐二</button>
-  <button size="mini">套餐三</button>
+  <button size="mini" class='unselect select'>套餐一</button>
+  <button size="mini" class='unselect'>套餐二</button>
+  <button size="mini" class='unselect'>套餐三</button>
   <view class='comboIntro'>套餐介绍套餐介绍套餐介绍套餐介绍套餐介绍套餐介绍套餐介绍套餐介绍套餐介绍套餐介绍       </view>
 </view>
 <view style='border-bottom: 1px solid rgb(216, 216, 216)'></view> 

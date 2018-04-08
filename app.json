@@ -1,20 +1,19 @@
 {
-  "pages": [ 
+  "pages": [
     "pages/index/index",
-    "pages/order/evulate/evulate",
-    "pages/index/indexGoods/goodsDetail/goodsDetail",
-    "pages/index/search/search",
-    "pages/index/indexContent/hotelDetail/hotelDetail",    
-    "pages/order/order",
-    "pages/mine/mine",  
-    "pages/index/indexContent/indexContent",
-    "pages/index/hotCitySearch/hotCitySearch",
-    "pages/index/indexGoods/indexGoods", 
-    "pages/index/indexContent/hotelCommit/hotelCommit", 
-    "pages/index/indexGoods/goodsCommit/goodsCommit",
     "pages/index/indexGoods/goodsDetail/combo/combo",
-    "pages/order/orderDetail/orderDetail",
-    "pages/order/logistics/logistics"
+    "pages/order/evulate/evulate",
+    "pages/index/indexContent/hotelCommit/hotelCommit",
+    "pages/index/indexGoods/goodsCommit/goodsCommit",
+    "pages/index/hotCitySearch/hotCitySearch",
+    "pages/index/indexGoods/goodsDetail/goodsDetail",
+    "pages/index/search/search",    
+    "pages/index/indexContent/hotelDetail/hotelDetail",
+    "pages/index/indexContent/indexContent",
+    "pages/index/indexGoods/indexGoods",
+    "pages/order/order",
+    "pages/order/logistics/logistics",
+    "pages/mine/mine"
   ],
   "window": {
     "backgroundTextStyle": "light",

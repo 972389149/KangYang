@@ -49,3 +49,17 @@
 .footer button{
   background: #eacd75;
 }
+.start{
+  display: inline-block;
+  height: 22px;
+  width: 22px;
+  position: relative;
+  top: 3px;
+  vertical-align: center;
+  margin-left: 5px;
+}
+.graded_rank{
+  display: inline-block;
+  margin-left: 10px;
+  color: rgb(256,156,0);
+}

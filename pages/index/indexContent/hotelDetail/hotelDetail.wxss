@@ -13,48 +13,47 @@ swiper{
   width: 100%;  
   height: 421rpx;
 }
-
-
-
-
-
 .content_price{
   height: 50px;
   width: 90%;
   margin: 0 auto;
 }
 .content_left{
-  width: 60%;
+  width: 65%;
   float: left;
 }
 .grade{
   display: inline-block;
   line-height: 50px;
-  font-size: 28px;
+  font-size: 24px;
   color: rgb(255,156,0);
 }
 .good{
   display: inline-block;
   line-height: 50px;
-  font-size: 20px;
+  font-size: 18px;
   color: rgb(255,156,0);
 }
 .content_right{
-  width: 30%;
+  width: 35%;
   float: left;
+  position: relative;
+  left: 12px;
 }
 .eval{
   display: inline-block;
   line-height: 50px;
-  font-size: 18px;
+  font-size: 16px;
   color: rgb(9,187,7);
 }
-.content_right image{
-  display: inline;
+.to{
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-left: 8px;
+  position: relative;
+  top: 2px;
 }
-
-
-
 .content_intruduce{
   width: 90%;
   margin:0 auto;
@@ -62,7 +61,7 @@ swiper{
 }
 .hotelName{
   font-weight: 550;
-  font-size: 20px;
+  font-size: 18px;
   display: inline-block;
   margin-bottom: 5px;
 }
@@ -76,18 +75,17 @@ swiper{
   right: 0px;
   bottom: 0px;
   color: #666;
+  font-size: 16px;
 }
 .hotelIntro{
   display: inline-block;
   width: 70%;
   color: #666;
   line-height: 30px;
+  font-size: 16px;
 }
-
-
-
 .content_time{
-  width: 96%;
+  width: 98%;
   margin: 0 auto;
   height: 80px;
 }
@@ -125,10 +123,6 @@ swiper{
 .time_total image{
   display: inline;
 }
-
-
-
-
 .room{
   height: 130px;
   width: 90%;
@@ -172,31 +166,36 @@ swiper{
   border: 2px solid rgb(235,148,19);
   color: #fff;
 }
-
-
 .modal-box{
-  position:fixed;
+  position:absolute;
   width:100%;
-  height:100%;
-  top:0px;
-  background:rgba(0,0,0,0.4);
-  overflow: hidden;
+  height: 100%;
+  background:rgba(0,0,0,0.6); 
   }
 .modal-body{
+  height: 500px;
   margin-top: 300px;
   width: 100%;
-  background: #fff;
+  
   }
 .hotelEvluate{
-  width: 95%;
-  margin: 5px auto;
+  padding-top: 15px;
+  background: #fff;
+  width: 100%;
   position:relative;
 }
+.evulateNum{
+  margin-left: 20px;
+}
 .evluate{
-  width: 100%;
+  width: 95%;
+  margin: 0 auto;
+  height: 100%;
+  margin-top: 15px;
 }
 .evluate_content{
   margin-bottom: 10px;
+  position: relative;
 }
 .evluate_left{
   width: 20%;
@@ -232,60 +231,19 @@ swiper{
   clear: both;
   width: 90%;
   margin-bottom: 15px;
-   text-indent: 30px; 
+  text-indent: 30px; 
 }
 .evl_detail text{
    line-height: 25px; 
    color: #666;   
    font-style:normal;
+   font-size: 15px;
+}
+.close{
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 30px; 
 }
 
-
-/* .footNav{
-  border-top: 1px solid black;
-  position: fixed; 
-  bottom: 0px; 
-  z-index: 99;
-  width: 100%;
-  height: 60px;
-  text-align: center;
-}
-.footNav text{
-   line-height: 30px;
-   font-size: 13px;
-}
-.footLeft{
-  border-right: 1px solid black;
-  height: 60px;
-  background: gray;
-  float: left;
-  width: 33%;
-}
-.footMiddle{
-  border-right: 1px solid black;
-  height: 60px;
-  background: gray;
-  float: left;
-  width: 33%;
-}
-.footRight{
-  border-right: 1px solid black;
-  height: 60px;
-  background: gray;
-  float: left;
-  width: 33%;
-}
-.footRight text{
-  font-size: 20px;
-  line-height: 60px;
-}
- */
-/* 
-.instea{
-  height: 61px;
-  width: 100%;
-}*/
-/* .content_left{
-  width: 70%;
-  float: left;
-}  */

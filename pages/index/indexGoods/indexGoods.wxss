@@ -18,7 +18,8 @@
 .loca image{
   float: left;
   margin-top: 3rpx;
-  /* border: 3rpx solid #000; */
+  position: relative;
+  bottom: 2px;
 }
 .location{
   width: 80%;
@@ -44,15 +45,17 @@
 .hotel{
   margin-left: auto;
   margin-right: auto; 
-  /* margin-bottom: 20rpx; */
   width: 95%;
   height: 212rpx; 
   border-bottom: 3rpx solid #F3F3F3;
 }
+.hotel navigator{
+  height: 100%;
+  width: 100%;
+}
 .hotel_{
   margin-left: auto;
   margin-right: auto; 
-  /* margin-bottom: 20rpx; */
   width: 95%;
   height: 212rpx; 
   border-bottom: 3rpx solid #F3F3F3;

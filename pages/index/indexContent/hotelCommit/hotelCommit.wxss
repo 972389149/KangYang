@@ -72,6 +72,7 @@ page {
   font-size: 35rpx;
   /* font-weight: bold; */
   color: #acacac;
+  line-height: 48rpx;
 }
 .underTop{
   width: 100%; 
@@ -108,26 +109,26 @@ page {
   position: fixed;
   bottom: 0rpx;
   border: 2rpx solid #e4e4e4;
-  height: 80rpx;
+  height: 55px;
   width: 100%;
 }
 .totalMoney{
   float: left;
   width: 50%;
-  height: 62rpx;
+  height: 55px;
   text-align: center;
   background-color: #ffffff;
-  padding-top: 18rpx;
   font-size: 30rpx;
   color: #eb9413;
+  line-height: 55px;
 }
 .commit{
   float: right;
   width: 50%;
-  height: 65rpx;
-  padding-top: 25rpx;
+  height: 55px;
   text-align: center;
   font-size: 30rpx;
   color: #ffffff;
   background-color: #eb9413;
+  line-height: 55px;
 }

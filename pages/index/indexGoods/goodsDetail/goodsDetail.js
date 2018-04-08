@@ -16,6 +16,7 @@ Page({
     name:"七天酒店",
     intro:"酒店介绍酒店介绍酒店介绍酒店介绍酒店介绍酒店介绍酒店介绍酒店介绍",
     evulateNum:90,
+    flag:true,
     reviewList:[
       {
       "username":"啊****",
@@ -36,5 +37,15 @@ Page({
       id: options.id
     })
     // console.log(this.data.id)
+  },
+  modalcnt: function () {
+    this.setData({
+      flag: false
+    });
+  },
+  modalclose: function () {
+    this.setData({
+      flag: true
+    });
   }
 }) 
