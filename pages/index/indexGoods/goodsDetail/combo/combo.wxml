@@ -4,25 +4,23 @@
     <image src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
   </view>
   <view class='header_right'>
-     <view class='productName'>商品名称</view>
-     <view class='productPice'>￥300元</view>
-     <view class='combo'>已选：套餐一</view>
+     <view class='productName'>{{name}}</view>
+     <view class='productPice'>￥{{price}}元</view>
+     <view class='combo'>已选：{{packName}}</view>
   </view>
 </view>
 <view class='comboSelect'>
   <view class='comboTitle'>选择套餐</view>
-  <button size="mini" class='unselect select'>套餐一</button>
-  <button size="mini" class='unselect'>套餐二</button>
-  <button size="mini" class='unselect'>套餐三</button>
-  <view class='comboIntro'>套餐介绍套餐介绍套餐介绍套餐介绍套餐介绍套餐介绍套餐介绍套餐介绍套餐介绍套餐介绍       </view>
+  <button size="mini" class='unselect {{flag==idx?"select":""}}' wx:for="{{packArr}}" wx:key="fzhbf" wx:for-index="idx" data-indexs='{{idx}}' catchtap='getMess'>{{item.name}}</button>
+  <view class='comboIntro'>{{content}}</view>
 </view>
 <view style='border-bottom: 1px solid rgb(216, 216, 216)'></view> 
 <view class='count'>
   <text class='purchase'>购买数量</text>
-  <view class='zheng'>+</view>
-  <text>1</text>
-  <view class='zheng'>-</view>
+  <view class='zheng' catchtap='add'>+</view>
+  <text>{{count}}</text>
+  <view class='zheng' catchtap='remove'>-</view>
 </view>
 <view class="footer">
-  <button>确定</button>
+  <button catchtap='getBack'>确定</button>
 </view>

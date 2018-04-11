@@ -74,6 +74,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
     // 获取index页面传送的数据
     this.setData({
       loca: options.address, // 城市名

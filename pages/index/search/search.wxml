@@ -7,17 +7,15 @@
 <view class='content'>
   <view style='background:#f7f8f8;height:70px;'>
        <view class='searchs'>
-         <input type="text" placeholder='搜索'></input>
-         <image src='../../../img/logo/search.png'></image>
+         <input type="text" placeholder='搜索' bindblur="bindKeyInput"></input>
+         <image src='../../../img/logo/search.png' catchtap='searchs'></image>
        </view>
   </view>
   <view>
     <text class='hotSearch'>热门搜索</text>
     <view class='searchWord'>
-       <view class='searchExp' wx:for="{{searchList}}" wx:key="{{nfjzbkjz}}">
-             <navigator url="{{item.link}}"> 
-                <button>{{item.name}}</button>
-             </navigator> 
+       <view class='searchExp' wx:for="{{searchList}}" wx:key="{{nfjzbkjz}}" wx:for-index="idx">
+            <button catchtap='toProductDetail' data-indexs="{{idx}}">{{item.name}}</button>
        </view>
     </view>
   </view>
