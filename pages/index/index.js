@@ -13,7 +13,8 @@ Page({
     jiuDian: app.data.iconUrl + 'HomeCon3.png', //酒店图片
     jiuFang: app.data.iconUrl + 'HomeCon4.png', //酒坊图片
     ak: "lOt3lY6gozyoMqGaEVFDhkKDq0msaiAK", //填写申请到的ak       
-    address: '广州',     //地址    
+    address: '广州',     //地址
+    addressDetail:"",    
     imgUrls:[
       {
         link:"",
@@ -76,7 +77,8 @@ Page({
       var j=addre.indexOf("市")
       addre=addre.substring(i+1,j)
       that.setData({
-        address: addre
+        address: addre,
+        addressDetail: wxMarkerData[0].address
       });
     }
     var fail = function (data) {
@@ -133,12 +135,12 @@ Page({
   },
   tohotelLists: function(e){
     wx.navigateTo({
-      url: 'indexContent/indexContent?address=' + this.data.address+'&type_='+e.target.id+'&detailAddress=广东工业大学大学...'
+      url: 'indexContent/indexContent?address=' + this.data.address + '&type_=' + e.target.id + '&detailAddress=' + this.data.addressDetail
     })
   },
   toGoodsMore: function(){
     wx.navigateTo({
-      url: 'indexGoods/indexGoods?address=' + this.data.address+'&detailAddress=广东工业大学...'
+      url: 'indexGoods/indexGoods?address=' + this.data.address + '&detailAddress='+this.data.addressDetail
     })
   },
   getGoods:function(){
