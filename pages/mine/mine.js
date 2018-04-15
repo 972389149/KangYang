@@ -115,7 +115,7 @@ Page({
             // 向后台请求成功
             success: function(res){
               if(res.data != 'error'){
-
+                console.log(res.data.openid)
                 //openid保存
                 that.setData({
                   openId_: res.data.openid

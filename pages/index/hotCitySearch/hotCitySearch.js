@@ -55,6 +55,7 @@ Page({
     }
   },
   writeCity: function(e){
+    // console.log(e.detail.value)
     this.setData({
       city: e.detail.value
     })
@@ -69,15 +70,22 @@ Page({
       return
     }
     if(this.data.city.length>=4){
-      var name = this.data.city.slice(0,3)+'...'
+      var name = this.data.city
       // 显示效果不好
-      // this.setData({
-      //   city:name
-      // })
+      this.setData({
+        city:name
+      })
     }
-    wx.navigateTo({
-      url: '../indexContent/indexContent?address=' + name + '&type_=' + this.data.type_ + '&detailAddress=暂无当前详细位置信息'
-    })
+    // })
+    if (this.data.pageType == '0') {
+      wx.navigateTo({
+        url: '../indexContent/indexContent?address=' + this.data.city + '&type_=' + this.data.type_ + '&detailAddress=暂无当前详细位置信息'
+      })
+    } else {
+      wx.navigateTo({
+        url: '../indexGoods/indexGoods?address=' + this.data.city + '&type_=' + this.data.type_ + '&detailAddress=暂无当前详细位置信息'
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面加载

@@ -6,7 +6,8 @@ App({
     url: 'https://www.holyhire.cn/ky/api/v1/', //请求路径
     imgUrl: 'https://www.holyhire.cn/ky/', //图片路径
     openId: '', //用户的openId
-    userName: '' //用户名字
+    userName: '', //用户名字
+    ordertype: 'typeA' //当前页面的订单
   },
   onLaunch: function () {
     // 展示本地存储能力
