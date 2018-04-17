@@ -4,17 +4,17 @@
       <image src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
    </view>
    <view class='header_grade'>
-      <view class='grade'>产品名称</view>
+      <view class='grade'>{{name}}</view>
       <view class='size'>
-        <text>规格/套装</text>
+        <text>{{packag}}</text>
       </view>
       <view class='graded'>
          <text>评分</text>
-         <image src='../../../img/logo/startSelect.png' class='start'></image>
-         <image src='../../../img/logo/startSelect.png' class='start'></image>
-         <image src='../../../img/logo/startSelect.png' class='start'></image>
-         <image src='../../../img/logo/startSelect.png' class='start'></image>
-         <image src='../../../img/logo/start.png' class='start'></image>
+         <image src='{{flagA?selectImg:unselectImg}}' class='start' catchtap='switchToA'></image>
+         <image src='{{flagB?selectImg:unselectImg}}' class='start' catchtap='switchToB'></image>
+         <image src='{{flagC?selectImg:unselectImg}}' class='start' catchtap='switchToC'></image>
+         <image src='{{flagD?selectImg:unselectImg}}' class='start' catchtap='switchToD'></image>
+         <image src='{{flagE?selectImg:unselectImg}}' class='start' catchtap='switchToE'></image>
          <text class='graded_rank'>好</text>
       </view>
    </view>
@@ -23,7 +23,7 @@
 <view class='comment'>
   <view class='commentTitle'>评价</view>
   <view>
-      <textarea placeholder="点击输入评论"></textarea>
+      <textarea placeholder="点击输入评论" bindinput="bindKeyInput" value="{{evalueData}}"></textarea>
   </view>
 </view>
 <view style='border-bottom: 1px solid rgb(216, 216, 216)'></view> 
@@ -31,5 +31,5 @@
    <checkbox>匿名评价</checkbox>
 </view>
 <view class='footer'>
-   <button>提交评价</button>
+   <button catchtap='submit'>提交评价</button>
 </view>
