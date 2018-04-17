@@ -64,7 +64,7 @@
   height: 40px;
 }
 .purchase{
-  margin-right: 150px;
+  margin-right: 120px;
   line-height:40px;
 }
 .zheng{

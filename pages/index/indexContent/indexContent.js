@@ -39,11 +39,18 @@ Page({
    */
   onLoad: function (options) {
     var that = this
+    var detailAddress;
+    if (options.detailAddress.length == 0){
+      detailAddress ='暂无当前详细位置信息'
+    } else if (options.detailAddress.length >= 10){
+      detailAddress = options.detailAddress.slice(0,8)+'...'
+    }else{
+      detailAddress = options.detailAddress
+    }
     // 获取index页面传送的数据
-    console.log(options.address)
     this.setData({
       loca: options.address, // 城市名
-      location: options.detailAddress, //具体位置
+      location: detailAddress, //具体位置
       type_: options.type_  //类型
     })
     console.log(options.address + ":" + options.detailAddress + ":" + options.type_)

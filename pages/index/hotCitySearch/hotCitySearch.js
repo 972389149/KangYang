@@ -1,4 +1,5 @@
 // pages/index/indexContent/hotCitySearch/hotCitySearch.js
+const app = getApp();
 Page({
 
   /**
@@ -91,17 +92,37 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this
     this.setData({
       thisCity_: options.loca,
       type_: options.searchType,
       pageType: options.pageType
     })
     // ajax请求
-    // 模拟从后台拿到的数据
-    this.setData({
-      hotCitys: ['北京', '上海', '广州', '深圳', '武汉', '重庆']
+    wx.request({
+      url: app.data.url + 'hotCityList',
+      method: 'POST',
+      dataType: 'json',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded', // 默认值
+        'charset': 'UTF - 8'
+      },
+      success: function (res) {
+        that.setData({
+          hotCitys: res.data.hotCityList
+        })
+      },
+      fail: function(err){
+        console.log(err);
+        that.setData({
+          hotCitys: ['北京', '上海', '广州', '深圳', '武汉', '重庆']
+        })
+      }
     })
-    console.log(this.data.pageType)
+    // 从后台拿到的数据
+    // this.setData({
+    //   hotCitys: ['北京', '上海', '广州', '深圳', '武汉', '重庆']
+    // })
   },
 
   /**
