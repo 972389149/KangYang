@@ -18,7 +18,7 @@
     <text>{{hotelType}}</text>
   </view>
 </view>
-<view class='underTop'>
+<!-- <view class='underTop'>
   <view class='left'>
     <text>房间数量</text>
   </view>
@@ -33,7 +33,7 @@
        </view> 
     </view>
   </view>
-</view>
+</view> -->
 <view class='underTop'>
   <view class='left'>
     <text>入住人姓名</text>
@@ -59,5 +59,5 @@
 </view>
 <view class='hotelBottom'>
   <view class='totalMoney'>总额 ： <text style='font-size: 24rpx;'>¥  </text><text style='font-size: 48rpx;'>{{total}}</text></view>
-  <view class='commit'>提交订单</view>
+  <view class='commit' catchtap='submitOrder'>提交订单</view>
 </view>

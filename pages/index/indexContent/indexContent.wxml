@@ -1,12 +1,12 @@
 <!--pages/index/indexContent/indexContent.wxml-->
   <view class='pageTop'>
-    <view class='loca'><image src='{{locaLogo}}' style='width: 25rpx;height: 36rpx;'></image><text>{{loca}}</text></view>
+    <view class='loca'><image src='{{locaLogo}}' style='width: 25rpx;height: 36rpx;'></image><text>{{_loca_}}</text></view>
     <view class='location'><button class='miniBtn' size='mini' catchtap='toHotCitySearch'>{{location}}</button></view>
   </view>
   <view class='hotel' wx:for='{{hotelItems}}' wx:for-item="items" wx:key='unique' hover-class='hotel_'>
     <navigator url='{{items.url}}'>
         <view class='image'>
-          <image src='../../../img/hotel.jpg'></image>
+          <image src='{{items.img}}'></image>
         </view>
         <view class='content'>
           <text class='hotelName'>{{items.name}}\n</text>

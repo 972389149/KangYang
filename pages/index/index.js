@@ -63,6 +63,7 @@ Page({
     duration: 1000,
   },  
   onLoad: function (options) {
+
     // console.log("定位");
     var that = this;
     //新建百度地图对象  

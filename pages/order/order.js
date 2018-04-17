@@ -13,10 +13,14 @@ Page({
     orderTypeD_: 'innerNav',
     orderTypeE_: 'innerNav',
     showOrders: true,       // 该参数用于判断订单是否为空
+    orderItems_: [], // 储存未加工的数据 
     orderItems:[] //存储页面的订单的列表
   },
   // 点击导航栏的函数
   changeNav: function (e) {
+    if (app.data.openId.length == 0) {
+      return
+    }
     switch (e.target.id){
       case "typeA":
         this.setData({
@@ -26,6 +30,7 @@ Page({
           orderTypeD_: 'innerNav',
           orderTypeE_: 'innerNav'
         })
+        app.data.orderType = 'typeA'
         this.changeOrderType('typeA')
         break
       case "typeB":
@@ -36,6 +41,7 @@ Page({
           orderTypeD_: 'innerNav',
           orderTypeE_: 'innerNav'
         })
+        app.data.orderType = 'typeB'
         this.changeOrderType('typeB')
         break
       case "typeC":
@@ -46,6 +52,7 @@ Page({
           orderTypeD_: 'innerNav',
           orderTypeE_: 'innerNav'
         })
+        app.data.orderType = 'typeC'
         this.changeOrderType('typeC')
         break
       case "typeD":
@@ -56,6 +63,7 @@ Page({
           orderTypeD_: 'innerNav innerNavChose',
           orderTypeE_: 'innerNav'
         })
+        app.data.orderType = 'typeD'
         this.changeOrderType('typeD')
         break
       case "typeE":
@@ -66,6 +74,7 @@ Page({
           orderTypeD_: 'innerNav',
           orderTypeE_: 'innerNav innerNavChose'
         })
+        app.data.orderType = 'typeE'
         this.changeOrderType('typeE')
         break
     }
@@ -83,19 +92,25 @@ Page({
         case '1':
           list_[i].status = '待支付'
           list_[i].shows = true
-          list_[i].orderBtn = true
+          list_[i].orderBtn_ = false
+          list_[i]._orderBtn = true
+          list_[i].orderBtn = false
           list_[i].showWord = false
           break
         case '2':
           list_[i].status = '已支付'
           list_[i].shows = true
-          list_[i].orderBtn = true
+          list_[i].orderBtn_ = true
+          list_[i]._orderBtn = false
+          list_[i].orderBtn = false
           list_[i].showWord = true
           break
         case '3':
           list_[i].status = '完成'
           list_[i].shows = true
-          list_[i].orderBtn = false
+          list_[i].orderBtn_ = false
+          list_[i]._orderBtn = false
+          list_[i].orderBtn = true
           list_[i].showWord = false
           break
         case '4':
@@ -118,324 +133,198 @@ Page({
     })
   },
   changeOrderType: function (type){
+    var that = this
     switch (type) {
       case 'typeA':
+        this.setData({
+          orderItems: [],
+          orderItems_: []
+        })
       // 进行ajax请求，获取全部的订单
-      // 模拟拿到的数据
-        var list_ = [{
-          productId: '1',
-          orderTime: '2018-3-14',
-          name: '如家酒店',
-          price: '500',
-          numbers: 10,
-          packages: '大床房',
-          status: '1',
-          types: '0',
-          long:'2018.1.1-1.2',
-          orderBtn: '',
-          shows: '',
-          book: '',
-          showWord: '',
-          url: ''
-        }, {
-          productId: '1',
-          orderTime: '2018-3-14',
-          name: '小叮当',
-          price: '500',
-          numbers: 10,
-          packages: '套餐A',
-          status: '1',
-          types: '1',
-          long: null,
-          orderBtn: '',
-          shows: '',
-          book: '',
-          showWord: '',
-          url: ''
-        }, {
-          productId: '1',
-          orderTime: '2018-3-14',
-          name: '如家酒店',
-          price: '500',
-          numbers: 10,
-          packages: '小床房',
-          status: '2',
-          types: '0',
-          long: '2018.1.1-1.2',
-          orderBtn: '',
-          shows: '',
-          book: '',
-          showWord: '',
-          url: ''
-        }, {
-          productId: '1',
-          orderTime: '2018-3-15',
-          name: '大叮当',
-          price: '300',
-          numbers: 1,
-          packages: '套餐B',
-          status: '2',
-          types: '1',
-          long: null,
-          orderBtn: '',
-          shows: '',
-          book: '',
-          showWord: '',
-          url: ''
-        }, {
-            productId: '1',
-            orderTime: '2018-3-14',
-            name: '如家酒店',
-            price: '500',
-            numbers: 10,
-            packages: '中床房',
-            status: '3',
-            types: '0',
-            long: '2018.1.1-1.2',
-            orderBtn: '',
-            shows: '',
-            book: '',
-            showWord: '',
-            url: ''
-        }, {
-          productId: '1',
-          orderTime: '2018-3-14',
-          name: '中叮当',
-          price: '100',
-          numbers: 2,
-          packages: '套餐C',
-          status: '3',
-          types: '1',
-          long: null,
-          orderBtn: '',
-          shows: '',
-          book: '',
-          showWord: '',
-          url: ''
-        },{
-          productId: '1',
-          orderTime: '2018-3-14',
-          name: '如家酒店',
-          price: '500',
-          numbers: 10,
-          packages: '超大床房',
-          status: '4',
-          types: '0',
-          long: '2018.1.1-1.2',
-          orderBtn: '',
-          shows: '',
-          book: '',
-          showWord: '',
-          url: ''
-        }, {
-          productId: '1',
-          orderTime: '2018-3-14',
-          name: '如家酒店',
-          price: '500',
-          numbers: 10,
-          packages: 'mini小床房',
-          status: '4',
-          types: '0',
-          long: '2018.1.1-1.2',
-          orderBtn: '',
-          shows: '',
-          book: '',
-          showWord: '',
-          url: ''
-        }, {
-          productId: '1',
-          orderTime: '2018-3-14',
-          name: 'mini小叮当',
-          price: '500',
-          numbers: 3,
-          packages: '套餐D',
-          status: '4',
-          types: '4',
-          long: null,
-          orderBtn: '',
-          shows: '',
-          book: '',
-          showWord: '',
-          url: ''
-        }]
-        var that = this
+        that.getOrder('all')
+        var list_ = that.data.orderItems_
+        // var list_ = [{
+        //   productId: '1',
+        //   orderTime: '2018-3-14',
+        //   name: '如家酒店',
+        //   price: '500',
+        //   numbers: 10,
+        //   packages: '大床房',
+        //   status: '1',
+        //   types: '0',
+        //   long:'2018.1.1-1.2',
+        //   orderBtn: '',
+        //   shows: '',
+        //   book: '',
+        //   showWord: '',
+        //   url: ''
+        // }]
         var _list = that.writeList(list_)
         this.setData({
           orderItems: _list
         })
         break
       case 'typeB':
-      // 进行ajax请求，获取待支付的订单
-        var list_ = [{
-          productId: '1',
-          orderTime: '2018-3-14',
-          name: '如家酒店',
-          price: '500',
-          numbers: 10,
-          packages: '大床房',
-          status: '1',
-          types: '0',
-          long: '2018.1.1-1.2',
-          orderBtn: '',
-          shows: '',
-          book: '',
-          showWord: '',
-          url: ''
-        }, {
-          productId: '1',
-          orderTime: '2018-3-14',
-          name: '小叮当',
-          price: '500',
-          numbers: 10,
-          packages: '套餐A',
-          status: '1',
-          types: '1',
-          long: null,
-          orderBtn: '',
-          shows: '',
-          book: '',
-          showWord: '',
-          url: ''
-        }]
-        var that = this
+        this.setData({
+          orderItems: [],
+          orderItems_: []
+        })
+        // 进行ajax请求，获取待支付的订单
+        that.getOrder('waitPay')
+        var list_ = that.data.orderItems_
+        // var list_ = [{
+        //   productId: '1',
+        //   orderTime: '2018-3-14',
+        //   name: '如家酒店',
+        //   price: '500',
+        //   numbers: 10,
+        //   packages: '大床房',
+        //   status: '1',
+        //   types: '0',
+        //   long: '2018.1.1-1.2',
+        //   orderBtn: '',
+        //   shows: '',
+        //   book: '',
+        //   showWord: '',
+        //   url: ''
+        // }]
         var _list = that.writeList(list_)
         this.setData({
           orderItems: _list
         })
         break
       case 'typeC':
-      // 进行ajax请求，获取已支付的订单
-        var list_ = [{
-          productId: '1',
-          orderTime: '2018-3-14',
-          name: '如家酒店',
-          price: '500',
-          numbers: 10,
-          packages: '小床房',
-          status: '2',
-          types: '0',
-          long: '2018.1.1-1.2',
-          orderBtn: '',
-          shows: '',
-          book: '',
-          showWord: '',
-          url: ''
-        }, {
-          productId: '1',
-          orderTime: '2018-3-15',
-          name: '大叮当',
-          price: '300',
-          numbers: 1,
-          packages: '套餐B',
-          status: '2',
-          types: '1',
-          long: null,
-          orderBtn: '',
-          shows: '',
-          book: '',
-          showWord: '',
-          url: ''
-        }]
-        var that = this
+        this.setData({
+          orderItems: [],
+          orderItems_: []
+        })
+        // 进行ajax请求，获取已支付的订单
+        that.getOrder('waitDelivery')
+        var list1_ = that.data.orderItems_
+        that.getOrder('waitComfirm')
+        var list2_ = that.data.orderItems_
+        var list_ = list1_ + list2_
+        // var list_ = [{
+        //   productId: '1',
+        //   orderTime: '2018-3-14',
+        //   name: '如家酒店',
+        //   price: '500',
+        //   numbers: 10,
+        //   packages: '小床房',
+        //   status: '2',
+        //   types: '0',
+        //   long: '2018.1.1-1.2',
+        //   orderBtn: '',
+        //   shows: '',
+        //   book: '',
+        //   showWord: '',
+        //   url: ''
+        // }]
         var _list = that.writeList(list_)
         this.setData({
           orderItems: _list
         })
         break
       case 'typeD':
-      // 进行ajax请求，获取完成的订单
-        var list_ = [{
-          productId: '1',
-          orderTime: '2018-3-14',
-          name: '如家酒店',
-          price: '500',
-          numbers: 10,
-          packages: '中床房',
-          status: '3',
-          types: '0',
-          long: '2018.1.1-1.2',
-          orderBtn: '',
-          shows: '',
-          book: '',
-          showWord: '',
-          url: ''
-        }, {
-          productId: '1',
-          orderTime: '2018-3-14',
-          name: '中叮当',
-          price: '100',
-          numbers: 2,
-          packages: '套餐C',
-          status: '3',
-          types: '1',
-          long: null,
-          orderBtn: '',
-          shows: '',
-          book: '',
-          showWord: '',
-          url: ''
-        }]
-        var that = this
+        this.setData({
+          orderItems: [],
+          orderItems_: []
+        })
+        // 进行ajax请求，获取完成的订单
+        that.getOrder('waitReview')
+        var list1_ = that.data.orderItems_
+        that.getOrder('finish')
+        var list2_ = that.data.orderItems_
+        var list_ = list1_ + list2_
+        // var list_ = [{
+        //   productId: '1',
+        //   orderTime: '2018-3-14',
+        //   name: '如家酒店',
+        //   price: '500',
+        //   numbers: 10,
+        //   packages: '中床房',
+        //   status: '3',
+        //   types: '0',
+        //   long: '2018.1.1-1.2',
+        //   orderBtn: '',
+        //   shows: '',
+        //   book: '',
+        //   showWord: '',
+        //   url: ''
+        // }]
         var _list = that.writeList(list_)
         this.setData({
           orderItems: _list
         })
         break
       case 'typeE':
-      // 进行ajax请求，获取退款的订单
-        var list_ = [{
-          productId: '1',
-          orderTime: '2018-3-14',
-          name: '如家酒店',
-          price: '500',
-          numbers: 10,
-          packages: '超大床房',
-          status: '4',
-          types: '0',
-          long: '2018.1.1-1.2',
-          orderBtn: '',
-          shows: '',
-          book: '',
-          showWord: '',
-          url: ''
-        }, {
-          productId: '1',
-          orderTime: '2018-3-14',
-          name: '如家酒店',
-          price: '500',
-          numbers: 10,
-          packages: 'mini小床房',
-          status: '4',
-          types: '0',
-          long: '2018.1.1-1.2',
-          orderBtn: '',
-          shows: '',
-          book: '',
-          showWord: '',
-          url: ''
-        }, {
-          productId: '1',
-          orderTime: '2018-3-14',
-          name: 'mini小叮当',
-          price: '500',
-          numbers: 3,
-          packages: '套餐D',
-          status: '4',
-          types: '4',
-          long: null,
-          orderBtn: '',
-          shows: '',
-          book: '',
-          showWord: '',
-          url: ''
-        }]
-        var that = this
+        this.setData({
+          orderItems: [],
+          orderItems_: []
+        })
+        // 进行ajax请求，获取退款的订单
+        that.getOrder('delete')
+        var list_ = that.data.orderItems_
+        // var list_ = [{
+        //   productId: '1',
+        //   orderTime: '2018-3-14',
+        //   name: '如家酒店',
+        //   price: '500',
+        //   numbers: 10,
+        //   packages: '超大床房',
+        //   status: '4',
+        //   types: '0',
+        //   long: '2018.1.1-1.2',
+        //   orderBtn: '',
+        //   shows: '',
+        //   book: '',
+        //   showWord: '',
+        //   url: ''
+        // }]
         var _list = that.writeList(list_)
         this.setData({
           orderItems: _list
         })
         break
     }
+  },
+  // 请求订单信息
+  getOrder: function(num){
+    // 拉起模态框
+    wx.showLoading({
+      title: '拼命加载中...'
+    })
+    var that = this
+    wx.request({
+      url: app.data.url + 'orderList',
+      method: 'POST',
+      dataType: 'json',
+      data: {
+        openid: app.data.openId,
+        // start 和 count 需要更改
+        start: 0,
+        count: 100,
+        orderType: num
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded', // 默认值
+        'charset': 'UTF - 8'
+      },
+      // 向后台请求成功
+      success: function (res) {
+        console.log('获取成功')
+        that.setData({
+          orderItems_: res.data
+        })
+        // 关闭模态框
+        wx.hideLoading()
+      },
+      fail: function (err) {
+        console.log(err)
+        // 关闭模态框
+        wx.hideLoading()
+      }
+    })
   },
   // 订单物流跳转
   toLogistics: function(e){
@@ -453,150 +342,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    var list_ = [{
-      productId: '1',
-      orderTime: '2018-3-14',
-      name: '如家酒店',
-      price: '500',
-      numbers: 10,
-      packages: '大床房',
-      status: '1',
-      types: '0',
-      long: '2018.1.1-1.2',
-      orderBtn: '',
-      shows: '',
-      book: '',
-      showWord: ''
-    }, {
-      productId: '1',
-      orderTime: '2018-3-14',
-      name: '小叮当',
-      price: '500',
-      numbers: 10,
-      packages: '套餐A',
-      status: '1',
-      types: '1',
-      long: null,
-      orderBtn: '',
-      shows: '',
-      book: '',
-      showWord: ''
-    }, {
-      productId: '1',
-      orderTime: '2018-3-14',
-      name: '如家酒店',
-      price: '500',
-      numbers: 10,
-      packages: '小床房',
-      status: '2',
-      types: '0',
-      long: '2018.1.1-1.2',
-      orderBtn: '',
-      shows: '',
-      book: '',
-      showWord: ''
-    }, {
-      productId: '1',
-      orderTime: '2018-3-15',
-      name: '大叮当',
-      price: '300',
-      numbers: 1,
-      packages: '套餐B',
-      status: '2',
-      types: '1',
-      long: null,
-      orderBtn: '',
-      shows: '',
-      book: '',
-      showWord: ''
-    }, {
-      productId: '1',
-      orderTime: '2018-3-14',
-      name: '如家酒店',
-      price: '500',
-      numbers: 10,
-      packages: '中床房',
-      status: '3',
-      types: '0',
-      long: '2018.1.1-1.2',
-      orderBtn: '',
-      shows: '',
-      book: '',
-      showWord: ''
-    }, {
-      productId: '1',
-      orderTime: '2018-3-14',
-      name: '中叮当',
-      price: '100',
-      numbers: 2,
-      packages: '套餐C',
-      status: '3',
-      types: '1',
-      long: null,
-      orderBtn: '',
-      shows: '',
-      book: '',
-      showWord: ''
-    }, {
-      productId: '1',
-      orderTime: '2018-3-14',
-      name: '如家酒店',
-      price: '500',
-      numbers: 10,
-      packages: '超大床房',
-      status: '4',
-      types: '0',
-      long: '2018.1.1-1.2',
-      orderBtn: '',
-      shows: '',
-      book: '',
-      showWord: ''
-    }, {
-      productId: '1',
-      orderTime: '2018-3-14',
-      name: '如家酒店',
-      price: '500',
-      numbers: 10,
-      packages: 'mini小床房',
-      status: '4',
-      types: '0',
-      long: '2018.1.1-1.2',
-      orderBtn: '',
-      shows: '',
-      book: '',
-      showWord: ''
-    }, {
-      productId: '1',
-      orderTime: '2018-3-14',
-      name: 'mini小叮当',
-      price: '500',
-      numbers: 3,
-      packages: '套餐D',
-      status: '4',
-      types: '4',
-      long: null,
-      orderBtn: '',
-      shows: '',
-      book: ''
-    }]
-    var that = this
-    var _list = that.writeList(list_)
-    this.setData({
-      orderItems: _list
-    })
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var that = this
     if(app.data.openId.length == 0){
       this.setData({
         _login_: false
@@ -605,6 +365,10 @@ Page({
       this.setData({
         _login_: true
       })
+      if(app.data.orderType == undefined){
+        app.data.orderType = 'typeA'
+      }
+      this.changeOrderType(app.data.orderType)
     }
   },
 

@@ -38,8 +38,9 @@
     <text class='showWord' wx:if='{{items.showWord}}'>如需退款请联系客服</text>
     <view class='express' wx:if='{{items.shows}}'>
       <view class='inExpress'>
-         <button size='mini' plain='true' wx:if='{{items.orderBtn}}' catchtap='toLogistics' id='{{items.productId}}'>查看物流</button> 
-         <navigator url='evulate/evulate'><button size='mini' plain='true' wx:if='{{!items.orderBtn}}' catchtap='toEvulate' id='{{items.orderBtn}}'>评价</button></navigator>
+         <button size='mini' plain='true' wx:if='{{items.orderBtn_}}' catchtap='toLogistics' id='{{items.productId}}'>查看物流</button>
+         <button size='mini' plain='true' wx:if='{{items._orderBtn}}' catchtap='toPay' id='{{items.productId}}'>付款</button> 
+         <navigator url='evulate/evulate'><button size='mini' plain='true' wx:if='{{items.orderBtn}}' catchtap='toEvulate' id='{{items.productId}}'>评价</button></navigator>
       </view>
     </view>
   </view>
