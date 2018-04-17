@@ -165,7 +165,7 @@ Page({
           })
         }
         for (var i = 0; i < 7; i++) {
-          that.data.goodDatas[i].link = "indexGoods/goodsDetail/goodsDetail?" + _data[i].productId;
+          that.data.goodDatas[i].link = "indexGoods/goodsDetail/goodsDetail?id=" + _data[i].productId;
           that.data.goodDatas[i].name = _data[i].name;
           that.data.goodDatas[i].img = _data[i].img;
         }

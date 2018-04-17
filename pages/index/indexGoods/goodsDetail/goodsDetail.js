@@ -24,24 +24,30 @@ Page({
     productData:{}
   },
   onLoad: function (options) {
-    // console.log(options)
+    this.setData({
+      id: options.id,
+    })
+    console.log(options)
     if(options.packName){
       this.setData({
         packName:options.packName
       })
-    }
-    this.setData({
-      id: options.id,
-      count:options.count
-    })
-    // console.log(this.data.id)
+    }   
     this.getReview()
     this.getProduct()
   },
   modalcnt: function () {
-    this.setData({
-      flag: false
-    });
+    if (this.data.reviewNumber == 0) {
+      wx.showToast({
+        title: '暂时没有更多的评论！',
+        icon: "none"
+      })
+    }
+    else {
+      this.setData({
+        flag: false
+      });
+    }
   },
   modalclose: function () {
     this.setData({
@@ -55,7 +61,7 @@ Page({
       method: 'POST',
       dataType: 'json',
       data: {
-        productId: 24
+        productId: this.data.id
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded', // 默认值
@@ -96,7 +102,7 @@ Page({
       method: 'POST',
       dataType: 'json',
       data: {
-        productId:24
+        productId:this.data.id
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded', // 默认值

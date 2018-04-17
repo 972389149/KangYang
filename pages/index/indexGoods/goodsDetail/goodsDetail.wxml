@@ -52,7 +52,7 @@
           <text class='evulateNum'>评价（{{reviewNumber}}）</text>
           <image src='https://www.holyhire.cn/ky/img/icon/phoneLogin.png' class='close' bindtap='modalclose'></image>
         </view>
-        <view class='evluate' wx:for="{{reviewList}}" wx:key="nvzbv" wx:for-item="item">
+        <view class='evluate' wx:for="{{reviewList}}" wx:key="nvzgzttbv" wx:for-item="item">
           <view class='evluate_left'>
               <view class='evluate_pic'>
                 <image src="http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg"></image>
@@ -70,7 +70,7 @@
       </view>
     </view>
  </view>
- <view class='footer' wx:for="{{detailList}}" wx:key="nfljih">
+ <view class='footer' wx:for="{{detailList}}" wx:key="nfljeestih">
     <image src="{{'https://www.holyhire.cn/ky/'+item.img}}"></image>
  </view>
  <view class='instea'></view>
