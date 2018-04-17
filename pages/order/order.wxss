@@ -102,7 +102,7 @@ page {
 }
 .orderStatus{
   font-size: 26rpx;
-  line-height: 49rpx;
+  /* line-height: 49rpx; */
 }
 .orderImg image{
   width: 162rpx;

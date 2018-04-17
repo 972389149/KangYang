@@ -16,7 +16,9 @@ Page({
     userName: '', //入住人姓名
     phoneNumber: '',  //手机号码
     roomCount: 0, //房间总数量
-    total: 0  //总金额
+    total: 0,  //总金额
+    controlCommit: false, //控制是否可以点击提交
+    commitAgain: false //控制不能多次下单
   },
   changeRoom: function(e){
     var that = this
@@ -38,7 +40,15 @@ Page({
   },
   submitOrder: function(){
     var that = this
-    if (this.data.total > 0 && this.data.hotelId && this.data.productId  && this.data.userName.length > 1 && this.data.phoneNumber.length == 11){
+    if (this.data.commitAgain){
+      wx.showToast({
+        title: '您已经提交过该订单',
+        icon: 'none',
+        duration: 2000
+      })
+      return 
+    }
+    if (this.data.controlCommit && this.data.hotelId && this.data.productId  && this.data.userName.length > 1 && this.data.phoneNumber.length == 11){
       wx.showLoading({
         title: '提交订单中...'
       })
@@ -62,12 +72,19 @@ Page({
         },
         success: function (res) {
           if(res.data.success == 1){
-
+            that.setData({
+              commitAgain: true
+            })
           }else{
             
           }
           // 关闭模态框
           wx.hideLoading()
+          wx.showToast({
+            title: '订单提交成功',
+            icon: 'none',
+            duration: 2000
+          })
         },
         complete: function () {
           wx.hideLoading()
@@ -117,7 +134,8 @@ Page({
       },
       success: function (res) {
         that.setData({
-          total: res.data.price
+          total: res.data.price,
+          controlCommit: true
         })
         // 关闭模态框
         wx.hideLoading()
@@ -176,5 +194,15 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  writeInName: function(e){
+    this.setData({
+      userName: e.detail.value
+    })
+  },
+  writeInNumber: function (e) {
+    this.setData({
+      phoneNumber: e.detail.value
+    })
   }
 })

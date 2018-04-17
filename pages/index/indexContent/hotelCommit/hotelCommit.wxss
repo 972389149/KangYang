@@ -52,7 +52,7 @@ page {
   font-size: 24rpx;
   margin-left: 21rpx;
   margin-top: 40rpx;
-   /* border: 2rpx solid #000;  */
+    /* border: 2rpx solid #000;   */
 }
 .dateOut{
   float: left;
@@ -60,7 +60,7 @@ page {
   font-size: 24rpx;
   margin-left: 21rpx;
   margin-top: 40rpx;
-   /* border: 2rpx solid #000;  */
+    /* border: 2rpx solid #000;   */
 }
 .countBtn{
   width: 48rpx;
