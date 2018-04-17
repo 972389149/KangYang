@@ -36,7 +36,7 @@
   <view class='footNav'>
     <view class='footLeft'> 
       <view>
-          <navigator url='combo/combo'><text>{{packName}}</text></navigator>
+          <navigator url='combo/combo?id={{id}}&price={{promotePrice}}'><text>{{packName}}</text></navigator>
       </view>
     </view>
     <view class='footRight'>
