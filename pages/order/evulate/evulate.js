@@ -1,18 +1,42 @@
 // pages/order/evulate/evulate.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    // 传过来的数据
+     name:"七天酒店",
+     packag:"官方套餐",
+     productId: "",
+     openId: "wx3dedb58f5a2cf074",
+    //  openId:app.data.openId,
+     orderId:"",
+
+     selectImg:"../../../img/logo/startSelect.png",
+     unselectImg:"../../../img/logo/start.png",
+     flagA:false,
+     flagB: false,
+     flagC: false,
+     flagD: false,
+     flagE: false,
+     mark:0,
+     evalueData:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    //订单页面传过来的参数
+    console.log(options)
+    // this.setData({
+    //   name: options.name,
+    //   packag: options.package,
+    //   productId:options.productId,
+    //   orderId: options.orderId,
+    // })
   },
 
   /**
@@ -62,5 +86,114 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  switchToA:function(){
+      this.setData({
+        flagA:!this.data.flagA
+      })
+      if (this.data.flagA== false) {
+        this.setData({
+          flagB:false,
+          flagC: false,
+          flagD: false,
+          flagE: false
+        })
+      }
+   },
+  switchToB: function () {
+    this.setData({
+      flagA: true,
+      flagB: !this.data.flagB
+    })
+    if (this.data.flagB== false) {
+      this.setData({
+        flagC:false,
+        flagD: false,
+        flagE: false
+      })
+    }
+  },
+  switchToC: function () {
+    this.setData({
+      flagA: true,
+      flagB: true,
+      flagC: !this.data.flagC
+    })
+    if (this.data.flagC == false) {
+      this.setData({
+        flagD: false,
+        flagE: false
+      })
+    }
+  },
+  switchToD: function () {  
+    this.setData({
+      flagA: true,
+      flagB: true,
+      flagC: true,
+      flagD: !this.data.flagD
+    })
+    if (this.data.flagD == false) {
+      this.setData({
+        flagE: false
+      })
+    }
+  },
+  switchToE: function () {
+    this.setData({
+      flagA: true,
+      flagB: true,
+      flagC: true,
+      flagD: true,
+      flagE: !this.data.flagE
+    })
+  },
+  bindKeyInput: function (e) {
+    // console.log(e.detail.value)
+    this.setData({
+      evalueData:e.detail.value
+    })
+  },
+  submit:function(){
+    var count = 0
+    if(this.data.flagA){
+      count++
+    }
+    if (this.data.flagB) {
+      count++
+    }
+    if (this.data.flagC) {
+      count++
+    }
+    if (this.data.flagD) {
+      count++
+    }
+    if (this.data.flagE) {
+      count++
+    }
+    this.setData({
+      mark:count
+    })
+    // console.log(this.data.mark)
+    // console.log(this.data.evalueData)
+    wx.request({
+      url: app.data.url + 'addReview',
+      method: 'POST',
+      dataType: 'json',
+      data: {
+        productId:this.data.product,
+        openId:this.data.openId,
+        content: this.data.evalueData,
+        orderId:this.data.orderId,
+        mark:this.data.mark
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded', // 默认值
+        'charset': 'UTF - 8'
+      },
+      success:function(res){
+          console.log(res.data)
+      }
+    })
   }
 })
