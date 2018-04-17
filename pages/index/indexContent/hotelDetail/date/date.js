@@ -16,7 +16,8 @@ Page({
     flag:true,
     _flag:true,
     dayOut:"",
-    monthOut:""
+    monthOut:"",
+    id:""
   },
   onLoad: function (options) {
     let now = new Date();
@@ -30,7 +31,8 @@ Page({
       day:day-1,
       dayNum:day-1,
       monthOut:options.monthOut,
-      dayOut:options.dayOut
+      dayOut:options.dayOut,
+      id:options.id
     })
   },
   dateInit: function (setYear, setMonth) {
@@ -119,7 +121,7 @@ Page({
         dayItem: e.currentTarget.dataset.item
       })
       wx.redirectTo({
-        url: '../hotelDetail?monthIn=' + this.data.month + "&dayIn=" + this.data.dayItem,
+        url: '../hotelDetail?monthIn=' + this.data.month + "&dayIn=" + this.data.dayItem + "&id=" + this.data.id,
       })
     }
     else{
@@ -132,7 +134,7 @@ Page({
           dayItem: e.currentTarget.dataset.item
         })
         wx.redirectTo({
-          url: '../hotelDetail?monthIn=' + this.data.month + "&dayIn=" + this.data.dayItem+"&monthOut="+this.data.monthOut+"&dayOut="+this.data.dayOut,
+          url: '../hotelDetail?monthIn=' + this.data.month + "&dayIn=" + this.data.dayItem + "&monthOut=" + this.data.monthOut + "&dayOut=" + this.data.dayOut + "&id=" + this.data.id,
         })
       }   
     }  

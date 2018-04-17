@@ -89,7 +89,12 @@ Page({
         _this.setData({
           list:res.data
         });
+        // console.log(_this.data)
         console.log(_this.data.list)
+        var list = JSON.stringify(_this.data.list);
+        wx.navigateTo({
+          url: 'searchData/sarchData?list=' + list,
+        })
       }
     })
   },

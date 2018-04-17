@@ -41,7 +41,7 @@ Page({
       this.setData({
         dayIn:options.dayIn,
         monthIn:options.monthIn,
-        dayOut: day,
+        dayOut: day+1,
         monthOut: month,
         _flag:true
       })
@@ -61,7 +61,7 @@ Page({
       this.setData({
         dayIn: options.dayIn,
         monthIn: options.monthIn,
-        dayOut: day,
+        dayOut: day+1,
         monthOut: month,
         _flag: true
       })
@@ -71,7 +71,7 @@ Page({
       this.setData({
         dayIn: day,
         monthIn:month,
-        dayOut: day,
+        dayOut: day+1,
         monthOut: month
       })
       this.getRoom()
@@ -131,7 +131,7 @@ Page({
   },
   toIn:function(){
    wx.redirectTo({
-     url: 'date/date?monthOut='+this.data.monthOut+"&dayOut="+this.data.dayOut,
+     url: 'date/date?monthOut='+this.data.monthOut+"&dayOut="+this.data.dayOut+"&id="+this.data.id,
    })
   },
   toOut:function(){
@@ -142,7 +142,7 @@ Page({
     //   })
     // }
     wx.redirectTo({
-      url: 'dateTwo/dateTwo?monthIn=' + this.data.monthIn + "&dayIn=" + this.data.dayIn,
+      url: 'dateTwo/dateTwo?monthIn=' + this.data.monthIn + "&dayIn=" + this.data.dayIn + "&id=" + this.data.id,
     })
   },
   getRoom:function(){
@@ -221,6 +221,13 @@ Page({
       return ;
     }
     // console.log(e)
+    if (this.data.monthIn == this.data.monthOut && this.data.dayIn == this.data.dayOut){
+      wx.showToast({
+        title: '入住时间与离店时间不能相同，请重新选择！',
+        icon: "none"
+      })
+      return;
+    }
     wx.navigateTo({
       url: '../hotelCommit/hotelCommit?hotelName=' + this.data.name + "&hotelMoney=" + this.data.roomList[e.currentTarget.dataset.indexs].promotePrice + "&hotelId=" + this.data.id + "&productId=" + this.data.roomList[e.currentTarget.dataset.indexs].productId + "&dateIn=2018-" + this.data.monthIn + "-" + this.data.dayIn + "&dateOut=2018-" + this.data.monthOut + "-" + this.data.dayOut + "&hotelType=" + this.data.roomList[e.currentTarget.dataset.indexs].name + "&imgSrc=" +this.data.roomList[e.currentTarget.dataset.indexs].img
     })
