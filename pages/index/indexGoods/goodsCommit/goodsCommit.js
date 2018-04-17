@@ -12,23 +12,24 @@ Page({
     address: '点击填写', 
     goodCount: 0, //商品数量
     productId: 0, //商品Id
-    hotelId: 0, //酒店Id
+    packageId: 0, //套餐Id
     imgSrc: '', //图片路径
     total: 0,
     userName: 0,
     telNumber: 0,
-    detailAddress: 0
+    detailAddress: 0,
+    commitAgain: false
   },
   changeGood: function (e) {
     if (e.target.id == 1) {
-      var goodA = this.data.goodCount + 1
+      var goodA = parseInt(this.data.goodCount) + 1
       // var total_ = this.data.goodMoney * goodA
       this.setData({
         goodCount: goodA
       })
       this.getPrice()
     } else if (e.target.id == 0 && this.data.goodCount > 0) {
-      var goodB = this.data.goodCount - 1
+      var goodB = parseInt(this.data.goodCount) - 1
       // var total_ = this.data.goodMoney * goodB
       this.setData({
         goodCount: goodB
@@ -47,7 +48,7 @@ Page({
       goodName: options.goodName,  
       goodMoney: options.goodMoney,
       goodType: options.goodType,
-      hotelId: options.hotelId,
+      packageId: options.packageId,
       productId: options.productId,
       goodCount: options.goodCount,
       imgSrc: app.data.imgUrl + options.imgSrc
@@ -65,7 +66,7 @@ Page({
       dataType: 'json',
       data: {
         openid: app.data.openId,
-        hotelId: that.data.hotelId,
+        packageId: that.data.packageId,
         productId: that.data.productId,
         number: that.data.goodCount
       },
@@ -105,11 +106,19 @@ Page({
     })
   },
   submitOrder: function(){
+    if (this.data.commitAgain){
+      wx.showToast({
+        title: '您已经提交过该订单',
+        icon: 'none',
+        duration: 2000
+      })
+      return 
+    }
     wx.showLoading({
       title: '提交订单中'
     })
     var that = this
-    if (this.data.totle > 0 && this.data.userName != 0 && this.data.userName != 0 && this.data.telNumber != 0 && this.data.detailAddress != 0){
+    if (this.data.total > 0 && this.data.userName != 0 && this.data.telNumber != 0 && this.data.detailAddress != 0){
       wx.request({
         url: app.data.url + 'productOrder',
         method: 'POST',
@@ -119,9 +128,10 @@ Page({
           productId: that.data.productId,
           user: that.data.userName,
           phone: that.data.telNumber,
-          address: that.data.detailAddress,
-          price: that.data.price,
-          commend: '无'
+          location: that.data.detailAddress,
+          price: that.data.total,
+          packageId: that.data.packageId,
+          number: that.data.goodCount
         },
         header: {
           'content-type': 'application/x-www-form-urlencoded', // 默认值
@@ -129,6 +139,9 @@ Page({
         },
         success: function (res) {
           if (res.data.success == 1){
+            that.setData({
+              commitAgain: true
+            })
             console.log('提交订单成功')
           }else{
             console.log('提交订单失败')

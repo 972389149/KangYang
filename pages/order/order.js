@@ -81,15 +81,19 @@ Page({
   },
   writeList: function(list_){
     for (var i = 0; i < list_.length; i++) {
-      if (list_[i].types == '0') {
+      if (list_[i].type == '0') {
         list_[i].book = true
+        list_[i].hotel_ = false
         list_[i].url = '../index/indexContent/hotelDetail/hotelDetail?id=' + list_[i].productId
-      } else if (list_[i].types == '1') {
+        list_[i].long = list_[i].long.slice(2, 10) +' 到 '+ list_[i].long.slice(24,32)
+      } else if (list_[i].type == '1') {
         list_[i].book = false
+        list_[i].hotel_ = true
         list_[i].url = '../index/indexGoods/goodsDetail/goodsDetail?id=' + list_[i].productId
       }
+      list_[i].img = app.data.imgUrl + list_[i].img
       switch (list_[i].status) {
-        case '1':
+        case '待支付':
           list_[i].status = '待支付'
           list_[i].shows = true
           list_[i].orderBtn_ = false
@@ -97,30 +101,102 @@ Page({
           list_[i].orderBtn = false
           list_[i].showWord = false
           break
-        case '2':
-          list_[i].status = '已支付'
+        case '待配送':
+          list_[i].status = '待配送'
           list_[i].shows = true
-          list_[i].orderBtn_ = true
+          list_[i].orderBtn_ = false
           list_[i]._orderBtn = false
           list_[i].orderBtn = false
           list_[i].showWord = true
           break
-        case '3':
-          list_[i].status = '完成'
+        case '待确认':
+          list_[i].status = '待确认'
           list_[i].shows = true
-          list_[i].orderBtn_ = false
+          list_[i].orderBtn_ = true
+          list_[i].orderBtn__ = false
+          list_[i].orderBtn___ = true
+          list_[i]._orderBtn = false
+          list_[i].orderBtn = false
+          list_[i].showWord = true
+          break
+        case '待评价':
+          list_[i].status = '待评价'
+          list_[i].shows = true
+          list_[i].orderBtn_ = true
+          list_[i].orderBtn__ = true
+          list_[i].orderBtn___ = false
+          list_[i]._orderBtn = false
+          list_[i].orderBtn = false
+          list_[i].showWord = true
+          break
+        case '已完成':
+          list_[i].status = '已完成'
+          list_[i].shows = true
+          list_[i].orderBtn_ = true
+          list_[i].orderBtn__ = false
+          list_[i].orderBtn___ = false
           list_[i]._orderBtn = false
           list_[i].orderBtn = true
           list_[i].showWord = false
           break
-        case '4':
+        case '已删除':
           list_[i].status = '退款'
+          list_[i].orderBtn_ = false
+          list_[i].orderBtn__ = false
+          list_[i].orderBtn___ = false
           list_[i].shows = false
           list_[i].showWord = false
           break
       }
     }
     return list_
+  },
+  toComfirm: function(e){
+    var that = this
+    wx.showLoading({
+      title: '确认订单中...'
+    })
+    wx.request({
+      url: app.data.url + 'confirmOrder',
+      method: 'POST',
+      dataType: 'json',
+      data: {
+        openid: app.data.openId,
+        orderId: e.currentTarget.id
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded', // 默认值
+        'charset': 'UTF - 8'
+      },
+      // 向后台请求成功
+      success: function (res) {
+        if(res.data.success == 1){
+          that.setData({
+            orderItems: []
+          })
+          that.getOrder('waitDelivery')
+          that.getOrder('waitConfirm')
+          that.getOrder('waitReview')
+        }else{
+          wx.showToast({
+            title: '确认失败',
+            icon: 'none',
+            duration: 2000
+          })
+        }
+        // 关闭模态框
+        wx.hideLoading()
+      },
+      fail: function (err) {
+        console.log(err)
+        // 关闭模态框
+        wx.hideLoading()
+      },
+      complete: function(){
+        // 关闭模态框
+        wx.hideLoading()
+      }
+    })
   },
   toDetail: function(e){
     wx.navigateTo({
@@ -137,154 +213,43 @@ Page({
     switch (type) {
       case 'typeA':
         this.setData({
-          orderItems: [],
-          orderItems_: []
+          orderItems: []
         })
       // 进行ajax请求，获取全部的订单
         that.getOrder('all')
-        var list_ = that.data.orderItems_
-        // var list_ = [{
-        //   productId: '1',
-        //   orderTime: '2018-3-14',
-        //   name: '如家酒店',
-        //   price: '500',
-        //   numbers: 10,
-        //   packages: '大床房',
-        //   status: '1',
-        //   types: '0',
-        //   long:'2018.1.1-1.2',
-        //   orderBtn: '',
-        //   shows: '',
-        //   book: '',
-        //   showWord: '',
-        //   url: ''
-        // }]
-        var _list = that.writeList(list_)
-        this.setData({
-          orderItems: _list
-        })
         break
       case 'typeB':
         this.setData({
-          orderItems: [],
-          orderItems_: []
+          orderItems: []
         })
         // 进行ajax请求，获取待支付的订单
         that.getOrder('waitPay')
-        var list_ = that.data.orderItems_
-        // var list_ = [{
-        //   productId: '1',
-        //   orderTime: '2018-3-14',
-        //   name: '如家酒店',
-        //   price: '500',
-        //   numbers: 10,
-        //   packages: '大床房',
-        //   status: '1',
-        //   types: '0',
-        //   long: '2018.1.1-1.2',
-        //   orderBtn: '',
-        //   shows: '',
-        //   book: '',
-        //   showWord: '',
-        //   url: ''
-        // }]
-        var _list = that.writeList(list_)
-        this.setData({
-          orderItems: _list
-        })
         break
       case 'typeC':
         this.setData({
-          orderItems: [],
-          orderItems_: []
+          orderItems: []
         })
         // 进行ajax请求，获取已支付的订单
         that.getOrder('waitDelivery')
-        var list1_ = that.data.orderItems_
-        that.getOrder('waitComfirm')
-        var list2_ = that.data.orderItems_
-        var list_ = list1_ + list2_
-        // var list_ = [{
-        //   productId: '1',
-        //   orderTime: '2018-3-14',
-        //   name: '如家酒店',
-        //   price: '500',
-        //   numbers: 10,
-        //   packages: '小床房',
-        //   status: '2',
-        //   types: '0',
-        //   long: '2018.1.1-1.2',
-        //   orderBtn: '',
-        //   shows: '',
-        //   book: '',
-        //   showWord: '',
-        //   url: ''
-        // }]
-        var _list = that.writeList(list_)
-        this.setData({
-          orderItems: _list
-        })
+        // console.log(this.data.orderItems)
+        that.getOrder('waitConfirm')
+        // console.log(this.data.orderItems)
+        that.getOrder('waitReview')
         break
-      case 'typeD':
+      case 'typeD':  
         this.setData({
-          orderItems: [],
-          orderItems_: []
+          orderItems: []
         })
         // 进行ajax请求，获取完成的订单
-        that.getOrder('waitReview')
-        var list1_ = that.data.orderItems_
+        // that.getOrder('waitReview')
         that.getOrder('finish')
-        var list2_ = that.data.orderItems_
-        var list_ = list1_ + list2_
-        // var list_ = [{
-        //   productId: '1',
-        //   orderTime: '2018-3-14',
-        //   name: '如家酒店',
-        //   price: '500',
-        //   numbers: 10,
-        //   packages: '中床房',
-        //   status: '3',
-        //   types: '0',
-        //   long: '2018.1.1-1.2',
-        //   orderBtn: '',
-        //   shows: '',
-        //   book: '',
-        //   showWord: '',
-        //   url: ''
-        // }]
-        var _list = that.writeList(list_)
-        this.setData({
-          orderItems: _list
-        })
         break
-      case 'typeE':
+      case 'typeE':     
         this.setData({
-          orderItems: [],
-          orderItems_: []
+          orderItems: []
         })
         // 进行ajax请求，获取退款的订单
         that.getOrder('delete')
-        var list_ = that.data.orderItems_
-        // var list_ = [{
-        //   productId: '1',
-        //   orderTime: '2018-3-14',
-        //   name: '如家酒店',
-        //   price: '500',
-        //   numbers: 10,
-        //   packages: '超大床房',
-        //   status: '4',
-        //   types: '0',
-        //   long: '2018.1.1-1.2',
-        //   orderBtn: '',
-        //   shows: '',
-        //   book: '',
-        //   showWord: '',
-        //   url: ''
-        // }]
-        var _list = that.writeList(list_)
-        this.setData({
-          orderItems: _list
-        })
         break
     }
   },
@@ -312,9 +277,12 @@ Page({
       },
       // 向后台请求成功
       success: function (res) {
-        console.log('获取成功')
+        console.log('获取到：'+ JSON.stringify(res.data))
+        var list_ = res.data
+        var _list = that.writeList(list_)
+        var _list_ = that.data.orderItems
         that.setData({
-          orderItems_: res.data
+          orderItems: _list_.concat(_list)
         })
         // 关闭模态框
         wx.hideLoading()
@@ -334,8 +302,17 @@ Page({
   },
   // 订单评价跳转
   toEvulate: function(e){
+
+    for (var i = 0; i < this.data.orderItems.length;i++){
+      if (e.currentTarget.id == this.data.orderItems[i].productId){
+        var name = this.data.orderItems[i].name
+        var packag = this.data.orderItems[i].packages
+        var productId = this.data.orderItems[i].productId
+        var orderId = this.data.orderItems[i].orderId
+      }
+    }
     wx.navigateTo({
-      url: 'evulate/evulate?productId=' + e.currentTarget.id
+      url: 'evulate/evulate?name=' + name + '&package=' + packag + '&productId=' + productId + '&orderId=' + orderId
     })
   },
   /**

@@ -10,8 +10,8 @@ Page({
      name:"七天酒店",
      packag:"官方套餐",
      productId: "",
-     openId: "wx3dedb58f5a2cf074",
-    //  openId:app.data.openId,
+    //  openId: "wx3dedb58f5a2cf074",
+     openId:app.data.openId,
      orderId:"",
 
      selectImg:"../../../img/logo/startSelect.png",
@@ -31,12 +31,12 @@ Page({
   onLoad: function (options) {
     //订单页面传过来的参数
     console.log(options)
-    // this.setData({
-    //   name: options.name,
-    //   packag: options.package,
-    //   productId:options.productId,
-    //   orderId: options.orderId,
-    // })
+    this.setData({
+      name: options.name,
+      packag: options.package,
+      productId:options.productId,
+      orderId: options.orderId,
+    })
   },
 
   /**
@@ -181,8 +181,8 @@ Page({
       method: 'POST',
       dataType: 'json',
       data: {
-        productId:this.data.product,
-        openId:this.data.openId,
+        productId:this.data.productId,
+        openid: app.data.openId,
         content: this.data.evalueData,
         orderId:this.data.orderId,
         mark:this.data.mark
