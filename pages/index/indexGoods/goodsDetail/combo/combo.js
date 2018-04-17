@@ -1,4 +1,5 @@
 // pages/index/indexContent/hotelCommit/combo/combo.js
+var app = getApp()
 Page({
 
   /**
@@ -70,28 +71,53 @@ Page({
   
   },
   getPackage:function(){
-    var _data=[{
-      'name':"套餐一",
-      "content":"套餐一介绍套餐一介绍套餐一介绍套餐一介绍套餐一介绍",
-      "packageId":849384,
-      "price":89
-    },{
-      'name': "套餐二",
-      "content": "套餐二介绍套餐二介绍套餐二介绍套餐二介绍套餐二介绍",
-      "packageId":92403,
-      "price": 90
-    },{
-      'name': "套餐三",
-      "content": "套餐三介绍套餐三介绍套餐三介绍套餐三介绍套餐三介绍",
-      "packageId":8392,
-      "price": 100
-     }]
-     this.setData({
-       packArr:_data,
-       price:_data[0].price,
-       packName:_data[0].name,
-       content:_data[0].content
-     })
+    var _this=this
+    wx.request({
+      url: app.data.url + 'getPackage',
+      method: 'POST',
+      dataType: 'json',
+      data: {
+        productId: 24
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded', // 默认值
+        'charset': 'UTF - 8'
+     },
+     success:function(res){
+       console.log(res.data)
+       var _data=[]
+       _data.push(res.data)
+       _this.setData({
+         packArr: _data,
+         price: _data[0].price,
+         packName: _data[0].name,
+         content: _data[0].content
+       })
+     }
+     
+   })
+    // var _data=[{
+    //   'name':"套餐一",
+    //   "content":"套餐一介绍套餐一介绍套餐一介绍套餐一介绍套餐一介绍",
+    //   "packageId":849384,
+    //   "price":89
+    // },{
+    //   'name': "套餐二",
+    //   "content": "套餐二介绍套餐二介绍套餐二介绍套餐二介绍套餐二介绍",
+    //   "packageId":92403,
+    //   "price": 90
+    // },{
+    //   'name': "套餐三",
+    //   "content": "套餐三介绍套餐三介绍套餐三介绍套餐三介绍套餐三介绍",
+    //   "packageId":8392,
+    //   "price": 100
+    //  }]
+    //  this.setData({
+    //    packArr:_data,
+    //    price:_data[0].price,
+    //    packName:_data[0].name,
+    //    content:_data[0].content
+    //  })
   },
   getMess:function(e){
     // console.log(e)

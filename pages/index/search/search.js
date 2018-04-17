@@ -1,4 +1,5 @@
 // pages/index/search/search.js
+const app = getApp();
 Page({
 
   /**
@@ -9,7 +10,8 @@ Page({
     searchList:[],
     inputValue:"",
     start:"",
-    count:""
+    count:"",
+    list:[]
   },
 
   /**
@@ -66,7 +68,30 @@ Page({
   searchs:function(){
     //这是参数
     console.log(this.data.inputValue)
-    console.log(this.data.currentTab);
+    console.log(this.data.currentTab)
+    var _this=this
+    wx.request({
+      url: app.data.url + 'searchByWord',
+      method: 'POST',
+      dataType: 'json',
+      data:{
+        searchType: this.data.currentTab,
+        content: this.data.inputValue,
+        start:0,
+        count:10
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded', // 默认值
+        'charset': 'UTF - 8'
+      },
+      success:function(res){
+        // console.log(res.data);
+        _this.setData({
+          list:res.data
+        });
+        console.log(_this.data.list)
+      }
+    })
   },
   bindKeyInput:function(e){
     this.setData({
@@ -75,8 +100,7 @@ Page({
   }
 })
 
-//页面之间传对象
-
+//页面之间传对象或者数组
 // 跳转到下级页面
 // toInfo: function (e) {
 //   // 把要传递的json对象转换成字符串

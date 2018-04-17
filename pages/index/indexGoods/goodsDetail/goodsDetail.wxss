@@ -196,3 +196,11 @@ swiper{
   margin-top: 300px;
   width: 100%; 
 }
+.footer{
+  height: 200px;
+  width: 100%;
+}
+.footer image{
+  height: 100%;
+  width: 100%;
+}

@@ -1,0 +1,24 @@
+<!--pages/index/indexContent/hotelDetail/date/date.wxml-->
+<view class='wrap'>  
+  <view>  
+      <view class='date-show'>  
+          <!-- <view class='lt-arrow' bindtap='lastMonth'>  
+              <image src='https://www.holyhire.cn/ky/img/icon/to.png'></image>
+          </view>   -->
+          {{year}}年{{month}}月  
+          <view class='rt-arrow' bindtap='nextMonth'>  
+              <image src='https://www.holyhire.cn/ky/img/icon/to.png'></image>
+          </view>  
+      </view>  
+  </view>  
+  <view class='header'>  
+      <view wx:for='{{date}}' wx:key="sfgjiu">{{item}}<view></view></view>  
+  </view>  
+  <view class='date-box'>  
+      <view wx:for='{{dateArr}}' wx:key="nginsg" wx:for-index="idx">            
+          <view class='date-head'>  
+              <view data-indexs="{{idx}}" class='{{(idx==dayNum)&&flag?"select":""}} {{(idx<day)&&_flag?"unselect":""}}' catchtap='selectDate' data-item="{{item.dateNum}}">{{item.dateNum}}</view>  
+          </view>   
+      </view>  
+  </view>
+</view>  
