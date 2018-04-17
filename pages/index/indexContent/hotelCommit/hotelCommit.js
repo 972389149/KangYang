@@ -68,6 +68,9 @@ Page({
           }
           // 关闭模态框
           wx.hideLoading()
+        },
+        complete: function () {
+          wx.hideLoading()
         }
       })
     }else{
@@ -83,10 +86,9 @@ Page({
    */
   onLoad: function (options) {
     var that = this
-    console.log(options)
-    // wx.showLoading({
-    //   title: '计算总金额中...'
-    // })
+    wx.showLoading({
+      title: '计算总金额中...'
+    })
     // 这里从酒店详情页面传递过来的数据
     this.setData({
       hotelName: options.hotelName,
@@ -119,7 +121,11 @@ Page({
         })
         // 关闭模态框
         wx.hideLoading()
+      },
+      complete: function () {
+        wx.hideLoading()
       }
+
     })
   },
 

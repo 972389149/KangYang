@@ -36,12 +36,12 @@
     </view>
   </view>
 </view>
-<view class='underTop'>
+<view class='underTop' catchtap='getAddress'>
   <view class='left'>
-    <text>地址</text>
+    <text>收货信息(必填)</text>
   </view>
   <view class='right'>
-    <text>{{address}}</text>
+    <text style='color: #959595'>{{address}}</text>
   </view>
 </view>
 <view class='underTop' style='border-bottom: none'>
@@ -51,5 +51,5 @@
 </view>
 <view class='hotelBottom'>
   <view class='totalMoney'>总额 ： <text style='font-size: 24rpx;'>¥  </text><text style='font-size: 48rpx;'>{{total}}</text></view>
-  <view class='commit'>提交订单</view>
+  <view class='commit' catchtap='submitOrder'>提交订单</view>
 </view>
