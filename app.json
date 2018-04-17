@@ -1,19 +1,22 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/index/indexContent/hotelDetail/hotelDetail",
+    "pages/index/indexGoods/goodsDetail/goodsDetail",
+    "pages/index/indexContent/hotelDetail/date/date",
+    "pages/index/search/search",
     "pages/index/indexGoods/goodsDetail/combo/combo",
     "pages/order/evulate/evulate",
     "pages/index/indexContent/hotelCommit/hotelCommit",
     "pages/index/indexGoods/goodsCommit/goodsCommit",
     "pages/index/hotCitySearch/hotCitySearch",
-    "pages/index/indexGoods/goodsDetail/goodsDetail",
-    "pages/index/search/search",    
-    "pages/index/indexContent/hotelDetail/hotelDetail",
+  
     "pages/index/indexContent/indexContent",
     "pages/index/indexGoods/indexGoods",
     "pages/order/order",
     "pages/order/logistics/logistics",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/index/indexContent/hotelDetail/dateTwo/dateTwo"
   ],
   "window": {
     "backgroundTextStyle": "light",
