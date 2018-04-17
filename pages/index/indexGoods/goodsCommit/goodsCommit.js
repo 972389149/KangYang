@@ -48,7 +48,7 @@ Page({
       goodMoney: options.goodMoney,
       goodType: options.goodType,
       hotelId: options.hotelId,
-      productId: options.producitId,
+      productId: options.productId,
       goodCount: options.goodCount,
       imgSrc: app.data.imgUrl + options.imgSrc
     })

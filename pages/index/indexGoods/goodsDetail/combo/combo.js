@@ -12,13 +12,20 @@ Page({
     content:"",
     packArr:[],
     flag:0,
-    count:1
+    count:1,
+    id:"",
+    packageId:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+      console.log(options)
+      this.setData({
+        id:options.id,
+        price:options.price
+      })
       this.getPackage()
   },
 
@@ -91,7 +98,8 @@ Page({
          packArr: _data,
          price: _data[0].price,
          packName: _data[0].name,
-         content: _data[0].content
+         content: _data[0].content,
+         packageId:_data[0].packageId
        })
      }
      
@@ -125,7 +133,8 @@ Page({
       flag:e.currentTarget.dataset.indexs,
       price: this.data.packArr[e.currentTarget.dataset.indexs].price,
       packName: this.data.packArr[e.currentTarget.dataset.indexs].name,
-      content: this.data.packArr[e.currentTarget.dataset.indexs].content
+      content: this.data.packArr[e.currentTarget.dataset.indexs].content,
+      packageId: this.data.packArr[e.currentTarget.dataset.indexs].packageId
     })
   },
   add:function(){
@@ -148,7 +157,7 @@ Page({
   },
   getBack:function(){
     wx.navigateTo({
-      url: '../goodsDetail?count='+this.data.count+"&packName="+this.data.packName,
+      url: '../goodsDetail?count='+this.data.count+"&packName="+this.data.packName+"&id="+this.data.id+"&packageId="+this.data.packageId,
     })
   }
 })

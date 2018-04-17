@@ -21,7 +21,8 @@ Page({
     reviewList:[],
     packName:"选择套餐",   //套餐名称
     count:0,              //套餐数量
-    productData:{}
+    productData:{},
+    packageId:""
   },
   onLoad: function (options) {
     this.setData({
@@ -30,7 +31,9 @@ Page({
     console.log(options)
     if(options.packName){
       this.setData({
-        packName:options.packName
+        packName:options.packName,
+        count:options.count,
+        packageId:options.packageId
       })
     }   
     this.getReview()
@@ -149,8 +152,20 @@ Page({
       })
       return
     }
-    wx.navigateTo({
-      url: '../goodsCommit/goodsCommit?goodName=' + this.data.name + "&goodMoney=0&goodType=" + this.data.packName + "&address=广东工业大学&imgSrc=" + this.data.productSingleImg,
-    })
+    if(app.data.openId.length==0){
+      wx.showToast({
+        title: "请先登录",
+        icon: "none",
+        duration: 1000
+      })
+      wx.navigateTo({
+        url: '../../../mine/mine',
+      })
+    }
+    else{
+      wx.navigateTo({
+        url: '../goodsCommit/goodsCommit?goodName=' + this.data.name + "&goodMoney=" + this.data.promotePrice + "&goodType=" + this.data.packName + "&productId=" + this.data.id + "&imgSrc=" + this.data.productSingleImg[0].img + "&goodCount=" + this.data.count + "&packageId=" + this.data.packageId,
+      })
+    } 
   }
 }) 
