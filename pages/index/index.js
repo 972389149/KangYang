@@ -13,7 +13,7 @@ Page({
     jiuDian: app.data.iconUrl + 'HomeCon3.png', //酒店图片
     jiuFang: app.data.iconUrl + 'HomeCon4.png', //酒坊图片
     ak: "lOt3lY6gozyoMqGaEVFDhkKDq0msaiAK", //填写申请到的ak       
-    address: '广州',     //地址
+    address: '',     //地址
     addressDetail:"",    
     imgUrls:[
       {
@@ -32,6 +32,10 @@ Page({
       name: "",
       img: "",
       link:""
+    }, {
+      name: "",
+      img: "",
+      link: ""
     }, {
       name: "",
       img: "",
@@ -155,17 +159,17 @@ Page({
         'charset': 'UTF - 8'
       },
       success: function(res){
-        // console.log(res.data)
+        console.log(res.data)
         var _data = []
-        for(var i=0 ;i<7;i++){
+        for(var i=0 ;i < 8;i++){
           _data.push({
             "name": res.data.product[i].name,
             "img": app.data.imgUrl+res.data.product[i].img,
             "productId": res.data.product[i].productId
           })
         }
-        for (var i = 0; i < 7; i++) {
-          that.data.goodDatas[i].link = "indexGoods/goodsDetail/goodsDetail?" + _data[i].productId;
+        for (var i = 0; i < 8; i++) {
+          that.data.goodDatas[i].link = "indexGoods/goodsDetail/goodsDetail?id=" + _data[i].productId;
           that.data.goodDatas[i].name = _data[i].name;
           that.data.goodDatas[i].img = _data[i].img;
         }
