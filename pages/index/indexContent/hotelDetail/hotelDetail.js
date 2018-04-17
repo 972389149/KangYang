@@ -2,7 +2,7 @@
 var app = getApp();
 Page({
   data: {
-    id: '',    //从酒店列表传过来的酒店id
+    id: 18,    //从酒店列表传过来的酒店id
     //hotelImg
     imgUrls: [
          'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
@@ -13,7 +13,7 @@ Page({
     location:"珠海区宝岗大道某某西区(距离某地铁站B出口500米)",
     distance:1.1,
     mark:4.3,
-    evulateNum:90,
+    evulateNum:0,
     reviewList: [],
     flag:true,
     animationData: "",
@@ -30,7 +30,10 @@ Page({
     roomList:[]   //订房品种数组信息
   },
   onLoad: function (options) {
-    // console.log(options)
+    console.log(options)
+    this.setData({
+      id:options.id
+    })
     var now=new Date()
     var day=now.getDate()
     var month=now.getMonth()+1
@@ -84,9 +87,17 @@ Page({
     wx.hideLoading(); 
   },
   modalcnt:function(){
-    this.setData({
-      flag:false
-    });
+    if (this.data.evulateNum==0){
+      wx.showToast({
+        title: '暂时没有更多的评论！',
+        icon:"none"
+      })
+    }
+    else{
+      this.setData({
+        flag: false
+      });
+    } 
   },
   modalclose: function () {
     this.setData({
@@ -101,7 +112,7 @@ Page({
       url: app.data.url + 'hotelDetail',
       method: 'POST',
       data:{
-        hotelId:18
+        hotelId:this.data.id
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded', // 默认值
@@ -140,7 +151,7 @@ Page({
       url: app.data.url + 'hotelUpdate',
       method: 'POST',
       data: {
-        hotelId: 18,
+        hotelId: this.data.id,
         dateStart:"2018-"+this.data.monthIn+"-"+this.data.dayIn,
         dateEnd: "2018-" + this.data.monthOut + "-" + this.data.dayOut,
       },
@@ -150,6 +161,12 @@ Page({
       },
       success:function(res){
         console.log(res.data)
+        if(res.data.rooms.length==0){
+          wx.showToast({
+            title: '当前时间没有房间了',
+            icon:"none"
+          })
+        }
         _this.setData({
           roomList:res.data.rooms
         })
@@ -162,7 +179,7 @@ Page({
       url: app.data.url + 'reviewList',
       method: 'POST',
       data: {
-        productId: 18
+        productId: this.data.id
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded', // 默认值
@@ -194,5 +211,18 @@ Page({
     //   this.setData({
     //     reviewList:_data
     //   })
+  },
+  toCommit:function(e){
+    if (app.data.openId.length==0){
+      wx.showToast({
+        title: '请先登录',
+        icon:"none"
+      })
+      return ;
+    }
+    // console.log(e)
+    wx.navigateTo({
+      url: '../hotelCommit/hotelCommit?hotelName=' + this.data.name + "&hotelMoney=" + this.data.roomList[e.currentTarget.dataset.indexs].promotePrice + "&hotelId=" + this.data.id + "&productId=" + this.data.roomList[e.currentTarget.dataset.indexs].productId + "&dateIn=2018-" + this.data.monthIn + "-" + this.data.dayIn + "&dateOut=2018-" + this.data.monthOut + "-" + this.data.dayOut + "&hotelType=" + this.data.roomList[e.currentTarget.dataset.indexs].name + "&imgSrc=" +this.data.roomList[e.currentTarget.dataset.indexs].img
+    })
   }
 }) 

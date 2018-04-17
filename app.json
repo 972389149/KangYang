@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/index/indexContent/hotelDetail/hotelDetail",
     "pages/index/indexGoods/goodsDetail/goodsDetail",
+    "pages/index/indexContent/hotelDetail/hotelDetail",
     "pages/index/indexContent/hotelDetail/date/date",
     "pages/index/search/search",
     "pages/index/indexGoods/goodsDetail/combo/combo",
@@ -10,7 +10,6 @@
     "pages/index/indexContent/hotelCommit/hotelCommit",
     "pages/index/indexGoods/goodsCommit/goodsCommit",
     "pages/index/hotCitySearch/hotCitySearch",
-  
     "pages/index/indexContent/indexContent",
     "pages/index/indexGoods/indexGoods",
     "pages/order/order",

@@ -47,7 +47,7 @@
       </view>
       <view style='height:13px;background:#f7f8f8'></view>  
 
-      <view wx:for="{{roomList}}" wx:key="mvzdn">
+      <view wx:for="{{roomList}}" wx:key="mvzdn" wx:for-index="idx">
         <view class='room'>
           <view>
             <view>
@@ -65,63 +65,13 @@
                   </view>
               </view>
               <view class='room_right'>
-                <navigator url='../hotelCommit/hotelCommit'><button>预定</button></navigator>
+                     <button catchtap='toCommit' data-indexs="{{idx}}">预定</button>
               </view>
             </view>
           </view>
         </view>
         <view style='border-bottom: 1px solid rgb(216, 216, 216)'></view> 
       </view>
-      <!-- <view>
-        <view class='room'>
-          <view>
-            <view>
-              <text class='room_title'>优惠特价房</text>
-            </view>
-            <view>
-              <view class='room_left'>
-                    <view>
-                        <text class='room_kind' decode="{{true}}">双床&nbsp;|&nbsp;无窗&nbsp;|&nbsp;不含早餐    
-                        </text>
-                    </view>
-                  <view style='margin-top:20px;'>
-                    <text class='price_old'>￥170</text>
-                    <text class='price_new'>￥140</text>
-                  </view>
-              </view>
-              <view class='room_right'>
-                <navigator url='../hotelCommit/hotelCommit'><button>预定</button></navigator>
-              </view>
-            </view>
-          </view>
-        </view>
-        <view style='border-bottom: 1px solid rgb(216, 216, 216)'></view> 
-      </view> -->
-      <!-- <view>
-        <view class='room'>
-          <view>
-            <view>
-              <text class='room_title'>优惠特价房</text>
-            </view>
-            <view>
-              <view class='room_left'>
-                    <view>
-                        <text class='room_kind' decode="{{true}}">双床&nbsp;|&nbsp;无窗&nbsp;|&nbsp;不含早餐    
-                        </text>
-                    </view>
-                  <view style='margin-top:20px;'>
-                    <text class='price_old'>￥170</text>
-                    <text class='price_new'>￥140</text>
-                  </view>
-              </view>
-              <view class='room_right'>
-                <navigator url='../hotelCommit/hotelCommit'><button>预定</button></navigator>
-              </view>
-            </view>
-          </view>
-        </view>
-        <view style='border-bottom: 1px solid rgb(216, 216, 216)'></view> 
-      </view> -->
     </view>
 </view>
 

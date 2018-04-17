@@ -95,10 +95,10 @@ Page({
       hotelMoney: options.hotelMoney,
       hotelId: options.hotelId, //酒店Id
       productId: options.productId, //房型ID
-      dateIn: productId.dateIn, //2018-01-01的格式
-      dateOut: productId.dateOut,
-      hotelType: productId.hotelType,
-      imgSrc: productId.imgSrc
+      dateIn: options.dateIn, //2018-01-01的格式
+      dateOut: options.dateOut,
+      hotelType: options.hotelType,
+      imgSrc: app.data.imgUrl+options.imgSrc
     })
     wx.request({
       url: app.data.url + 'hotelSubmit',
