@@ -12,6 +12,7 @@ Page({
     orderTypeC_: 'innerNav',
     orderTypeD_: 'innerNav',
     orderTypeE_: 'innerNav',
+    _noneOrder_: false,
     showOrders: true,       // 该参数用于判断订单是否为空
     orderItems_: [], // 储存未加工的数据 
     orderItems:[] //存储页面的订单的列表
@@ -84,6 +85,7 @@ Page({
       if (list_[i].type == '0') {
         list_[i].book = true
         list_[i].hotel_ = false
+        list_[i].numbers = 1
         list_[i].url = '../index/indexContent/hotelDetail/hotelDetail?id=' + list_[i].productId
         list_[i].long = list_[i].long.slice(2, 10) +' 到 '+ list_[i].long.slice(24,32)
       } else if (list_[i].type == '1') {
@@ -174,9 +176,13 @@ Page({
           that.setData({
             orderItems: []
           })
-          that.getOrder('waitDelivery')
-          that.getOrder('waitConfirm')
-          that.getOrder('waitReview')
+          if (app.data.ordertype == 'typeA'){
+            that.getOrder('all')
+          } else if (app.data.ordertype == 'typeC'){
+            that.getOrder('waitDelivery')
+            that.getOrder('waitConfirm')
+            that.getOrder('waitReview')
+          }
         }else{
           wx.showToast({
             title: '确认失败',
@@ -284,6 +290,15 @@ Page({
         that.setData({
           orderItems: _list_.concat(_list)
         })
+        if (that.data.orderItems.length == 0){
+          that.setData({
+            _noneOrder_: true
+          })
+        }else{
+          that.setData({
+            _noneOrder_: false
+          })
+        }
         // 关闭模态框
         wx.hideLoading()
       },
@@ -296,8 +311,17 @@ Page({
   },
   // 订单物流跳转
   toLogistics: function(e){
+    console.log(e.currentTarget.id)
+    for (var i = 0; i < this.data.orderItems.length; i++) {
+      if (e.currentTarget.id == this.data.orderItems[i].orderId) {
+        var name = this.data.orderItems[i].name
+        var packages = this.data.orderItems[i].packages
+        var img = this.data.orderItems[i].img
+        break
+      }
+    }
     wx.navigateTo({
-      url: 'logistics/logistics?productId=' + e.currentTarget.id
+      url: 'logistics/logistics?orderId=' + e.currentTarget.id + '&name=' + name + '&package=' + packages + '&img=' + img
     })
   },
   // 订单评价跳转
@@ -309,6 +333,7 @@ Page({
         var packag = this.data.orderItems[i].packages
         var productId = this.data.orderItems[i].productId
         var orderId = this.data.orderItems[i].orderId
+        break
       }
     }
     wx.navigateTo({

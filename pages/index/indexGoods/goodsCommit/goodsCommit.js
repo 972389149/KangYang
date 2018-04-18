@@ -10,6 +10,8 @@ Page({
     goodMoney: '', //商品金额
     goodType: '', //商品套餐
     address: '点击填写', 
+    address_: '必填',
+    addColor: '',
     goodCount: 0, //商品数量
     productId: 0, //商品Id
     packageId: 0, //套餐Id
@@ -93,7 +95,9 @@ Page({
           userName: res.userName,
           detailAddress: res.provinceName + res.cityName + res.detailInfo,
           telNumber: res.telNumber,
-          address: '点击更改'
+          address: (res.provinceName + res.cityName + res.detailInfo).slice(0,10)+'...',
+          address_: '已填',
+          addColor: '#EACD75'
         })
       },
       fail: function(){

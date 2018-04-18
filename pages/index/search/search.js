@@ -85,16 +85,24 @@ Page({
         'charset': 'UTF - 8'
       },
       success:function(res){
-        // console.log(res.data);
+        console.log(res.data);
         _this.setData({
           list:res.data
         });
         // console.log(_this.data)
-        console.log(_this.data.list)
+        // console.log(_this.data.list)
         var list = JSON.stringify(_this.data.list);
-        wx.navigateTo({
-          url: 'searchData/sarchData?list=' + list,
-        })
+        if (_this.data.list.length != 0){
+          wx.navigateTo({
+            url: 'searchData/sarchData?list=' + list + '&type=' + _this.data.currentTab,
+          })
+        }else{
+            wx.showToast({
+                title: '搜索不到此件商品~',
+                icon: 'none',
+                duration: 2000
+              })
+        }
       }
     })
   },

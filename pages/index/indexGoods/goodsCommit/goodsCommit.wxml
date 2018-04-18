@@ -37,10 +37,10 @@
   </view>
 </view>
 <view class='underTop' catchtap='getAddress'>
-  <view class='left'>
-    <text>收货信息(必填)</text>
+  <view class='left' style='width: 40%;'>
+    <text>收货信息 <text style='color: {{addColor}}'>({{address_}})</text></text>
   </view>
-  <view class='right'>
+  <view class='right' style='width: 50%;'>
     <text style='color: #959595'>{{address}}</text>
   </view>
 </view>

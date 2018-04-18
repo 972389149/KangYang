@@ -1,11 +1,11 @@
 <!--pages/order/logistics/logistics.wxml-->
 <view class='top'>
   <view class='topImg'>
-    <image src='../../../img/hotel.jpg'></image>
+    <image src='{{img}}'></image>
   </view>
   <view class='topText'>
-    <view class='name'><text>{{name_}}</text></view>
-    <view class='size'><text>规格/套餐 : {{size_}}</text></view>
+    <view class='name'><text>{{name}}</text></view>
+    <view class='size'><text>规格/套餐 : {{packag}}</text></view>
     <view class='type'><text>{{type_}}</text></view>
   </view>
   <view class='topStatus'>

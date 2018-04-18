@@ -1,20 +1,44 @@
 // pages/index/search/searchData/sarchData.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    id: '',
+    img: '',
+    name: '',
+    price: '',
+    reviewCount: '',
+    mark: '',
+    url: '',
+    lists: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-     console.log(options.list)
+  console.log(options)
+    // this.setData({
+    //   lists: options.list
+    // })
+  this.writeData(JSON.parse(options.list), options.type)
   },
-
+  writeData: function(data,type_){
+    for(var i=0;i<data.length;i++){
+      data[i].img = app.data.imgUrl + data[i].img
+      if(type_ == '0'){
+        data[i].url = '../../indexContent/hotelDetail/hotelDetail?id=' + data[i].id
+      }else{
+        data[i].url = '../../indexGoods/goodsDetail/goodsDetail?id=' + data[i].id
+      }
+    }
+     this.setData({
+      lists: data
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
