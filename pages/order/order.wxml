@@ -38,7 +38,7 @@
     <text class='showWord' wx:if='{{items.showWord}}'>退款请联系客服</text>
     <view class='express' wx:if='{{items.shows}}'>
       <view class='inExpress'>
-         <button size='mini' plain='true' wx:if='{{items.orderBtn_ && items.hotel_}}' catchtap='toLogistics' id='{{items.productId}}'  style='margin-right:10rpx;'>物流</button>
+         <button size='mini' plain='true' wx:if='{{items.orderBtn_ && items.hotel_}}' catchtap='toLogistics' id='{{items.orderId}}'  style='margin-right:10rpx;'>物流</button>
          <!-- <navigator url='evulate/evulate'> -->
           <button size='mini' plain='true' wx:if='{{items.orderBtn__}}' catchtap='toEvulate' id='{{items.productId}}' style='margin-right:10rpx;'>评价</button>
           <!-- </navigator> -->
@@ -48,6 +48,9 @@
     </view>
   </view>
 </view>
-<view class='NoLogin' wx:if='{{!_login_}}'>
-  <text>立即<text style='color:#EACD75' catchtap='toLogin'> 登录 </text>查看订单信息</text>
+<view class='NoLogin' wx:if='{{!_login_}}' catchtap='toLogin'>
+  <text>立即<text style='color:#EACD75'> 登录 </text>查看订单信息\n<text style='color:#EACD75'>Sign in</text> and view the order information</text>
+</view>
+<view class='NoLogin' wx:if='{{_noneOrder_}}'>
+  <text>没有更多的订单信息\nNo more order information</text>
 </view>

@@ -1,2 +1,14 @@
 <!--pages/index/search/searchData/sarchData.wxml-->
-<text>pages/index/search/searchData/sarchData.wxml</text>
+<view class='hotel' wx:for='{{lists}}' wx:for-item="items" wx:key='unique' hover-class='hotel_'>
+    <navigator url='{{items.url}}'>
+        <view class='image'>
+          <image src='{{items.img}}'></image>
+        </view>
+        <view class='content'>
+          <text class='hotelName'>{{items.name}}\n</text>
+          <text class='hotelMarch'>{{items.mark}}分</text>
+          <text class='comment'>{{items.reviewCount}}条评论\n</text>
+        </view>
+        <view class='money'>{{items.price}}元</view>
+    </navigator>
+  </view>
