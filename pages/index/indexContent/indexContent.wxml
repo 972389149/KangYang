@@ -13,7 +13,7 @@
           <text class='hotelMarch'>{{items.mark}}分</text>
           <text class='comment'>{{items.reviewCount}}条评论\n</text>
           <view style='margin-top: 27rpx;'>
-            <text class='distant'>距定位 {{items.distant}} 米</text>
+            <text class='distant'>距定位 {{items.distant}} km</text>
           </view>
         </view>
         <view class='money'>{{items.price}}元</view>

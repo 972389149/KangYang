@@ -86,7 +86,7 @@
   border-radius: 50%;
 }
 .line{
-  height: 111rpx;
+  height: 169rpx;
   margin-left: 17rpx;
   border-left: 3rpx dashed #888888;
 }
@@ -94,9 +94,10 @@
   float: left;
   width: 70%;
   padding-left: 25rpx;
-  height: 147rpx;
+  height: 205rpx;
   font-size: 26rpx;
   color: #888888;
+  line-height: 50rpx;
   /* border: 1rpx solid #000;  */
 }
 .status_{

@@ -12,6 +12,12 @@ Page({
     count: 6, //显示个数
     loca: '', //需要从别的页面传过来的定位城市
     _loca_: '',
+    lng1: '',
+    lat1: '',
+    lng2: '',
+    lat2: '',
+    distant: [],
+    EARTH_RADIUS: 6378137.0,
     location: '暂无当前详细位置信息', //需要从别的页面传来当前位置的详细信息，如果该页面是从搜索页面传过来就默认显示
     continueLoad: true, // 检测是否可以上拉继续刷新
     hotelItems: [],
@@ -51,7 +57,9 @@ Page({
     this.setData({
       loca: options.address, // 城市名
       location: detailAddress, //具体位置
-      type_: options.type_  //类型
+      type_: options.type_,  //类型
+      lng1: app.data.lng,
+      lat1: app.data.lat
     })
     console.log(options.address + ":" + options.detailAddress + ":" + options.type_)
     this.getList()
@@ -89,6 +97,35 @@ Page({
           for (var j = 0; j < list.length; j++) {
             list[j].img = app.data.imgUrl + list[j].img
             list[j].url = 'hotelDetail/hotelDetail?id=' + list[j].id
+            if (list[j].name.length > 7){
+              list[j].name = list[j].name.slice(0,8)+'...'
+            }
+            list[j].address = list[j].province + list[j].city + list[j].dizhi
+
+            wx.request({
+              url: 'https://api.map.baidu.com/geocoder/v2/',
+              method: 'get',
+              dataType: 'json',
+              data: {
+                address: list[j].address,
+                output: 'json',
+                ak: '7Nf2RZxYoqs9SRGNL11hfuEOVcwlG2ZH'
+              },
+              success: function (res) {
+                if(res.data.status == 0){
+                  that.setData({
+                    lng2: res.data.result.location.lng,
+                    lat2: res.data.result.location.lat
+                  })
+                  that.data.distant.push(that.mToKm(that.getFlatternDistance(that.data.lat1, that.data.lng1, that.data.lat2, that.data.lng2)))
+                  var info = "hotelItems[" + (that.data.distant.length-1)+"].distant"
+                  that.setData({
+                    [info]: that.data.distant[that.data.distant.length-1]
+                  })
+                }
+              }
+            })
+
           }
           for (var i = 0; i < list.length; i++) {
             // console.log(list[i])
@@ -103,13 +140,37 @@ Page({
       })
     }
   },
+  mToKm: function(s){
+    var s = s/1000
+    if(s<0.1){
+      s = 0.1
+    }
+    return s.toFixed(1)
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
   
   },
+  getFlatternDistance: function (lat1, lng1, lat2, lng2){
+    var EARTH_RADIUS = 6378137.0
+    var radLat1 = this.getRad(lat1);
+    var radLat2 = this.getRad(lat2);
 
+    var a = radLat1 - radLat2;
+    var b = this.getRad(lng1) - this.getRad(lng2);
+
+    var s = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(a / 2), 2) + Math.cos(radLat1) * Math.cos(radLat2) * Math.pow(Math.sin(b / 2), 2)));
+    s = s * EARTH_RADIUS;
+    s = Math.round(s * 10000) / 10000.0;
+
+    return s;  
+  },
+  getRad: function(d){
+    var PI=Math.PI
+    return d * PI / 180.0
+  },
   /**
    * 生命周期函数--监听页面显示
    */

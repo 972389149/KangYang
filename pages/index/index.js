@@ -12,7 +12,9 @@ Page({
     minSu: app.data.iconUrl + 'homeCon2.png', //民宿图片
     jiuDian: app.data.iconUrl + 'HomeCon3.png', //酒店图片
     jiuFang: app.data.iconUrl + 'HomeCon4.png', //酒坊图片
-    ak: "lOt3lY6gozyoMqGaEVFDhkKDq0msaiAK", //填写申请到的ak       
+    ak: "lOt3lY6gozyoMqGaEVFDhkKDq0msaiAK", //填写申请到的ak     
+    lat: '',
+    lng: '',  
     address: '',     //地址
     addressDetail:"",    
     imgUrls:[
@@ -75,7 +77,10 @@ Page({
       ak: that.data.ak
     });
     var success = function (data) {
-      console.log(data)
+      that.setData({
+        lng: data.originalData.result.location.lng,
+        lat: data.originalData.result.location.lat
+      })
       wxMarkerData = data.wxMarkerData
       var addre = wxMarkerData[0].address
       var i=addre.indexOf("省")
@@ -139,14 +144,16 @@ Page({
     })
   },
   tohotelLists: function(e){
+    app.data.lng = this.data.lng
+    app.data.lat = this.data.lat
     wx.navigateTo({
       url: 'indexContent/indexContent?address=' + this.data.address + '&type_=' + e.target.id + '&detailAddress=' + this.data.addressDetail
     })
   },
   toGoodsMore: function(){
-    wx.navigateTo({
-      url: 'indexGoods/indexGoods?address=' + this.data.address + '&detailAddress='+this.data.addressDetail
-    })
+    // wx.navigateTo({
+    //   url: 'indexGoods/indexGoods?address=' + this.data.address + '&detailAddress='+this.data.addressDetail
+    // })
   },
   getGoods:function(){
     var that = this
