@@ -8,6 +8,8 @@ App({
     openId: '', //用户的openId
     userName: '', //用户名字
     ordertype: 'typeA', //当前页面的订单
+    lng: '',
+    lat: ''
   },
   onLaunch: function () {
     // 展示本地存储能力

@@ -17,6 +17,7 @@ Page({
     phoneNumber: '',  //手机号码
     roomCount: 0, //房间总数量
     total: 0,  //总金额
+    imgSrc: "",
     controlCommit: false, //控制是否可以点击提交
     commitAgain: false //控制不能多次下单
   },
@@ -108,7 +109,7 @@ Page({
     })
     // 这里从酒店详情页面传递过来的数据
     this.setData({
-      hotelName: options.hotelName,
+      hotelName: options.hotelName.slice(0,12)+'...',
       hotelMoney: options.hotelMoney,
       hotelId: options.hotelId, //酒店Id
       productId: options.productId, //房型ID
