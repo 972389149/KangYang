@@ -43,7 +43,7 @@
           <button size='mini' plain='true' wx:if='{{items.orderBtn__}}' catchtap='toEvulate' id='{{items.productId}}' style='margin-right:10rpx;'>评价</button>
           <!-- </navigator> -->
          <button size='mini' plain='true' wx:if='{{items.orderBtn___}}' catchtap='toComfirm' id='{{items.orderId}}' >确认</button>
-         <button size='mini' plain='true' wx:if='{{items._orderBtn}}' catchtap='toPay' id='{{items.productId}}'>付款</button>  
+         <button size='mini' plain='true' wx:if='{{items._orderBtn}}' catchtap='WXPay' id='{{items.orderId}}'>付款</button>  
       </view>
     </view>
   </view>

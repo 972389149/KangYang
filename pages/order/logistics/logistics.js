@@ -21,30 +21,20 @@ Page({
   logistics: function(){
     var that = this
     wx.request({
-      url: 'http://api.shujuzhihui.cn/api/invokingApi/searchExpress',
-      method: 'get',
+      url: app.data.url + 'getTrans',
+      method: 'post',
       dataType: 'json',
       data: {
-        appKey: 'd2bf1d49bdda43b2ab18cd4e33e1c75f',
-        expressNo: '482040678546'  //that.data.code
+        transCode: '482040678546'  //that.data.code
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded', // 默认值
+        'charset': 'UTF - 8'
       },
       success: function (res) {
-      //   if(res.success){
-      //     that.writeData(res)
-      //   }else{
-      //     wx.showToast({
-      //       title: '获取物流信息失败',
-      //       icon: 'none',
-      //       duration: 2000
-      //     })
-      //     // 关闭模态框
-      //     wx.hideLoading()
-      //   }
-      // }
         // 关闭模态框
         wx.hideLoading()
         that.writeData(res.data.result)
-        // console.log(res.data)
       }
     })
   },

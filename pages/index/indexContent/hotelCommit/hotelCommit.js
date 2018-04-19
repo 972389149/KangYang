@@ -18,6 +18,7 @@ Page({
     roomCount: 0, //房间总数量
     total: 0,  //总金额
     imgSrc: "",
+    orderId: '',
     controlCommit: false, //控制是否可以点击提交
     commitAgain: false //控制不能多次下单
   },
@@ -74,10 +75,55 @@ Page({
         success: function (res) {
           if(res.data.success == 1){
             that.setData({
-              commitAgain: true
+              commitAgain: true,
+              orderId: res.data.orderId
+            })
+            wx.request({
+              url: app.data.url + 'prePay',
+              data: {
+                "openid": app.data.openId,
+                "orderId": that.data.orderId
+              },
+              header: {
+                'content-type': 'application/x-www-form-urlencoded',
+                'charset': 'UTF - 8'
+              },
+              method: 'POST',
+              success: function (res) {
+                console.log(res.data),
+                  wx.requestPayment({
+                    timeStamp: res.data.timeStamp,
+                    nonceStr: res.data.nonceStr,
+                    package: res.data.package,
+                    signType: 'MD5',
+                    paySign: res.data.paySign,
+                    success: function (event) {
+                      // success 
+                      console.log(event);
+                      wx.showToast({
+                        title: '支付成功',
+                        icon: 'success',
+                        duration: 2000
+                      });
+                    },
+                    fail: function (error) {
+                      // fail 
+                      console.log("支付失败")
+                      console.log(error)
+                    },
+                    complete: function () {
+                      // complete 
+                      console.log("pay complete")
+                    }
+                  });
+              }
             })
           }else{
-            
+            wx.showToast({
+              title: '订单提交失败',
+              icon: 'none',
+              duration: 2000
+            })
           }
           // 关闭模态框
           wx.hideLoading()

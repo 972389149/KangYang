@@ -94,6 +94,9 @@ Page({
         list_[i].url = '../index/indexGoods/goodsDetail/goodsDetail?id=' + list_[i].productId
       }
       list_[i].img = app.data.imgUrl + list_[i].img
+      if (list_[i].name.length > 7){
+        list_[i].name = list_[i].name.slice(0,7)+'...'
+      }
       switch (list_[i].status) {
         case '待支付':
           list_[i].status = '待支付'
@@ -407,5 +410,47 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  WXPay: function (e) {
+    wx.request({
+      url: app.data.url + 'prePay',
+      data: {
+        "openid": app.data.openId,
+        "orderId": e.currentTarget.id
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'charset': 'UTF - 8'
+      },
+      method: 'POST',
+      success: function (res) {
+        console.log(res.data),
+          wx.requestPayment({
+            timeStamp: res.data.timeStamp,
+            nonceStr: res.data.nonceStr,
+            package: res.data.package,
+            signType: 'MD5',
+            paySign: res.data.paySign,
+            success: function (event) {
+              // success 
+              console.log(event);
+              wx.showToast({
+                title: '支付成功',
+                icon: 'success',
+                duration: 2000
+              });
+            },
+            fail: function (error) {
+              // fail 
+              console.log("支付失败")
+              console.log(error)
+            },
+            complete: function () {
+              // complete 
+              console.log("pay complete")
+            }
+          });
+      }
+    })
   }
 })

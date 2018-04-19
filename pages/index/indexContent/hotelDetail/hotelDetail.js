@@ -32,7 +32,8 @@ Page({
   onLoad: function (options) {
     console.log(options)
     this.setData({
-      id:options.id
+      id:options.id,
+      distance: options.distant
     })
     var now=new Date()
     var day=now.getDate()
