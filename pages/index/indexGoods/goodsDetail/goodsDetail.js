@@ -17,12 +17,15 @@ Page({
     productSingleImg:"",
 
     reviewNumber:0,   //总评人数
+    flag_:true,
     flag:true,
     reviewList:[],
     packName:"选择套餐",   //套餐名称
     count:0,              //套餐数量
     productData:{},
-    packageId:""
+    packageId:"",
+    isScroll:true,
+    hide:false
   },
   onLoad: function (options) {
     this.setData({
@@ -48,17 +51,24 @@ Page({
     }
     else {
       this.setData({
-        flag: false
+        flag_: false,
+        isScroll:false,
+        hide:true
       });
     }
   },
   modalclose: function () {
     this.setData({
-      flag: true
+      flag_: true,
+      isScroll:true,
+      hide:false
     });
   },
   getReview:function(){
     var _this=this
+    wx.showLoading({
+      title: '正在获取评论'
+    })
     wx.request({
       url: app.data.url + 'reviewList',
       method: 'POST',
@@ -72,9 +82,11 @@ Page({
       },
       success:function(res){
          console.log(res.data)
+         wx.hideLoading(); 
          _this.setData({
            reviewList:res.data,
            reviewNumber:res.data.length
+          //  reviewNumber: 10
          })
       }
     })
@@ -93,6 +105,16 @@ Page({
     //   "content": "本的样式都是一样的，展示出来的却不一样，发生这种情况的根本原因是文字和数字默认的行高不同，找到原因我们就可以解决它了，只要我们指定行高不就行了吗",
     //    "mark": 3,
     //   "time": "2018-04-11"
+    //   }, {
+    //     "username": "啊****",
+    //     "content": "本的样式都是一样的，展示出来的却不一样，发生这种情况的根本原因是文字和数字默认的行高不同，找到原因我们就可以解决它了，只要我们指定行高不就行了吗",
+    //     "mark": 3,
+    //     "time": "2018-04-11"
+    //   }, {
+    //     "username": "啊****",
+    //     "content": "本的样式都是一样的，展示出来的却不一样，发生这种情况的根本原因是文字和数字默认的行高不同，找到原因我们就可以解决它了，只要我们指定行高不就行了吗",
+    //     "mark": 3,
+    //     "time": "2018-04-11"
     // }]
     //   this.setData({
     //     reviewList:_data
@@ -100,6 +122,9 @@ Page({
   },
   getProduct:function(){
     var _this=this
+    wx.showLoading({
+      title: '正在获取商品信息'
+    })
     wx.request({
       url: app.data.url + 'productDetail',
       method: 'POST',
@@ -113,6 +138,7 @@ Page({
       },
       success:function(res){
        console.log(res.data)
+       wx.hideLoading(); 
        _this.setData({
          productData:res.data
       })
@@ -158,7 +184,8 @@ Page({
         icon: "none",
         duration: 1000
       })
-      wx.navigateTo({
+      // console.log(1111)
+      wx.switchTab ({
         url: '../../../mine/mine',
       })
     }

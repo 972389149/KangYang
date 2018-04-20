@@ -1,53 +1,58 @@
 <!--pages/index/indexGoods/goodsDetail/goodsDetail.wxml-->
-<view style="{{flag?'':'position:fixed;width:100%;height:100%;'}}">
-  <view class='header'> 
-      <swiper indicator-dots="{{indicatorDots}}"  
-              autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">  
-            <block wx:for="{{imgUrls}}" wx:key='unquine'>  
-              <swiper-item>  
-                  <image src="{{'https://www.holyhire.cn/ky/'+item.img}}" class="slide-image" style='height:200px'/>    
-              </swiper-item>  
-            </block>  
-      </swiper>  
-    </view>
-    <view class='content_price'>
-      <text class='priceOld'>￥{{originalPrice}}</text>
-      <text class='priceNew'>￥{{promotePrice}}</text>
-    </view>
-    <view style='border-bottom: 1px solid rgb(216, 216, 216)'></view> 
-    <view class='content_intruduce'>
-      <view>
-          <text class='hotelName'>{{name}}</text>
+<scroll-view style='{{isScroll?"":"height:600px"}}'>
+  <view style="{{flag?'':'position:fixed;width:100%;height:100%;'}}">
+    <view class='header'> 
+        <swiper indicator-dots="{{indicatorDots}}"  
+                autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">  
+              <block wx:for="{{imgUrls}}" wx:key='unquine'>  
+                <swiper-item>  
+                    <image src="{{'https://www.holyhire.cn/ky/'+item.img}}" class="slide-image" style='height:200px'/>    
+                </swiper-item>  
+              </block>  
+        </swiper>  
       </view>
-      <view class='hotel_deta'>
-          <text class='hotelIntro'>{{subTitle}}</text>
+      <view class='content_price'>
+        <text class='priceOld'>￥{{originalPrice}}</text>
+        <text class='priceNew'>￥{{promotePrice}}</text>
       </view>
-    </view>
-    <view style='height:13px;background:#f7f8f8'></view> 
-    <view class='goods_evla' bindtap='modalcnt'>
-      <text>评价（{{reviewNumber}}）</text>
-      <image src='https://www.holyhire.cn/ky/img/icon/to.png' class='to'></image>
-    </view>
-    <view style='border-bottom: 1px solid rgb(216, 216, 216)'></view> 
-    <view class='goods_detail'>
-      <text>商品详情</text>
-    </view>
-    <view style='border-bottom: 1px solid rgb(216, 216, 216)'></view>  
-  <view class='footNav'>
-    <view class='footLeft'> 
-      <view>
-          <navigator url='combo/combo?id={{id}}&price={{promotePrice}}'><text>{{packName}}</text></navigator>
+      <view style='border-bottom: 1px solid rgb(216, 216, 216)'></view> 
+      <view class='content_intruduce'>
+        <view>
+            <text class='hotelName'>{{name}}</text>
+        </view>
+        <view class='hotel_deta'>
+            <text class='hotelIntro'>{{subTitle}}</text>
+        </view>
       </view>
-    </view>
-    <view class='footRight'>
-          <text catchtap='toCommit'>下单</text>
-    </view>
+      <view style='height:13px;background:#f7f8f8'></view> 
+      <view class='goods_evla' bindtap='modalcnt'>
+        <text>评价（{{reviewNumber}}）</text>
+        <image src='https://www.holyhire.cn/ky/img/icon/to.png' class='to'></image>
+      </view>
+      <view style='border-bottom: 1px solid rgb(216, 216, 216)'></view> 
+      <view class='goods_detail'>
+        <text>商品详情</text>
+      </view>
+      <view style='border-bottom: 1px solid rgb(216, 216, 216)'></view>  
+      <view class='footNav' hidden='{{hide}}'>
+        <view class='footLeft'> 
+          <view>
+              <navigator url='combo/combo?id={{id}}&price={{promotePrice}}'><text>{{packName}}</text></navigator>
+          </view>
+        </view>
+        <view class='footRight' catchtap='toCommit'>
+              <text>下单</text>
+        </view>
+      </view>
   </view>
-</view>
-
- <view class="modal-box"  hidden='{{flag}}'>
+  <view class='footer' wx:for="{{detailList}}" wx:key="nfljeestih">
+      <image src="{{'https://www.holyhire.cn/ky/'+item.img}}"></image>
+  </view>
+</scroll-view>
+<view class='instea'></view> 
+<view class="modal-box"  hidden='{{flag_}}'>
     <view class='modal-body'>
-      <view class='hotelEvluate'>
+       <view class='hotelEvluate' style='height:300px'>
         <view class='evluate_content'>
           <text class='evulateNum'>评价（{{reviewNumber}}）</text>
           <image src='https://www.holyhire.cn/ky/img/icon/phoneLogin.png' class='close' bindtap='modalclose'></image>
@@ -67,10 +72,6 @@
           </view>
           <view style='border-bottom: 1px solid rgb(216, 216, 216)'></view> 
         </view>
-      </view>
+       </view> 
     </view>
- </view>
- <view class='footer' wx:for="{{detailList}}" wx:key="nfljeestih">
-    <image src="{{'https://www.holyhire.cn/ky/'+item.img}}"></image>
- </view>
- <view class='instea'></view>
+ </view> 

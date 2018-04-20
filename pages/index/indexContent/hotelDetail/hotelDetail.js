@@ -4,11 +4,7 @@ Page({
   data: {
     id: 18,    //从酒店列表传过来的酒店id
     //hotelImg
-    imgUrls: [
-         'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-         'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-         'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-    ],
+    imgUrls: [],
     name:"七天酒店",
     location:"珠海区宝岗大道某某西区(距离某地铁站B出口500米)",
     distance:1.1,
@@ -26,6 +22,8 @@ Page({
     dayOut:"",
     monthOut:"",
     _flag:false,
+    flag_:true,
+    isScroll:true,
 
     roomList:[]   //订房品种数组信息
   },
@@ -95,19 +93,26 @@ Page({
     }
     else{
       this.setData({
-        flag: false
+        flag: false,
+        flag_:false,
+        isScroll:false
       });
     } 
   },
   modalclose: function () {
     this.setData({
-      flag: true
+      flag: true,
+      flag_:true,
+      isScroll:true
     });
   },
 
   //获取酒店详情
   getHotelDetail:function(){
     var _this = this
+    wx.showLoading({
+      title: '正在获取酒店信息'
+    })
     wx.request({
       url: app.data.url + 'hotelDetail',
       method: 'POST',
@@ -119,12 +124,14 @@ Page({
         'charset': 'UTF - 8'
       },
       success:function(res){
+        wx.hideLoading(); 
         console.log(res.data)
         var _data = res.data
         _this.setData({
           name:_data.name,
           mark:_data.mark,
-          location:_data.location
+          location:_data.location,
+          imgUrls:_data.hotelImg
         })
       }
     })
@@ -147,6 +154,9 @@ Page({
   },
   getRoom:function(){
     var _this=this
+    wx.showLoading({
+      title: '正在获取房间信息'
+    })
     wx.request({
       url: app.data.url + 'hotelUpdate',
       method: 'POST',
@@ -160,12 +170,21 @@ Page({
         'charset': 'UTF - 8'
       },
       success:function(res){
+        wx.hideLoading(); 
         console.log(res.data)
         if(res.data.rooms.length==0){
           wx.showToast({
             title: '当前时间没有房间了',
             icon:"none"
           })
+          return ;
+        }
+        if(res.data.result==false){
+          wx.showToast({
+            title: '日期输入错误，请重新填写',
+            icon: "none"
+          })
+          return;
         }
         _this.setData({
           roomList:res.data.rooms
@@ -175,6 +194,9 @@ Page({
   },
   getReview:function(){
     var _this = this
+    wx.showLoading({
+      title: '正在获取评论信息'
+    })
     wx.request({
       url: app.data.url + 'reviewList',
       method: 'POST',
@@ -186,10 +208,12 @@ Page({
         'charset': 'UTF - 8'
       },
       success:function(res){
+        wx.hideLoading(); 
         console.log(res.data)
         _this.setData({
           reviewList:res.data,
           evulateNum:res.data.length
+          // evulateNum: 10
         })
       }
     })
@@ -208,15 +232,19 @@ Page({
     //       "mark": 3
     //     }
     //   ]
-    //   this.setData({
-    //     reviewList:_data
-    //   })
+    // this.setData({
+    //   reviewList:_data
+    // })
   },
   toCommit:function(e){
     if (app.data.openId.length==0){
       wx.showToast({
         title: '请先登录',
-        icon:"none"
+        icon:"none",
+        duration: 2000
+      })
+      wx.switchTab({
+        url: '../../../mine/mine',
       })
       return ;
     }

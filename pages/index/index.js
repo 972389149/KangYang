@@ -127,7 +127,7 @@ Page({
       success: function(res){
         for(var i=0;i<3;i++){
           _data.push({
-            "productId": res.data[i].productId,
+            "id": res.data[i].productId,
             "img": app.data.imgUrl+res.data[i].img
           })
         }
@@ -136,9 +136,9 @@ Page({
             'imgUrls[0].url': _data[0].img,
             'imgUrls[1].url': _data[1].img,
             'imgUrls[2].url': _data[2].img,
-            "imgUrls[0].link":"indexContent/hotelDetail/hotelDetail?"+_data[0].productId,
-            "imgUrls[1].link": "indexContent/hotelDetail/hotelDetail?" + _data[1].productId,
-            "imgUrls[2].link": "indexContent/hotelDetail/hotelDetail?" + _data[2].productId,
+            "imgUrls[0].link":"indexGoods/goodsDetail/goodsDetail?id="+_data[0].id,
+            "imgUrls[1].link": "indexGoods/goodsDetail/goodsDetail?id=" + _data[1].id,
+            "imgUrls[2].link": "indexGoods/goodsDetail/goodsDetail?id=" + _data[2].id,
           }) 
       }
     })

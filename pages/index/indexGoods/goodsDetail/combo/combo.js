@@ -79,6 +79,9 @@ Page({
   },
   getPackage:function(){
     var _this=this
+    wx.showLoading({
+      title: '正在获取套餐信息'
+    })
     wx.request({
       url: app.data.url + 'getPackage',
       method: 'POST',
@@ -91,6 +94,7 @@ Page({
         'charset': 'UTF - 8'
      },
      success:function(res){
+       wx.hideLoading()
        console.log(res.data)
        var _data=[]
        _data.push(res.data)

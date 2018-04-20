@@ -8,7 +8,7 @@
   <view style='background:#f7f8f8;height:70px;'>
        <view class='searchs'>
          <input type="text" placeholder='搜索' bindinput="bindKeyInput" confirm-type='search' bindconfirm='searchs'></input>
-         <image src='../../../img/logo/search.png' catchtap='searchs'></image>
+         <image src='../../../img/logo/search.png' bindtap='searchs'></image>
        </view>
   </view>
   <view>

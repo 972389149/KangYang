@@ -1,103 +1,107 @@
 <!--pages/index/indexGoods/hotelDetail/hotelDetail.wxml-->
-<view style="{{flag?'':'position:fixed;width:100%;height:100%;'}}">
-    <view class='header'> 
-      <swiper indicator-dots="{{indicatorDots}}"  
-              autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">  
-            <block wx:for="{{imgUrls}}" wx:key='unquine'>  
-              <swiper-item>  
-                  <image src="{{item}}" class="slide-image" style='height:200px'/>    
-              </swiper-item>  
-            </block>  
-      </swiper>  
-    </view>
-    <view style='width:100%'>
-      <view class='content_price'>
-          <view class='content_left'>
-            <text class='grade'>{{mark}}</text>
-            <text decode="{{true}}" class='good'>分&nbsp;很好</text>
-          </view>
-          <view class='content_right' bindtap='modalcnt'>
-            <text class='eval'>{{evulateNum}}条评论</text>
-            <image src='https://www.holyhire.cn/ky/img/icon/to.png' class='to'></image>
-          </view>
+<scroll-view style='{{isScroll?"":"height:600px"}}'>
+  <view style="{{flag?'':'position:fixed;width:100%;height:100%;'}}">
+      <view class='header'> 
+        <swiper indicator-dots="{{indicatorDots}}"  
+                autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">  
+              <block wx:for="{{imgUrls}}" wx:key='unquine'>  
+                <swiper-item>  
+                    <image src="{{'https://www.holyhire.cn/ky/'+item.img}}" class="slide-image" style='height:200px'/>    
+                </swiper-item>  
+              </block>  
+        </swiper>  
       </view>
-      <view style='border-bottom: 1px solid rgb(216, 216, 216)'></view> 
-      <view class='content_intruduce'>
-        <view>
-            <text class='hotelName'>{{name}}</text>
-        </view>
-        <view class='hotel_deta'>
-            <text class='hotelIntro'>{{location}}</text>
-            <text class='hotel_distance'>距我{{distance}}km</text>
-        </view>
-      </view>   
-      <view style='height:13px;background:#f7f8f8'></view>  
-      <view class='content_time'>
-        <view class='time_in' catchtap='toIn'>
-          <text class='time_a'>入住时间：</text>
-          <text class='time_b'>{{monthIn}}月{{dayIn}}日</text>
-          <image src='https://www.holyhire.cn/ky/img/icon/to.png' class='to in'></image>
+      <view style='width:100%'>
+        <view class='content_price'>
+            <view class='content_left'>
+              <text class='grade'>{{mark}}</text>
+              <text decode="{{true}}" class='good'>分&nbsp;很好</text>
+            </view>
+            <view class='content_right' bindtap='modalcnt'>
+              <text class='eval'>{{evulateNum}}条评论</text>
+              <image src='https://www.holyhire.cn/ky/img/icon/to.png' class='to'></image>
+            </view>
         </view>
         <view style='border-bottom: 1px solid rgb(216, 216, 216)'></view> 
-        <view class='time_out' catchtap='toOut'>
-          <text class='time_a'>离店时间：</text>
-          <text>{{monthOut}}月{{dayOut}}日</text>
-          <image src='https://www.holyhire.cn/ky/img/icon/to.png' class='to out'></image>
-        </view>
-      </view>
-      <view style='height:13px;background:#f7f8f8'></view>  
-
-      <view wx:for="{{roomList}}" wx:key="mvzdn" wx:for-index="idx">
-        <view class='room'>
+        <view class='content_intruduce'>
           <view>
+              <text class='hotelName'>{{name}}</text>
+          </view>
+          <view class='hotel_deta'>
+              <text class='hotelIntro'>{{location}}</text>
+              <text class='hotel_distance'>距我{{distance}}km</text>
+          </view>
+        </view>   
+        <view style='height:13px;background:#f7f8f8'></view>  
+        <view class='content_time'>
+          <view class='time_in' catchtap='toIn'>
+            <text class='time_a'>入住时间：</text>
+            <text class='time_b'>{{monthIn}}月{{dayIn}}日</text>
+            <image src='https://www.holyhire.cn/ky/img/icon/to.png' class='to in'></image>
+          </view>
+          <view style='border-bottom: 1px solid rgb(216, 216, 216)'></view> 
+          <view class='time_out' catchtap='toOut'>
+            <text class='time_a'>离店时间：</text>
+            <text>{{monthOut}}月{{dayOut}}日</text>
+            <image src='https://www.holyhire.cn/ky/img/icon/to.png' class='to out'></image>
+          </view>
+        </view>
+        <view style='height:13px;background:#f7f8f8'></view>  
+        <view wx:for="{{roomList}}" wx:key="mvzdn" wx:for-index="idx">
+          <view class='room'>
             <view>
-              <text class='room_title'>{{item.name}}</text>
-            </view>
-            <view>
-              <view class='room_left'>
-                    <view>
-                        <text class='room_kind' decode="{{true}}">{{item.introduce}}
-                        </text>
-                    </view>
-                  <view style='margin-top:20px;'>
-                    <text class='price_old'>￥{{item.originalPrice}}</text>
-                    <text class='price_new'>￥{{item.promotePrice}}</text>
-                  </view>
+              <view>
+                <text class='room_title'>{{item.name}}</text>
               </view>
-              <view class='room_right'>
-                     <button catchtap='toCommit' data-indexs="{{idx}}">预定</button>
+              <view>
+                <view class='room_left'>
+                      <view>
+                          <text class='room_kind' decode="{{true}}">{{item.introduce}}
+                          </text>
+                      </view>
+                    <view style='margin-top:20px;'>
+                      <text class='price_old'>￥{{item.originalPrice}}</text>
+                      <text class='price_new'>￥{{item.promotePrice}}</text>
+                    </view>
+                </view>
+                <view class='room_right'>
+                      <button catchtap='toCommit' data-indexs="{{idx}}">预定</button>
+                </view>
               </view>
             </view>
           </view>
+          <view style='border-bottom: 1px solid rgb(216, 216, 216)'></view> 
         </view>
-        <view style='border-bottom: 1px solid rgb(216, 216, 216)'></view> 
       </view>
-    </view>
-</view>
+  </view>
+</scroll-view>
+
+
+
 
  <!-- 弹出层的效果    -->
-<view class="modal-box"  hidden='{{flag}}'>
+<view class="modal-box"  hidden='{{flag_}}'>
    <view class='modal-body'>
-     <view class='hotelEvluate'>
-      <view class='evluate_content'>
-        <text class='evulateNum'>评价（{{evulateNum}}）</text>
-        <image src='https://www.holyhire.cn/ky/img/icon/phoneLogin.png' class='close' bindtap='modalclose'></image>
-      </view>
-      <view class='evluate' wx:for="{{reviewList}}" wx:key="nvzbv" wx:for-item="item">
-        <view class='evluate_left'>
-            <view class='evluate_pic'>
-              <image src="http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg"></image>
-            </view>
+     <view class='hotelEvluate' style='height:100%;'>
+        <view class='evluate_content'>
+          <text class='evulateNum'>评价（{{evulateNum}}）</text>
+          <image src='https://www.holyhire.cn/ky/img/icon/phoneLogin.png' class='close' bindtap='modalclose'></image>
         </view>
-        <view class='evluate_right'>
-            <view class='evl_left'>{{item.username}}</view>
-            <view class='evl_right'>2018-03-10</view>
+        <view class='evluate' wx:for="{{reviewList}}" wx:key="nvzbv" wx:for-item="item">
+          <view class='evluate_left'>
+              <view class='evluate_pic'>
+                <image src="http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg"></image>
+              </view>
+          </view>
+          <view class='evluate_right'>
+              <view class='evl_left'>{{item.username}}</view>
+              <view class='evl_right'>2018-03-10</view>
+          </view>
+          <view class='evl_detail'>
+              <text>{{item.content}}</text>
+          </view>
+          <view style='border-bottom: 1px solid rgb(216, 216, 216)'></view> 
         </view>
-        <view class='evl_detail'>
-            <text>{{item.content}}</text>
-        </view>
-        <view style='border-bottom: 1px solid rgb(216, 216, 216)'></view> 
-      </view>
      </view>
   </view>
 </view> 
