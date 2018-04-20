@@ -19,28 +19,11 @@ Page({
    */
   onLoad: function (options) {
     //模拟数据
-    var _data=[{
-       "name":"热搜1",
-       "productId":"01"
-     },{
-         "name": "热搜2",
-         "productId": "02"
-     },{
-         "name": "热搜3",
-         "productId": "03"
-     },{
-         "name": "热搜4",
-         "productId": "04"
-     },{
-         "name": "热搜5",
-         "productId": "05"
-     },{
-         "name": "热搜6",
-         "productId": "06"
-     },]
-     this.setData({
-       searchList: _data
-     })
+    // var _data=
+    //  this.setData({
+    //    searchList: _data
+    //  })
+     this.getHotSearch()
   },
   switchNav:function(e){
      var that=this;
@@ -52,21 +35,41 @@ Page({
          currentTab: e.target.dataset.current
        });
       //  console.log(this.data.currentTab);
+       this.getHotSearch()
      }
   },
 
   //默认的是酒店热搜,点击跳转到酒店详情页面
   toProductDetail:function(e){
+    if (this.data.currentTab==0){
+      wx.navigateTo({
+          url: '../indexContent/hotelDetail/hotelDetail?id=' + this.data.searchList[e.currentTarget.dataset.indexs].productId,
+      })
+    }
+    else if (this.data.currentTab == 1){
+      wx.navigateTo({
+        url: '../indexGoods/goodsDetail/goodsDetail?id=' + this.data.searchList[e.currentTarget.dataset.indexs].productId,
+      })
+    }
     // console.log(e)
     // 将酒店id传过去
-    wx.navigateTo({
-      url: '../indexContent/hotelDetail/hotelDetail?id=' + this.data.searchList[e.currentTarget.dataset.indexs].productId,
-    })
+    // wx.navigateTo({
+    //   url: '../indexContent/hotelDetail/hotelDetail?id=' + this.data.searchList[e.currentTarget.dataset.indexs].productId,
+    // })
   },
 
   //按关键字搜索的接口
   searchs:function(){
     //这是参数
+    // console.log(this.data.inputValue)
+    if (this.data.inputValue.length==0){
+      wx.showToast({
+        title: '请输入要搜索的内容~',
+        icon: 'none',
+        duration: 2000
+      })
+      return ;
+    }
     console.log(this.data.inputValue)
     console.log(this.data.currentTab)
     var _this=this
@@ -98,7 +101,7 @@ Page({
           })
         }else{
             wx.showToast({
-                title: '搜索不到此件商品~',
+                title: '搜索不到这件商品~',
                 icon: 'none',
                 duration: 2000
               })
@@ -110,8 +113,62 @@ Page({
     this.setData({
       inputValue:e.detail.value
     })
+  },
+  //获取热门搜索
+  getHotSearch:function(){
+    console.log(this.data.currentTab)
+    var _this=this
+    wx.request({
+      url: app.data.url + 'hotSearchList',
+      method: 'POST',
+      dataType: 'json',
+      data: {
+        type: this.data.currentTab
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded', // 默认值
+        'charset': 'UTF - 8'
+      },
+      success:function(res){
+        var _data={
+          "hotSearchList": [{
+            "name": "热搜1",
+            "productId": "01"
+          }, {
+            "name": "热搜2",
+            "productId": "02"
+          }, {
+            "name": "热搜3",
+            "productId": "03"
+          }, {
+            "name": "热搜4",
+            "productId": "04"
+          }, {
+            "name": "热搜5",
+            "productId": "05"
+          }, {
+            "name": "热搜6",
+            "productId": "06"
+          },]
+        }
+        // _data=res.data
+        console.log(res.data)
+        console.log(_data)
+          _this.setData({
+            searchList: _data.hotSearchList
+        })
+      }
+    })
   }
 })
+
+
+
+
+
+
+
+
 
 //页面之间传对象或者数组
 // 跳转到下级页面
