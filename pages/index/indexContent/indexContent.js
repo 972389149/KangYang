@@ -119,8 +119,10 @@ Page({
                   })
                   that.data.distant.push(that.mToKm(that.getFlatternDistance(that.data.lat1, that.data.lng1, that.data.lat2, that.data.lng2)))
                   var info = "hotelItems[" + (that.data.distant.length-1)+"].distant"
+                  var distant = "hotelItems[" + (that.data.distant.length - 1) + "].url"
                   that.setData({
-                    [info]: that.data.distant[that.data.distant.length-1]
+                    [info]: that.data.distant[that.data.distant.length-1],
+                    [distant]: that.data.hotelItems[that.data.distant.length - 1].url + '&distant=' +that.data.distant[that.data.distant.length - 1]
                   })
                 }
               }
@@ -235,6 +237,6 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    
   }
 })
