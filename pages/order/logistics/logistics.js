@@ -25,7 +25,7 @@ Page({
       method: 'post',
       dataType: 'json',
       data: {
-        transCode: '482040678546'  //that.data.code
+        transCode: that.data.code
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded', // 默认值
@@ -34,7 +34,29 @@ Page({
       success: function (res) {
         // 关闭模态框
         wx.hideLoading()
-        that.writeData(res.data.result)
+        if (res.data.desc == '查询成功'){
+          that.writeData(res.data.result)
+        }else{
+          wx.showToast({
+            title: '获取物流信息失败',
+            icon: 'none',
+            duration: 2000
+          })
+          that.setData({
+            type_: '系统繁忙...'
+          })
+        }
+      },
+      fail: function(err){
+        wx.hideLoading()
+        wx.showToast({
+          title: '获取物流信息失败',
+          icon: 'none',
+          duration: 2000
+        })
+        that.setData({
+          type_: '系统繁忙...'
+        })
       }
     })
   },
