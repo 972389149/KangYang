@@ -173,16 +173,16 @@ Page({
       success:function(res){
         wx.hideLoading(); 
         console.log(res.data)
-        if(res.data.rooms.length==0){
-          wx.showToast({
-            title: '当前时间没有房间了',
-            icon:"none"
-          })
-          return ;
-        }
         if(res.data.result==false){
           wx.showToast({
             title: '日期输入错误，请重新填写',
+            icon: "none"
+          })
+          return;
+        }
+        if (res.data.rooms.length == 0) {
+          wx.showToast({
+            title: '当前时间没有房间了',
             icon: "none"
           })
           return;
@@ -199,10 +199,12 @@ Page({
       title: '正在获取评论信息'
     })
     wx.request({
-      url: app.data.url + 'reviewList',
+      url: app.data.url + 'hotelReviewList',
       method: 'POST',
       data: {
-        productId: this.data.id
+        hotelId: this.data.id,
+        start: 0,
+        count: 100
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded', // 默认值
@@ -260,5 +262,8 @@ Page({
     wx.navigateTo({
       url: '../hotelCommit/hotelCommit?hotelName=' + this.data.name + "&hotelMoney=" + this.data.roomList[e.currentTarget.dataset.indexs].promotePrice + "&hotelId=" + this.data.id + "&productId=" + this.data.roomList[e.currentTarget.dataset.indexs].productId + "&dateIn=2018-" + this.data.monthIn + "-" + this.data.dayIn + "&dateOut=2018-" + this.data.monthOut + "-" + this.data.dayOut + "&hotelType=" + this.data.roomList[e.currentTarget.dataset.indexs].name + "&imgSrc=" +this.data.roomList[e.currentTarget.dataset.indexs].img
     })
+  },
+  onPullDownRefresh: function () {
+    wx.stopPullDownRefresh()
   }
 }) 

@@ -12,7 +12,7 @@ Page({
 
     originalPrice:0,
     promotePrice:0,
-    name:"",
+    name:"", 
     subTitle:"",
     productSingleImg:"",
 
@@ -194,5 +194,8 @@ Page({
         url: '../goodsCommit/goodsCommit?goodName=' + this.data.name + "&goodMoney=" + this.data.promotePrice + "&goodType=" + this.data.packName + "&productId=" + this.data.id + "&imgSrc=" + this.data.productSingleImg[0].img + "&goodCount=" + this.data.count + "&packageId=" + this.data.packageId,
       })
     } 
+  },
+  onPullDownRefresh: function () {
+    wx.stopPullDownRefresh()
   }
 }) 

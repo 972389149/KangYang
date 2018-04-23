@@ -286,7 +286,7 @@ Page({
       },
       // 向后台请求成功
       success: function (res) {
-        console.log('获取到：'+ JSON.stringify(res.data))
+        // console.log('获取到：'+ JSON.stringify(res.data))
         var list_ = res.data
         var _list = that.writeList(list_)
         var _list_ = that.data.orderItems
@@ -329,9 +329,12 @@ Page({
   },
   // 订单评价跳转
   toEvulate: function(e){
-
     for (var i = 0; i < this.data.orderItems.length;i++){
-      if (e.currentTarget.id == this.data.orderItems[i].productId){
+      console.log('productId:' + e.currentTarget.id)
+      if (e.currentTarget.id == this.data.orderItems[i].orderId){
+        console.log('找到了：' + this.data.orderItems[i].productId)
+        console.log(this.data.orderItems)
+        console.log('匹配到的orderId：'+this.data.orderItems[i].orderId)
         var name = this.data.orderItems[i].name
         var packag = this.data.orderItems[i].packages
         var productId = this.data.orderItems[i].productId
