@@ -95,7 +95,7 @@
           </view>
           <view class='evluate_right'>
               <view class='evl_left'>{{item.username}}</view>
-              <view class='evl_right'>2018-03-10</view>
+              <view class='evl_right'>{{item.time}}</view>
           </view>
           <view class='evl_detail'>
               <text>{{item.content}}</text>

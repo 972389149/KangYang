@@ -171,20 +171,20 @@ Page({
       },
       success:function(res){
         wx.hideLoading(); 
-        console.log(res.data)
-        if(res.data.rooms.length==0){
-          wx.showToast({
-            title: '当前时间没有房间了',
-            icon:"none"
-          })
-          return ;
-        }
-        if(res.data.result==false){
+        console.log(res.data.result)
+        if(res.data.result===false){
           wx.showToast({
             title: '日期输入错误，请重新填写',
             icon: "none"
           })
-          return;
+          return ;
+        }
+        if (res.data.rooms.length == 0) {
+          wx.showToast({
+            title: '当前时间没有房间了',
+            icon: "none"
+          })
+          return ;
         }
         _this.setData({
           roomList:res.data.rooms
@@ -198,10 +198,12 @@ Page({
       title: '正在获取评论信息'
     })
     wx.request({
-      url: app.data.url + 'reviewList',
+      url: app.data.url + 'hotelReviewList',
       method: 'POST',
       data: {
-        productId: this.data.id
+        hotelId: this.data.id,
+        start:0,
+        count:100
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded', // 默认值
