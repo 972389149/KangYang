@@ -94,6 +94,9 @@ Page({
         list_[i].url = '../index/indexGoods/goodsDetail/goodsDetail?id=' + list_[i].productId
       }
       list_[i].img = app.data.imgUrl + list_[i].img
+      if (list_[i].name.length > 7){
+        list_[i].name = list_[i].name.slice(0,7)+'...'
+      }
       switch (list_[i].status) {
         case '待支付':
           list_[i].status = '待支付'
@@ -283,7 +286,7 @@ Page({
       },
       // 向后台请求成功
       success: function (res) {
-        console.log('获取到：'+ JSON.stringify(res.data))
+        // console.log('获取到：'+ JSON.stringify(res.data))
         var list_ = res.data
         var _list = that.writeList(list_)
         var _list_ = that.data.orderItems
@@ -326,9 +329,12 @@ Page({
   },
   // 订单评价跳转
   toEvulate: function(e){
-
     for (var i = 0; i < this.data.orderItems.length;i++){
-      if (e.currentTarget.id == this.data.orderItems[i].productId){
+      console.log('productId:' + e.currentTarget.id)
+      if (e.currentTarget.id == this.data.orderItems[i].orderId){
+        console.log('找到了：' + this.data.orderItems[i].productId)
+        console.log(this.data.orderItems)
+        console.log('匹配到的orderId：'+this.data.orderItems[i].orderId)
         var name = this.data.orderItems[i].name
         var packag = this.data.orderItems[i].packages
         var productId = this.data.orderItems[i].productId
@@ -407,5 +413,47 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  WXPay: function (e) {
+    wx.request({
+      url: app.data.url + 'prePay',
+      data: {
+        "openid": app.data.openId,
+        "orderId": e.currentTarget.id
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'charset': 'UTF - 8'
+      },
+      method: 'POST',
+      success: function (res) {
+        console.log(res.data),
+          wx.requestPayment({
+            timeStamp: res.data.timeStamp,
+            nonceStr: res.data.nonceStr,
+            package: res.data.package,
+            signType: 'MD5',
+            paySign: res.data.paySign,
+            success: function (event) {
+              // success 
+              console.log(event);
+              wx.showToast({
+                title: '支付成功',
+                icon: 'success',
+                duration: 2000
+              });
+            },
+            fail: function (error) {
+              // fail 
+              console.log("支付失败")
+              console.log(error)
+            },
+            complete: function () {
+              // complete 
+              console.log("pay complete")
+            }
+          });
+      }
+    })
   }
 })

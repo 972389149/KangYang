@@ -30,7 +30,8 @@ Page({
   onLoad: function (options) {
     console.log(options)
     this.setData({
-      id:options.id
+      id:options.id,
+      distance: options.distant
     })
     var now=new Date()
     var day=now.getDate()
@@ -177,7 +178,7 @@ Page({
             title: '日期输入错误，请重新填写',
             icon: "none"
           })
-          return ;
+          return;
         }
         if (res.data.rooms.length == 0) {
           wx.showToast({
@@ -202,8 +203,8 @@ Page({
       method: 'POST',
       data: {
         hotelId: this.data.id,
-        start:0,
-        count:100
+        start: 0,
+        count: 100
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded', // 默认值
@@ -261,5 +262,8 @@ Page({
     wx.navigateTo({
       url: '../hotelCommit/hotelCommit?hotelName=' + this.data.name + "&hotelMoney=" + this.data.roomList[e.currentTarget.dataset.indexs].promotePrice + "&hotelId=" + this.data.id + "&productId=" + this.data.roomList[e.currentTarget.dataset.indexs].productId + "&dateIn=2018-" + this.data.monthIn + "-" + this.data.dayIn + "&dateOut=2018-" + this.data.monthOut + "-" + this.data.dayOut + "&hotelType=" + this.data.roomList[e.currentTarget.dataset.indexs].name + "&imgSrc=" +this.data.roomList[e.currentTarget.dataset.indexs].img
     })
+  },
+  onPullDownRefresh: function () {
+    wx.stopPullDownRefresh()
   }
 }) 

@@ -30,12 +30,11 @@ Page({
    */
   onLoad: function (options) {
     //订单页面传过来的参数
-    console.log(options)
     this.setData({
       name: options.name,
       packag: options.package,
       productId:options.productId,
-      orderId: options.orderId,
+      orderId: options.orderId
     })
   },
 
@@ -193,6 +192,16 @@ Page({
       },
       success:function(res){
           console.log(res.data)
+          if(res.data.success == 1){
+            wx.switchTab({
+              url: '../order'
+            })
+          }else{
+            wx.showToast({
+              title: '评论失败！',
+              icon: "none"
+            })
+          }
       }
     })
   }
