@@ -172,8 +172,8 @@ Page({
       },
       success:function(res){
         wx.hideLoading(); 
-        console.log(res.data)
-        if(res.data.result==false){
+        console.log(res.data.result)
+        if(res.data.result===false){
           wx.showToast({
             title: '日期输入错误，请重新填写',
             icon: "none"
@@ -185,7 +185,7 @@ Page({
             title: '当前时间没有房间了',
             icon: "none"
           })
-          return;
+          return ;
         }
         _this.setData({
           roomList:res.data.rooms

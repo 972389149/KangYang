@@ -21,6 +21,7 @@ Page({
   },
   onLoad: function (options) {
     let now = new Date();
+    // console.log(now)
     let year = now.getFullYear();
     let month = now.getMonth() + 1;
     let day = now.getDate()
@@ -40,12 +41,17 @@ Page({
     let dateArr = [];                       //需要遍历的日历数组数据  
     let arrLen = 0;                         //dateArr的数组长度  
     let now = setYear ? new Date(setYear, setMonth) : new Date();
+    // console.log(now)
     let year = setYear || now.getFullYear();
     let nextYear = 0;
     let month = setMonth || now.getMonth();                 //没有+1方便后面计算当月总天数  
     let nextMonth = (month + 1) > 11 ? 1 : (month + 1);
-    let startWeek = new Date(year + ',' + (month + 1) + ',' + 1).getDay();                         //目标月1号对应的星期  
+    let k = year + '/' + (month + 1) + '/' + 1
+    // console.log(k)
+    let startWeek = new Date(k).getDay();
+    // console.log(startWeek)                         //目标月1号对应的星期  
     let dayNums = new Date(year, nextMonth, 0).getDate();             //获取目标月有多少天  
+    // console.log(dayNums)
     let obj = {};
     let num = 0;
 
@@ -54,6 +60,7 @@ Page({
       dayNums = new Date(nextYear, nextMonth, 0).getDate();
     }
     arrLen = startWeek + dayNums;
+    // console.log(arrLen)
     for (let i = 0; i < arrLen; i++) {
       if (i >= startWeek) {
         num = i - startWeek + 1;
@@ -67,6 +74,7 @@ Page({
       }
       dateArr[i] = obj;
     }
+    // console.log(dateArr)
     this.setData({
       dateArr: dateArr
     })
