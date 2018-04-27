@@ -40,7 +40,7 @@
               <navigator url='combo/combo?id={{id}}&price={{promotePrice}}'><text>{{packName}}</text></navigator>
           </view>
         </view>
-        <view class='footRight' catchtap='toCommit'>
+        <view class='footRight {{flagtab?"toColor":""}}' catchtap='toCommit'>
               <text>下单</text>
         </view>
       </view>

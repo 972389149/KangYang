@@ -20,10 +20,17 @@
   </view>
   <view class='list'>
   <!-- wx并不允许把图片的url写入到wxss中，所以要写到wxml -->
-     <button class='villa' catchtap='tohotelLists' id='1' style='background-image: url({{shanZhuang}});background-size:100% 100%;'>山庄</button>
-     <button class='villa' catchtap='tohotelLists' id='2' style='background-image: url({{minSu}});background-size:100% 100%;'>民宿</button>
-     <button class='villa' catchtap='tohotelLists' id='0' style='background-image: url({{jiuDian}});background-size:100% 100%;'>酒店</button>
-     <button class='villa' catchtap='tohotelLists' id='3' style='background-image: url({{jiuFang}});background-size:100% 100%;'>酒坊</button>
+     <!-- <button class='villa' catchtap='tohotelLists' id='1' style='background-image: url({{shanZhuang}});background-size:100% 100%;'>山庄住宿</button>
+     <button class='villa' catchtap='tohotelLists' id='2' style='background-image: url({{minSu}});background-size:100% 100%;'>有机采摘</button>
+     <button class='villa' catchtap='tohotelLists' id='0' style='background-image: url({{jiuDian}});background-size:100% 100%;'>膳食餐饮</button>
+     <button class='villa' catchtap='tohotelLists' id='3' style='background-image: url({{jiuFang}});background-size:100% 100%;'>中医保健</button> -->
+
+     <!-- 暂时是这样 -->
+      <button class='villa' catchtap='tohotelLists' id='1' style='background-image: url({{shanZhuang}});background-size:100% 100%;'>山庄住宿</button>
+     <button class='villa' catchtap='toNone' id='2' style='background-image: url({{minSu}});background-size:100% 100%;'>有机采摘</button>
+     <button class='villa' catchtap='toNone' id='0' style='background-image: url({{jiuDian}});background-size:100% 100%;'>膳食餐饮</button>
+     <button class='villa' catchtap='toNone' id='3' style='background-image: url({{jiuFang}});background-size:100% 100%;'>中医保健</button>
+
   </view>
   <view class='footer'>
     <view class='listPart' wx:for='{{goodDatas}}' wx:key="dvjkbfea" wx:for-item="item">
