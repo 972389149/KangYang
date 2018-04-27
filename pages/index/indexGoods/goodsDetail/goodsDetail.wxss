@@ -159,17 +159,20 @@ swiper{
 }
 .footLeft text{
    font-size: 20px;
-   color: rgb(53,53,53);
 }
 .footRight{
   height: 60px;
-  background: #eb9413;
+  background: #b5b5b5;
   float: left;
   width: 49.7%;
 }
 .footRight text{
   font-size: 20px;
   color: #fff;
+}
+.toColor{
+   background: #eb9413;
+   color: #fff;
 }
 .instea{
   height: 61px;

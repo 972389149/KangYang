@@ -8,10 +8,10 @@ Page({
   data: {
     iconLocation: app.data.iconUrl + 'location.png', //地点图标
     searchIcon: app.data.iconUrl + 'headSearch.png', //搜索图标
-    shanZhuang: app.data.iconUrl+'homeCon1.png', //山庄图片
-    minSu: app.data.iconUrl + 'homeCon2.png', //民宿图片
-    jiuDian: app.data.iconUrl + 'HomeCon3.png', //酒店图片
-    jiuFang: app.data.iconUrl + 'HomeCon4.png', //酒坊图片
+    shanZhuang: app.data.iconUrl+'hotel.png', //山庄住宿图片
+    minSu: app.data.iconUrl + 'organic.png', //有机采摘图片
+    jiuDian: app.data.iconUrl + 'diet.png', //膳食餐饮图片
+    jiuFang: app.data.iconUrl + 'medicine.png', //中医保健图片
     ak: "lOt3lY6gozyoMqGaEVFDhkKDq0msaiAK", //填写申请到的ak     
     lat: '',
     lng: '',  
@@ -219,6 +219,11 @@ Page({
     // },];
     
 
+  },
+  toNone:function(){
+    wx.navigateTo({
+      url: './None/None',
+    })
   },
   // 下拉刷新
   onPullDownRefresh: function () {

@@ -25,7 +25,8 @@ Page({
     productData:{},
     packageId:"",
     isScroll:true,
-    hide:false
+    hide:false,
+    flagtab:false
   },
   onLoad: function (options) {
     this.setData({
@@ -36,7 +37,8 @@ Page({
       this.setData({
         packName:options.packName,
         count:options.count,
-        packageId:options.packageId
+        packageId:options.packageId,
+        flagtab:true
       })
     }   
     this.getReview()

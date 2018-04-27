@@ -16,7 +16,8 @@
     "pages/order/logistics/logistics",
     "pages/mine/mine",
     "pages/index/indexContent/hotelDetail/dateTwo/dateTwo",
-    "pages/index/search/searchData/sarchData"
+    "pages/index/search/searchData/sarchData",
+    "pages/index/None/None"
   ],
   "window": {
     "backgroundTextStyle": "light",
