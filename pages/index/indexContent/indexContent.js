@@ -100,6 +100,9 @@ Page({
             if (list[j].name.length > 7){
               list[j].name = list[j].name.slice(0,8)+'...'
             }
+            if (list[j].price.length > 7) {
+              list[j].price = list[j].price.slice(0, 6) + '...'
+            }
             list[j].address = list[j].province + list[j].city + list[j].dizhi
 
             wx.request({

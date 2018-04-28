@@ -8,7 +8,7 @@
           <text class='hotelName'>{{items.name}}\n</text>
           <text class='hotelMarch'>{{items.mark}}分</text>
           <text class='comment'>{{items.reviewCount}}条评论\n</text>
+          <view class='money'>{{items.price}}元</view>
         </view>
-        <view class='money'>{{items.price}}元</view>
     </navigator>
   </view>

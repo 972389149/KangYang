@@ -39,9 +39,12 @@ page {
   font-size: 30rpx;
 }
 .hotelMoney{
-  float: left;
-  height: 110rpx;
-  margin-left: 10%;
+  /* float: left; */
+  /* height: 110rpx; */
+  position: fixed;
+  top: 110rpx;
+  right: 20rpx;
+  /* margin-left: 10%; */
   text-align: center;
   font-size: 24rpx;
   color: #FD9C04;

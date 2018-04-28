@@ -6,8 +6,8 @@
    <view class='hotelName'>
     <text>{{hotelName}}</text>
   </view>
-  <view class='dateIn'>入住：{{dateIn}} </view>
-  <view class='dateOut'> 离店：{{dateOut}}</view>
+  <view class='dateIn'>入住：{{dateIn}} \n 离店：{{dateOut}}</view>
+  <!-- <view class='dateOut'> 离店：{{dateOut}}</view> -->
   <view class='hotelMoney'>¥ <text style='font-size: 36rpx;color: #FD9C04;font-weight:bold'>{{hotelMoney}}</text></view>  
 </view>
 <view class='underTop'>

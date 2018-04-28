@@ -17,6 +17,8 @@ Page({
     lng: '',  
     address: '',     //地址
     addressDetail:"",    
+    name: '',
+    productId: '',
     imgUrls:[
       {
         link:"",
