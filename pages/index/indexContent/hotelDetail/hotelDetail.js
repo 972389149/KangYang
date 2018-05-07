@@ -7,7 +7,7 @@ Page({
     imgUrls: [],
     name:"",
     location:"",
-    distance:1.1,
+    distance:"",
     mark:4.3,
     evulateNum:0,
     reviewList: [],
@@ -141,7 +141,7 @@ Page({
   },
   toIn:function(){
    wx.redirectTo({
-     url: 'date/date?monthOut='+this.data.monthOut+"&dayOut="+this.data.dayOut+"&id="+this.data.id,
+     url: 'date/date?monthOut='+this.data.monthOut+"&dayOut="+this.data.dayOut+"&id="+this.data.id+"&distant="+this.data.distance,
    })
   },
   toOut:function(){
@@ -152,7 +152,7 @@ Page({
     //   })
     // }
     wx.redirectTo({
-      url: 'dateTwo/dateTwo?monthIn=' + this.data.monthIn + "&dayIn=" + this.data.dayIn + "&id=" + this.data.id,
+      url: 'dateTwo/dateTwo?monthIn=' + this.data.monthIn + "&dayIn=" + this.data.dayIn + "&id=" + this.data.id + "&distant=" + this.data.distance,
     })
   },
   getRoom:function(){

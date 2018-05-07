@@ -17,7 +17,8 @@ Page({
     _flag:true,
     dayOut:"",
     monthOut:"",
-    id:""
+    id:"",
+    distant:""
   },
   onLoad: function (options) {
     let now = new Date();
@@ -129,7 +130,7 @@ Page({
         dayItem: e.currentTarget.dataset.item
       })
       wx.redirectTo({
-        url: '../hotelDetail?monthIn=' + this.data.month + "&dayIn=" + this.data.dayItem + "&id=" + this.data.id,
+        url: '../hotelDetail?monthIn=' + this.data.month + "&dayIn=" + this.data.dayItem + "&id=" + this.data.id + "&distant=" + this.data.distant,
       })
     }
     else{
@@ -142,7 +143,7 @@ Page({
           dayItem: e.currentTarget.dataset.item
         })
         wx.redirectTo({
-          url: '../hotelDetail?monthIn=' + this.data.month + "&dayIn=" + this.data.dayItem + "&monthOut=" + this.data.monthOut + "&dayOut=" + this.data.dayOut + "&id=" + this.data.id,
+          url: '../hotelDetail?monthIn=' + this.data.month + "&dayIn=" + this.data.dayItem + "&monthOut=" + this.data.monthOut + "&dayOut=" + this.data.dayOut + "&id=" + this.data.id + "&distant=" + this.data.distant,
         })
       }   
     }  

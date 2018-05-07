@@ -18,7 +18,8 @@ Page({
     monthIn:"",
     dayOut:"",
     monthOut:"",
-    id:""
+    id:"",
+    distant:""
   },
   onLoad: function (options) {
     this.setData({
@@ -136,7 +137,7 @@ Page({
         dayOut: e.currentTarget.dataset.indexs,
       })
      wx.redirectTo({
-       url: '../hotelDetail?monthIn=' + this.data.monthIn + "&dayIn=" + this.data.dayIn + "&monthOut=" + this.data.monthOut + "&dayOut=" + this.data.dayOut + "&id=" + this.data.id,
+       url: '../hotelDetail?monthIn=' + this.data.monthIn + "&dayIn=" + this.data.dayIn + "&monthOut=" + this.data.monthOut + "&dayOut=" + this.data.dayOut + "&id=" + this.data.id + "&distant=" + this.data.distant,
       })
     }
     else{
@@ -149,7 +150,7 @@ Page({
           dayOut: e.currentTarget.dataset.indexs,
         })
        wx.redirectTo({
-         url: '../hotelDetail?monthIn=' + this.data.monthIn + "&dayIn=" + this.data.dayIn + "&monthOut=" + this.data.month + "&dayOut=" + this.data.dayOut + "&id=" + this.data.id,
+         url: '../hotelDetail?monthIn=' + this.data.monthIn + "&dayIn=" + this.data.dayIn + "&monthOut=" + this.data.month + "&dayOut=" + this.data.dayOut + "&id=" + this.data.id + "&distant=" + this.data.distant,
         })
       }      
     }   
