@@ -1,8 +1,8 @@
 <!--pages/index/search/search.wxml-->
 <view class='header'>
    <text class='selectClass'>选择类别 : </text>
-   <text class='selectHotel {{currentTab==0 ? "selectTab" : "" }}' data-current="0" bindtap='switchNav'>酒店</text>
-   <text class='selectHotel {{currentTab==1 ? "selectTab" : "" }}' data-current="1" bindtap='switchNav'>特产</text>
+   <text class='selectHotel {{currentTab==0 ? "selectTab" : "" }}' data-current="0" bindtap='switchNav'>住宿</text>
+   <text class='selectHotel {{currentTab==1 ? "selectTab" : "" }}' data-current="1" bindtap='switchNav'>产品</text>
 </view>
 <view class='content'>
   <view style='background:#f7f8f8;height:70px;'>
@@ -11,12 +11,12 @@
          <image src='../../../img/logo/search.png' bindtap='searchs'></image>
        </view>
   </view>
-  <view>
+  <!-- <view>
     <text class='hotSearch'>热门搜索</text>
     <view class='searchWord'>
        <view class='searchExp' wx:for="{{searchList}}" wx:key="{{nfjzbkjz}}" wx:for-index="idx">
             <button catchtap='toProductDetail' data-indexs="{{idx}}">{{item.name}}</button>
        </view>
     </view>
-  </view>
+  </view> -->
 </view>

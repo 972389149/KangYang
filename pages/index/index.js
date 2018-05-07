@@ -229,6 +229,11 @@ Page({
   },
   // 下拉刷新
   onPullDownRefresh: function () {
+    wx.showLoading({
+      title: '拼命加载中...'
+    })
+    this.onLoad()
+    wx.hideLoading()
     wx.stopPullDownRefresh()
   }
 })

@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    name:"蜂王浆",
+    name:"",
+    img: '',
     packName: "",
     price:"",
     content:"",
@@ -24,7 +25,9 @@ Page({
       console.log(options)
       this.setData({
         id:options.id,
-        price:options.price
+        price:options.price,
+        name: options.name,
+        img: app.data.imgUrl+options.img
       })
       this.getPackage()
   },
@@ -95,7 +98,7 @@ Page({
      },
      success:function(res){
        wx.hideLoading()
-       console.log(res.data)
+      //  console.log(res.data)
        var _data=[]
        _data.push(res.data)
        _this.setData({
