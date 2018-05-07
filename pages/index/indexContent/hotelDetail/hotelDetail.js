@@ -5,8 +5,8 @@ Page({
     id: 18,    //从酒店列表传过来的酒店id
     //hotelImg
     imgUrls: [],
-    name:"七天酒店",
-    location:"珠海区宝岗大道某某西区(距离某地铁站B出口500米)",
+    name:"",
+    location:"",
     distance:1.1,
     mark:4.3,
     evulateNum:0,
