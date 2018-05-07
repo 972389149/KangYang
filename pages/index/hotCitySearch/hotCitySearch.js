@@ -157,6 +157,11 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    wx.showLoading({
+      title: '拼命加载中...'
+    })
+    this.onLoad()
+    wx.hideLoading()
     wx.stopPullDownRefresh()
   },
 

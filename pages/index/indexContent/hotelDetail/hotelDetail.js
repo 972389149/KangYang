@@ -16,6 +16,7 @@ Page({
     showModalStatus: false,
     imageHeight: 0,
     imageWidth: 0,
+    introduce: '',
 
     dayIn:"",
     monthIn:"",
@@ -132,7 +133,8 @@ Page({
           name:_data.name,
           mark:_data.mark,
           location:_data.location,
-          imgUrls:_data.hotelImg
+          imgUrls:_data.hotelImg,
+          introduce: _data.introduce
         })
       }
     })
@@ -264,6 +266,11 @@ Page({
     })
   },
   onPullDownRefresh: function () {
+    wx.showLoading({
+      title: '拼命加载中...'
+    })
+    this.onLoad()
+    wx.hideLoading()
     wx.stopPullDownRefresh()
   }
 }) 

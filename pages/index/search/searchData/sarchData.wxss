@@ -84,10 +84,11 @@
 }
 .money{
   float: right;
-  height: 40rpx;
+  /* height: 40rpx; */
   /* width: 190rpx; */
-   /* border: 2rpx solid #e4e4e4;   */
-  margin-top: 147rpx;
+     border: 2rpx solid #e4e4e4;    
+  margin-top: 25rpx; 
+  /* margin-right: 20rpx; */
   font-size: 36rpx;
   color: #FE9A00;
 }

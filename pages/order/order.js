@@ -15,7 +15,9 @@ Page({
     _noneOrder_: false,
     showOrders: true,       // 该参数用于判断订单是否为空
     orderItems_: [], // 储存未加工的数据 
-    orderItems:[] //存储页面的订单的列表
+    orderItems:[], //存储页面的订单的列表
+    name: '',
+    productId: ''
   },
   // 点击导航栏的函数
   changeNav: function (e) {
@@ -398,6 +400,11 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    wx.showLoading({
+      title: '拼命加载中...'
+    })
+    this.onShow()
+    wx.hideLoading()
     wx.stopPullDownRefresh()
   },
 

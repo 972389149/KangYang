@@ -1,7 +1,7 @@
 <!--pages/index/indexContent/hotelCommit/combo/combo.wxml-->
 <view class='header'>
   <view class='header_left'>
-    <image src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+    <image src="{{img}}"></image>
   </view>
   <view class='header_right'>
      <view class='productName'>{{name}}</view>

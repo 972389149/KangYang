@@ -37,7 +37,7 @@
       <view class='footNav' hidden='{{hide}}'>
         <view class='footLeft'> 
           <view>
-              <navigator url='combo/combo?id={{id}}&price={{promotePrice}}'><text>{{packName}}</text></navigator>
+              <navigator url='combo/combo?id={{id}}&price={{promotePrice}}&name={{name}}&img={{imgUrls[0].img}}'><text>{{packName}}</text></navigator>
           </view>
         </view>
         <view class='footRight {{flagtab?"toColor":""}}' catchtap='toCommit'>

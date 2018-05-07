@@ -33,10 +33,10 @@ Page({
     // }]
   },
   toHotCitySearch: function (){
-    console.log(this.data.type_ + '：' + this.data.loca)
-    wx.redirectTo({
-      url: '../hotCitySearch/hotCitySearch?searchType='+this.data.type_+'&loca='+this.data.loca+'&pageType=0'
-    })
+    // console.log(this.data.type_ + '：' + this.data.loca)
+    // wx.redirectTo({
+    //   url: '../hotCitySearch/hotCitySearch?searchType='+this.data.type_+'&loca='+this.data.loca+'&pageType=0'
+    // })
   },
   onPullDownRefresh: function () {
   }, 
@@ -86,7 +86,7 @@ Page({
           // console.log(that.data.count)
           // console.log(that.data.continueLoad)
           if (res.data.length < that.data.count) {
-            console.log('关闭加载')
+            // console.log('关闭加载')
             that.setData({
               continueLoad: false
             })
@@ -99,6 +99,9 @@ Page({
             list[j].url = 'hotelDetail/hotelDetail?id=' + list[j].id
             if (list[j].name.length > 7){
               list[j].name = list[j].name.slice(0,8)+'...'
+            }
+            if (list[j].price.length > 7) {
+              list[j].price = list[j].price.slice(0, 6) + '...'
             }
             list[j].address = list[j].province + list[j].city + list[j].dizhi
 
@@ -207,6 +210,11 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    wx.showLoading({
+      title: '拼命加载中...'
+    })
+    this.onLoad()
+    wx.hideLoading()
     wx.stopPullDownRefresh()
   },
 
