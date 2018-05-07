@@ -21,6 +21,9 @@ Page({
     distant:""
   },
   onLoad: function (options) {
+    this.setData({
+      distant: options.distant
+    })
     let now = new Date();
     // console.log(now)
     let year = now.getFullYear();

@@ -23,7 +23,8 @@ Page({
   },
   onLoad: function (options) {
     this.setData({
-      id:options.id
+      id:options.id,
+      distant: options.distant
     })
     let now = new Date();
     let year = now.getFullYear();
