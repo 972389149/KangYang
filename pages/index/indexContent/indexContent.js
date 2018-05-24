@@ -48,8 +48,8 @@ Page({
     var detailAddress;
     if (options.detailAddress.length == 0){
       detailAddress ='暂无当前详细位置信息'
-    } else if (options.detailAddress.length >= 10){
-      detailAddress = options.detailAddress.slice(0,8)+'...'
+    } else if (options.detailAddress.length >= 15){
+      detailAddress = options.detailAddress.slice(0,15)+'...'
     }else{
       detailAddress = options.detailAddress
     }
@@ -100,9 +100,9 @@ Page({
             if (list[j].name.length > 7){
               list[j].name = list[j].name.slice(0,8)+'...'
             }
-            if (list[j].price.length > 7) {
-              list[j].price = list[j].price.slice(0, 6) + '...'
-            }
+            // if (list[j].price.length > 7) {
+            //   list[j].price = list[j].price.slice(0, 6) + '...'
+            // }
             list[j].address = list[j].province + list[j].city + list[j].dizhi
 
             wx.request({
@@ -125,7 +125,7 @@ Page({
                   var distant = "hotelItems[" + (that.data.distant.length - 1) + "].url"
                   that.setData({
                     [info]: that.data.distant[that.data.distant.length-1],
-                    [distant]: that.data.hotelItems[that.data.distant.length - 1].url + '&distant=' +that.data.distant[that.data.distant.length - 1]
+                    [distant]: that.data.hotelItems[that.data.distant.length - 1].url + '&distant=' + that.data.distant[that.data.distant.length - 1] + '&lng=' + res.data.result.location.lng+'&lat='+ res.data.result.location.lat
                   })
                 }
               }
@@ -210,11 +210,12 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    wx.showLoading({
-      title: '拼命加载中...'
-    })
     this.onLoad()
-    wx.hideLoading()
+    wx.showToast({
+      title: '信息更新成功',
+      icon: 'success',
+      duration: 1500
+    })
     wx.stopPullDownRefresh()
   },
 

@@ -6,12 +6,12 @@
                 autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">  
               <block wx:for="{{imgUrls}}" wx:key='unquine'>  
                 <swiper-item>  
-                    <image src="{{'https://www.holyhire.cn/ky/'+item.img}}" class="slide-image" style='height:200px'/>    
+                    <image src="{{'https://www.jdkangyang.cn/ky/'+item.img}}" class="slide-image" style='height:200px'/>    
                 </swiper-item>  
               </block>  
         </swiper>  
       </view>
-      <view style='width:100%'>
+      <view style='width:100%'> 
         <view class='content_price'>
             <view class='content_left'>
               <text class='grade'>{{mark}}</text>
@@ -19,7 +19,7 @@
             </view>
             <view class='content_right' bindtap='modalcnt'>
               <text class='eval'>{{evulateNum}}条评论</text>
-              <image src='https://www.holyhire.cn/ky/img/icon/to.png' class='to'></image>
+              <image src='https://www.jdkangyang.cn/ky/img/icon/to.png' class='to'></image>
             </view>
         </view>
         <view style='border-bottom: 1px solid rgb(216, 216, 216)'></view> 
@@ -28,7 +28,7 @@
               <text class='hotelName'>{{name}}</text>
           </view>
           <view class='hotel_deta'>
-              <text class='hotelIntro'>位置：{{location}}</text>
+              <text class='hotelIntro' catchtap='openMap'>位置：{{location}}</text>
               <text class='hotel_distance'>距我{{distance}}km\n</text>
           </view>
           <view  class='hotel_deta' style='width： 100%;margin-top:10rpx;'>

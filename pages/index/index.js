@@ -188,39 +188,6 @@ Page({
         })
       }
     })
-    
-    // var _data=[
-    // {
-    //     "name":"商品A",
-    //     "img":"../../img/hotel.jpg",
-    //     "productId":"01",
-    // },{
-    //     "name": "商品B",
-    //     "img": "../../img/hotel.jpg",
-    //     "productId": "02",
-    // },{
-    //     "name": "商品C",
-    //     "img": "../../img/hotel.jpg",
-    //     "productId": "03",
-    // },{
-    //     "name": "商品D",
-    //     "img": "../../img/hotel.jpg",
-    //     "productId": "04",
-    // }, {
-    //     "name": "商品E",
-    //     "img": "../../img/hotel.jpg",
-    //     "productId": "05",
-    // },{
-    //     "name": "商品F",
-    //     "img": "../../img/hotel.jpg",
-    //     "productId": "06",
-    // },{
-    //     "name": "商品G",
-    //     "img": "../../img/hotel.jpg",
-    //     "productId": "07",
-    // },];
-    
-
   },
   toNone:function(){
     wx.navigateTo({
@@ -229,11 +196,13 @@ Page({
   },
   // 下拉刷新
   onPullDownRefresh: function () {
-    wx.showLoading({
-      title: '拼命加载中...'
-    })
     this.onLoad()
-    wx.hideLoading()
+    wx.showToast({
+      title: '信息更新成功',
+      icon: 'success',
+      duration: 1500
+    })
     wx.stopPullDownRefresh()
+    // wx.stopPullDownRefresh()
   }
 })

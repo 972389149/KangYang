@@ -152,6 +152,15 @@ Page({
       flagE: !this.data.flagE
     })
   },
+  onPullDownRefresh: function () {
+    this.onLoad()
+    wx.showToast({
+      title: '信息更新成功',
+      icon: 'success',
+      duration: 1500
+    })
+    wx.stopPullDownRefresh()
+  },
   bindKeyInput: function (e) {
     // console.log(e.detail.value)
     this.setData({

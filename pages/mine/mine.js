@@ -35,35 +35,35 @@ Page({
     dotted: [5,30,55,80,105,130,155], //小圆点位置
     Coupon: [{
       "img": '../../img/hotel.jpg',
-      "name": '测试一号酒店',
+      "name": '测试一号民宿',
       "price": '5',
       "fillPrice": '200',
       "date": '2018-05-01',
       "hotelId": 1
     }, {
         "img": '../../img/hotel.jpg',
-        "name": '测试二号酒店',
+        "name": '测试二号民宿',
         "price": '10',
         "fillPrice": '300',
         "date": '2018-05-02',
         "hotelId": 1
     }, {
         "img": '../../img/hotel.jpg',
-        "name": '测试三号酒店',
+        "name": '测试三号民宿',
         "price": '15',
         "fillPrice": '400',
         "date": '2018-05-03',
         "hotelId": 1
     }, {
         "img": '../../img/hotel.jpg',
-        "name": '测试四号酒店',
+        "name": '测试四号民宿',
         "price": '20',
         "fillPrice": '500',
         "date": '2018-05-04',
         "hotelId": 1
     }, {
         "img": '../../img/hotel.jpg',
-        "name": '测试五号酒店',
+        "name": '测试五号民宿',
         "price": '25',
         "fillPrice": '600',
         "date": '2018-05-05',

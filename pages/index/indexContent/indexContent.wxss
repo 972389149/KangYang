@@ -63,7 +63,7 @@
 }
 .image{
   float: left;
-  width: 162rpx;
+  width: 23%;
   height: 162rpx;
   border: 4rpx solid #e4e4e4;
   margin-top: 20rpx;
@@ -75,18 +75,19 @@
 .content{
   float: left;
   height: 168rpx;
-  width: 280rpx;
-   /* border: 2rpx solid #e4e4e4;   */
+  width: 70%;
+    /* border: 2rpx solid #e4e4e4;    */
   margin-top: 20rpx;
   margin-left: 21rpx; 
   font-size: 35rpx;
 }
 .money{
-  float: right;
-  height: 40rpx;
+  /* float: right; */
+  /* height: 40rpx; */
   /* width: 190rpx; */
    /* border: 2rpx solid #e4e4e4;   */
-  margin-top: 147rpx;
+  /* margin-top: 147rpx; */
+  margin-left: 20rpx;
   font-size: 36rpx;
   color: #FE9A00;
 }

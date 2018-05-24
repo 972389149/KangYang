@@ -17,6 +17,8 @@ Page({
     imageHeight: 0,
     imageWidth: 0,
     introduce: '',
+    lng: '',
+    lat: '',
 
     dayIn:"",
     monthIn:"",
@@ -32,7 +34,9 @@ Page({
     console.log(options)
     this.setData({
       id:options.id,
-      distance: options.distant
+      distance: options.distant,
+      lng: options.lng,
+      lat: options.lat
     })
     var now=new Date()
     var day=now.getDate()
@@ -266,11 +270,22 @@ Page({
     })
   },
   onPullDownRefresh: function () {
-    wx.showLoading({
-      title: '拼命加载中...'
-    })
     this.onLoad()
-    wx.hideLoading()
+    wx.showToast({
+      title: '信息更新成功',
+      icon: 'success',
+      duration: 1500
+    })
     wx.stopPullDownRefresh()
+  },
+  openMap: function(){
+    var that = this 
+    var latitude = that.data.lat+ 1 - 1
+    var longitude = that.data.lng + 1 - 1
+    wx.openLocation({
+      latitude: latitude+1,
+      longitude: longitude+1,
+      address: that.data.location
+    })
   }
 }) 
