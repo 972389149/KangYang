@@ -14,8 +14,9 @@
           <text class='comment'>{{items.reviewCount}}条评论\n</text>
           <view style='margin-top: 27rpx;'>
             <text class='distant'>距定位 {{items.distant}} km</text>
+            <text class='money'>  {{items.price}}元</text>
           </view>
         </view>
-        <view class='money'>{{items.price}}元</view>
+        <!-- <view class='money'>{{items.price}}元</view> -->
     </navigator>
   </view>

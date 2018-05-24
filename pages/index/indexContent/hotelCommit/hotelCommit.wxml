@@ -1,6 +1,9 @@
 <!--pages/index/indexContent/hotelCommit/hotelCommit.wxml-->
+<view class='bigimg' catchtap='bigImg' wx:if='{{imgBig}}'>
+</view>
+<image src='{{imgSrc}}' class='bigimg_' wx:if='{{imgBig}}'></image>
 <view class='hotelTop'>
-  <view class='image'>
+  <view class='image' catchtap='imgBig'>
     <image src='{{imgSrc}}'></image>
   </view>
    <view class='hotelName'>
@@ -40,7 +43,7 @@
   </view>
   <view class='right'>
     <!-- <text>{{userName}}</text> -->
-    <input placeholder='输入姓名' type='text' confirm-type='done' maxlength='8' value='{{userName}}' bindinput='writeInName'></input>
+    <input placeholder='{{enterName}}' type='text' confirm-type='done' maxlength='8' value='{{userName}}' bindinput='writeInName'></input>
   </view>
 </view>
 <view class='underTop'>
@@ -49,7 +52,7 @@
   </view>
   <view class='right'>
     <!-- <text>{{phoneNumber}}</text> -->
-    <input placeholder='输入手机号' type='number' confirm-type='done' maxlength='11' value='{{phoneNumber}}' bindinput='writeInNumber'></input>
+    <input placeholder='{{enterPhone}}' type='number' confirm-type='done' maxlength='11' value='{{phoneNumber}}' bindinput='writeInNumber'></input>
   </view>
 </view>
 <view class='underTop' style='border-bottom: none'>

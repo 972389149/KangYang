@@ -166,5 +166,14 @@ Page({
     wx.navigateTo({
       url: '../goodsDetail?count='+this.data.count+"&packName="+this.data.packName+"&id="+this.data.id+"&packageId="+this.data.packageId,
     })
+  },
+  onPullDownRefresh: function () {
+    this.onLoad()
+    wx.showToast({
+      title: '信息更新成功',
+      icon: 'success',
+      duration: 1500
+    })
+    wx.stopPullDownRefresh()
   }
 })

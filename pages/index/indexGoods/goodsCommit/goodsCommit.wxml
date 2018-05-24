@@ -1,13 +1,16 @@
 <!--pages/index/indexGoods/goodsCommit/goodsCommit.wxml-->
+<view class='bigimg' catchtap='bigImg' wx:if='{{imgBig}}'>
+</view>
+<image src='{{imgSrc}}' class='bigimg_' wx:if='{{imgBig}}'></image>
 <view class='goodTop'>
   <!-- <view class='goodName'>
     <text>{{goodName}}</text>
   </view>
   <view class='goodMoney'>¥{{goodMoney}}元</view> -->
-  <view class='image'>
+  <view class='image' catchtap='imgBig'>
     <image src='{{imgSrc}}'></image>
   </view>
-   <view class='goodName'>
+   <view class='goodName'> 
     <text>{{goodName}}</text>
   </view>
   <view class='goodMoney'>¥ <text style='font-size: 36rpx;color: #FD9C04;font-weight:bold'>{{goodMoney}}</text></view>  

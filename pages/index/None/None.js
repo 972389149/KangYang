@@ -47,7 +47,13 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    this.onLoad()
+    wx.showToast({
+      title: '信息更新成功',
+      icon: 'success',
+      duration: 1500
+    })
+    wx.stopPullDownRefresh()
   },
 
   /**

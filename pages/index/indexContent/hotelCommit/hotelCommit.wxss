@@ -20,6 +20,23 @@ page {
   border: 2rpx solid #e4e4e4;
   margin-top: 30rpx;
 }
+.bigimg{
+  position:fixed;
+  top:0rpx;
+  height:100%;
+  width:100%;
+  opacity:0.3;
+  background-color:#000;
+  /* border: 2rpx solid #ffffff; */
+}
+.bigimg_{
+  position:fixed;
+  width: 80%;
+  height: 40%;
+  top: 200rpx;
+  margin-left: 10%;
+  border: 2rpx solid #EB9413;
+}
 .hotelTop image{
   width: 120rpx;
   height: 120rpx;

@@ -2,9 +2,9 @@
 App({
   data: {
     loginToMine: true,
-    iconUrl: 'https://www.holyhire.cn/ky/img/icon/', //icon路径
-    url: 'https://www.holyhire.cn/ky/api/v1/', //请求路径
-    imgUrl: 'https://www.holyhire.cn/ky/', //图片路径
+    iconUrl: 'https://www.jdkangyang.cn/ky/img/icon/', //icon路径
+    url: 'https://www.jdkangyang.cn/ky/api/v1/', //请求路径
+    imgUrl: 'https://www.jdkangyang.cn/ky/', //图片路径
     openId: '', //用户的openId
     userName: '', //用户名字
     ordertype: 'typeA', //当前页面的订单

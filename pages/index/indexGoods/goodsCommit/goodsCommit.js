@@ -21,7 +21,8 @@ Page({
     userName: 0,
     telNumber: 0,
     detailAddress: 0,
-    commitAgain: false
+    commitAgain: false,
+    imgBig: false
   },
   changeGood: function (e) {
     if (e.target.id == 1) {
@@ -225,7 +226,16 @@ Page({
   onReady: function () {
 
   },
-
+  imgBig: function () {
+    this.setData({
+      imgBig: true
+    })
+  },
+  bigImg: function () {
+    this.setData({
+      imgBig: false
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */
@@ -251,7 +261,13 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.onLoad()
+    wx.showToast({
+      title: '信息更新成功',
+      icon: 'success',
+      duration: 1500
+    })
+    wx.stopPullDownRefresh()
   },
 
   /**

@@ -161,11 +161,12 @@ Page({
     })
   },
   onPullDownRefresh: function () {
-    wx.showLoading({
-      title: '拼命加载中...'
-    })
     this.onLoad()
-    wx.hideLoading()
+    wx.showToast({
+      title: '信息更新成功',
+      icon: 'success',
+      duration: 1500
+    })
     wx.stopPullDownRefresh()
   }
 })

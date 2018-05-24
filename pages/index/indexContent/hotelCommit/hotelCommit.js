@@ -17,7 +17,10 @@ Page({
     phoneNumber: '',  //手机号码
     roomCount: 0, //房间总数量
     total: 0,  //总金额
-    imgSrc: "",
+    imgSrc: "", //酒店图片
+    imgBig: false,
+    enterName:"请输入姓名",
+    enterPhone:"请输入手机号码",
     orderId: '',
     controlCommit: false, //控制是否可以点击提交
     commitAgain: false //控制不能多次下单
@@ -145,6 +148,20 @@ Page({
       })
     }
   },
+  imgBig: function(){
+    this.setData({
+      imgBig: true,
+      enterName: '',
+      enterPhone: ''
+    })
+  },
+  bigImg: function(){
+    this.setData({
+      imgBig: false,
+      enterName: "请输入姓名",
+      enterPhone: "请输入手机号码"
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -226,11 +243,12 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    wx.showLoading({
-      title: '拼命加载中...'
-    })
     this.onLoad()
-    wx.hideLoading()
+    wx.showToast({
+      title: '信息更新成功',
+      icon: 'success',
+      duration: 1500
+    })
     wx.stopPullDownRefresh()
   },
 
