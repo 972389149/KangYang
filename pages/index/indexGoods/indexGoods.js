@@ -73,7 +73,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+    // console.log(options)
     this.setData({
       loca: options.address,
       location: options.detailAddress
@@ -125,7 +125,7 @@ Page({
     this.setData({
       start: this.data.start + this.data.count
     })
-    console.log(this.data.start)
+    // console.log(this.data.start)
     // 进行ajax请求
     // 模拟拿到的数据
     var list = [{

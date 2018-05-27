@@ -40,7 +40,7 @@ Page({
     bigPictureArry: []
   },
   onLoad: function (options) {
-    console.log(options)
+    // console.log(options)
     this.setData({
       id:options.id,
       distance: options.distant,
@@ -140,7 +140,7 @@ Page({
       },
       success:function(res){
         wx.hideLoading(); 
-        console.log(res.data)
+        // console.log(res.data)
         var _data = res.data
         _this.setData({
           name:_data.name,
@@ -187,7 +187,7 @@ Page({
       },
       success:function(res){
         wx.hideLoading(); 
-        console.log(res.data.result)
+        // console.log(res.data.result)
         if(res.data.result===false){
           wx.showToast({
             title: '日期输入错误，请重新填写',
@@ -227,7 +227,7 @@ Page({
       },
       success:function(res){
         wx.hideLoading(); 
-        console.log(res.data)
+        // console.log(res.data)
         _this.setData({
           reviewList:res.data,
           evulateNum:res.data.length
@@ -307,7 +307,7 @@ Page({
     })
     var index
     var arry = []
-    console.log(this.data.imgUrls.length)
+    // console.log(this.data.imgUrls.length)
     for (var i = 0; i < this.data.imgUrls.length; i++) {
       if (this.data.imgUrls[i].img == e.currentTarget.dataset.url) {
         index = i

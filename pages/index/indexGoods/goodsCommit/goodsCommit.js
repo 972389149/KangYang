@@ -45,7 +45,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+    // console.log(options)
     // 从商品详情页面传过来的数据
     // 先模拟数据
     this.setData({
@@ -161,7 +161,7 @@ Page({
               },
               method: 'POST',
               success: function (res) {
-                console.log(res.data),
+                // console.log(res.data),
                   wx.requestPayment({
                     timeStamp: res.data.timeStamp,
                     nonceStr: res.data.nonceStr,
@@ -170,7 +170,7 @@ Page({
                     paySign: res.data.paySign,
                     success: function (event) {
                       // success 
-                      console.log(event);
+                      // console.log(event);
                       wx.showToast({
                         title: '支付成功',
                         icon: 'success',
@@ -184,11 +184,11 @@ Page({
                         icon: 'none',
                         duration: 2000
                       })
-                      console.log(error)
+                      // console.log(error)
                     },
                     complete: function () {
                       // complete 
-                      console.log("pay complete")
+                      // console.log("pay complete")
                     }
                   });
               }

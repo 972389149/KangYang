@@ -70,8 +70,8 @@ Page({
       })
       return ;
     }
-    console.log(this.data.inputValue)
-    console.log(this.data.currentTab)
+    // console.log(this.data.inputValue)
+    // console.log(this.data.currentTab)
     var _this=this
     wx.request({
       url: app.data.url + 'searchByWord',
@@ -88,7 +88,7 @@ Page({
         'charset': 'UTF - 8'
       },
       success:function(res){
-        console.log(res.data);
+        // console.log(res.data);
         _this.setData({
           list:res.data
         });
@@ -116,7 +116,7 @@ Page({
   },
   //获取热门搜索
   getHotSearch:function(){
-    console.log(this.data.currentTab)
+    // console.log(this.data.currentTab)
     var _this=this
     wx.request({
       url: app.data.url + 'hotSearchList',
@@ -152,8 +152,8 @@ Page({
           },]
         }
         // _data=res.data
-        console.log(res.data)
-        console.log(_data)
+        // console.log(res.data)
+        // console.log(_data)
           _this.setData({
             searchList: _data.hotSearchList
         })

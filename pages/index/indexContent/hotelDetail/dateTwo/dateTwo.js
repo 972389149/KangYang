@@ -30,7 +30,7 @@ Page({
     let year = now.getFullYear();
     let month = now.getMonth() + 1;
     let day = now.getDate()
-    console.log(options)
+    // console.log(options)
     if(options.dayIn){
        this.setData({
          year: year,

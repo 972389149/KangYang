@@ -36,7 +36,7 @@ Page({
     this.setData({
       id: options.id,
     })
-    console.log(options)
+    // console.log(options)
     if(options.packName){
       this.setData({
         packName:options.packName,
@@ -87,7 +87,7 @@ Page({
         'charset': 'UTF - 8'
       },
       success:function(res){
-         console.log(res.data)
+         // console.log(res.data)
          wx.hideLoading(); 
          _this.setData({
            reviewList:res.data,
@@ -114,7 +114,7 @@ Page({
         'charset': 'UTF - 8'
       },
       success:function(res){
-       console.log(res.data)
+       // console.log(res.data)
        wx.hideLoading(); 
        _this.setData({
          productData:res.data
@@ -178,7 +178,7 @@ Page({
     })
     var index
     var arry = []
-    console.log(this.data.imgUrls.length)
+    // console.log(this.data.imgUrls.length)
     for (var i = 0; i < this.data.imgUrls.length; i++) {
       if (this.data.imgUrls[i].img == e.currentTarget.dataset.url) {
         index = i

@@ -61,7 +61,7 @@ Page({
       lng1: app.data.lng,
       lat1: app.data.lat
     })
-    console.log(options.address + ":" + options.detailAddress + ":" + options.type_)
+    // console.log(options.address + ":" + options.detailAddress + ":" + options.type_)
     this.getList()
   },
   getList: function(){

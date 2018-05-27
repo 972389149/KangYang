@@ -199,7 +199,7 @@ Page({
         wx.hideLoading()
       },
       fail: function (err) {
-        console.log(err)
+        // console.log(err)
         // 关闭模态框
         wx.hideLoading()
       },
@@ -308,7 +308,7 @@ Page({
         wx.hideLoading()
       },
       fail: function (err) {
-        console.log(err)
+        // console.log(err)
         // 关闭模态框
         wx.hideLoading()
       }
@@ -316,7 +316,7 @@ Page({
   },
   // 订单物流跳转
   toLogistics: function(e){
-    console.log(e.currentTarget.id)
+    // console.log(e.currentTarget.id)
     for (var i = 0; i < this.data.orderItems.length; i++) {
       if (e.currentTarget.id == this.data.orderItems[i].orderId) {
         var name = this.data.orderItems[i].name
@@ -332,11 +332,11 @@ Page({
   // 订单评价跳转
   toEvulate: function(e){
     for (var i = 0; i < this.data.orderItems.length;i++){
-      console.log('productId:' + e.currentTarget.id)
+      // console.log('productId:' + e.currentTarget.id)
       if (e.currentTarget.id == this.data.orderItems[i].orderId){
-        console.log('找到了：' + this.data.orderItems[i].productId)
-        console.log(this.data.orderItems)
-        console.log('匹配到的orderId：'+this.data.orderItems[i].orderId)
+        // console.log('找到了：' + this.data.orderItems[i].productId)
+        // console.log(this.data.orderItems)
+        // console.log('匹配到的orderId：'+this.data.orderItems[i].orderId)
         var name = this.data.orderItems[i].name
         var packag = this.data.orderItems[i].packages
         var productId = this.data.orderItems[i].productId
@@ -429,7 +429,7 @@ Page({
       },
       method: 'POST',
       success: function (res) {
-        console.log(res.data),
+        // console.log(res.data),
           wx.requestPayment({
             timeStamp: res.data.timeStamp,
             nonceStr: res.data.nonceStr,
@@ -438,7 +438,7 @@ Page({
             paySign: res.data.paySign,
             success: function (event) {
               // success 
-              console.log(event);
+              // console.log(event);
               wx.showToast({
                 title: '支付成功',
                 icon: 'success',
@@ -447,12 +447,12 @@ Page({
             },
             fail: function (error) {
               // fail 
-              console.log("支付失败")
-              console.log(error)
+              // console.log("支付失败")
+              // console.log(error)
             },
             complete: function () {
               // complete 
-              console.log("pay complete")
+              // console.log("pay complete")
             }
           });
       }

@@ -113,7 +113,7 @@ Page({
         })
       },
       fail: function(err){
-        console.log(err);
+        // console.log(err);
         that.setData({
           hotCitys: ['北京', '上海', '广州', '深圳', '武汉', '重庆']
         })
@@ -136,7 +136,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log(this.data.city)
+    // console.log(this.data.city)
   },
 
   /**
