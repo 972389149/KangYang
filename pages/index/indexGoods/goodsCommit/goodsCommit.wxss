@@ -35,10 +35,9 @@ page {
 }
 .bigimg_{
   position:fixed;
-  width: 80%;
-  height: 40%;
+  width: 100%;
+  height: 50%;
   top: 200rpx;
-  margin-left: 10%;
   border: 2rpx solid #EB9413;
 }
 .goodName{

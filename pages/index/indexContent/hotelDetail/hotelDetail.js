@@ -28,7 +28,16 @@ Page({
     flag_:true,
     isScroll:true,
 
-    roomList:[]   //订房品种数组信息
+    indicatorDots: true,
+    autoplay: true,
+    interval: 5000,
+    duration: 1000,
+
+    roomList:[],   //订房品种数组信息
+    bigPicture: "",
+    bigPictureUrl: "",
+    showBigPicture: false,
+    bigPictureArry: []
   },
   onLoad: function (options) {
     console.log(options)
@@ -286,6 +295,42 @@ Page({
       latitude: latitude+1,
       longitude: longitude+1,
       address: that.data.location
+    })
+  },
+  showBig: function (e) {
+    // console.log(e)
+    this.setData({
+      isScroll: false,
+      bigPicture: "bigPicture",
+      bigPictureUrl: e.currentTarget.dataset.url,
+      showBigPicture: true
+    })
+    var index
+    var arry = []
+    console.log(this.data.imgUrls.length)
+    for (var i = 0; i < this.data.imgUrls.length; i++) {
+      if (this.data.imgUrls[i].img == e.currentTarget.dataset.url) {
+        index = i
+      }
+    }
+    for (var i = index; i < this.data.imgUrls.length; i++) {
+      arry.push(this.data.imgUrls[i])
+    }
+    for (var i = 0; i < index; i++) {
+      arry.push(this.data.imgUrls[i])
+    }
+    this.setData({
+      isScroll: false,
+      bigPicture: "bigPicture",
+      bigPictureUrl: this.data.bigPictureUrl,
+      showBigPicture: true,
+      bigPictureArry: arry
+    })
+  },
+  closePicture: function () {
+    this.setData({
+      isScroll: true,
+      showBigPicture: false
     })
   }
 }) 

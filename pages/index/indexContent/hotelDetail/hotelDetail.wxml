@@ -1,15 +1,26 @@
 <!--pages/index/indexGoods/hotelDetail/hotelDetail.wxml-->
-<scroll-view style='{{isScroll?"":"height:600px"}}'>
+<view class='{{bigPicture}}' wx:if="{{showBigPicture}}" bindtap='closePicture'></view>
+<view  wx:if="{{showBigPicture}}" class='showBig'>
+   <swiper>  
+        <block wx:for="{{bigPictureArry}}" wx:key='unquine'>  
+          <swiper-item>  
+              <image src="{{'https://www.jdkangyang.cn/ky/'+item.img}}" class="slide-image" bindtap='showBig' data-url="{{item.img}}"/>    
+          </swiper-item>  
+        </block>  
+  </swiper>
+</view>
+
+<scroll-view style='{{isScroll?"":"height:500px"}}'>
   <view style="{{flag?'':'position:fixed;width:100%;height:100%;'}}">
       <view class='header'> 
         <swiper indicator-dots="{{indicatorDots}}"  
-                autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">  
-              <block wx:for="{{imgUrls}}" wx:key='unquine'>  
-                <swiper-item>  
-                    <image src="{{'https://www.jdkangyang.cn/ky/'+item.img}}" class="slide-image" style='height:200px'/>    
-                </swiper-item>  
-              </block>  
-        </swiper>  
+                  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">  
+                <block wx:for="{{imgUrls}}" wx:key='unquine'>  
+                  <swiper-item>  
+                      <image src="{{'https://www.jdkangyang.cn/ky/'+item.img}}" class="slide-image" bindtap='showBig' data-url="{{item.img}}"/>    
+                  </swiper-item>  
+                </block>  
+          </swiper>  
       </view>
       <view style='width:100%'> 
         <view class='content_price'>

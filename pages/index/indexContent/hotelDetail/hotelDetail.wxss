@@ -247,3 +247,22 @@ swiper{
   right: 30px; 
 }
 
+.bigPicture{
+ position: fixed;
+ width: 100%;
+ height: 100%;
+ top: 0px;
+ left: 0px;
+ z-index:999;
+ background-color:rgba(0,0,0,0.7);
+ overflow: hidden; 
+}
+.showBig{
+  display: block;
+  position: fixed;
+  width: 100%;
+  top: 150px;
+  left: 0px;
+  z-index:999;
+}
+

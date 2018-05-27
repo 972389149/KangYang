@@ -1,7 +1,7 @@
 /* pages/index/indexGoods/goodsDetail/goodsDetail.wxss */
 /* page{
   overflow-y: hidden;
-} */
+}   */
 scroll-view{
   height: 100%;
 }
@@ -217,4 +217,23 @@ swiper{
 .footer image{
   height: 100%;
   width: 100%;
+}
+
+.bigPicture{
+ position: fixed;
+ width: 100%;
+ height: 100%;
+ top: 0px;
+ left: 0px;
+ z-index:999;
+ background-color:rgba(0,0,0,0.5);
+ overflow: hidden; 
+}
+.showBig{
+  display: block;
+  position: fixed;
+  width: 100%;
+  top: 150px;
+  left: 0px;
+  z-index:999;
 }

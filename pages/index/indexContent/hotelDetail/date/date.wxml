@@ -17,7 +17,7 @@
   <view class='date-box'>  
       <view wx:for='{{dateArr}}' wx:key="nginsg" wx:for-index="idx">            
           <view class='date-head'>  
-              <view data-indexs="{{idx}}" class='{{(idx==dayNum)&&flag?"select":""}} {{(idx<day)&&_flag?"unselect":""}}' catchtap='selectDate' data-item="{{item.dateNum}}">{{item.dateNum}}</view>  
+              <view data-indexs="{{idx}}" class='{{(item.dateNum==day)&&flag?"select":""}} {{(item.dateNum<day)&&_flag?"unselect":""}}' catchtap='selectDate' data-item="{{item.dateNum}}">{{item.dateNum}}</view>  
           </view>   
       </view>  
   </view>

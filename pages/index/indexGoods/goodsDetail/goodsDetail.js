@@ -26,7 +26,11 @@ Page({
     packageId:"",
     isScroll:true,
     hide:false,
-    flagtab:false
+    flagtab:false,
+    bigPicture:"",
+    bigPictureUrl:"",
+    showBigPicture:false,
+    bigPictureArry:[]
   },
   onLoad: function (options) {
     this.setData({
@@ -163,5 +167,41 @@ Page({
       duration: 1500
     })
     wx.stopPullDownRefresh()
+  },
+  showBig:function(e){
+    // console.log(e)
+    this.setData({
+      isScroll: false,
+      bigPicture:"bigPicture",
+      bigPictureUrl:e.currentTarget.dataset.url,
+      showBigPicture:true
+    })
+    var index
+    var arry = []
+    console.log(this.data.imgUrls.length)
+    for (var i = 0; i < this.data.imgUrls.length; i++) {
+      if (this.data.imgUrls[i].img == e.currentTarget.dataset.url) {
+        index = i
+      }
+    }
+    for (var i = index; i < this.data.imgUrls.length; i++) {
+      arry.push(this.data.imgUrls[i])
+    }
+    for (var i = 0; i < index; i++) {
+      arry.push(this.data.imgUrls[i])
+    }
+    this.setData({
+      isScroll: false,
+      bigPicture: "bigPicture",
+      bigPictureUrl: this.data.bigPictureUrl,
+      showBigPicture: true,
+      bigPictureArry: arry
+    })     
+  },
+  closePicture:function(){
+    this.setData({
+      isScroll: true,
+      showBigPicture:false
+    }) 
   }
 }) 
