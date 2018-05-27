@@ -21,6 +21,7 @@ Page({
     distant:""
   },
   onLoad: function (options) {
+    console.log(options)
     this.setData({
       distant: options.distant
     })
@@ -33,7 +34,7 @@ Page({
     this.setData({
       year: year,
       month: month,
-      day:day-1,
+      day:day,
       dayNum:day-1,
       monthOut:options.monthOut,
       dayOut:options.dayOut,
