@@ -133,7 +133,7 @@ Page({
             "img": app.data.imgUrl+res.data[i].img
           })
         }
-        console.log(res.data)
+        // console.log(res.data)
          that.setData({
             'imgUrls[0].url': _data[0].img,
             'imgUrls[1].url': _data[1].img,
@@ -168,7 +168,7 @@ Page({
         'charset': 'UTF - 8'
       },
       success: function(res){
-        console.log(res.data)
+        // console.log(res.data)
         var _data = []
         for(var i=0 ;i < 8;i++){
           _data.push({
@@ -182,7 +182,7 @@ Page({
           that.data.goodDatas[i].name = _data[i].name;
           that.data.goodDatas[i].img = _data[i].img;
         }
-        console.log(that.data.goodDatas);
+        // console.log(that.data.goodDatas);
         that.setData({
           goodDatas: that.data.goodDatas
         })

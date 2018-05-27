@@ -93,7 +93,7 @@ Page({
               },
               method: 'POST',
               success: function (res) {
-                console.log(res.data),
+                // console.log(res.data),
                   wx.requestPayment({
                     timeStamp: res.data.timeStamp,
                     nonceStr: res.data.nonceStr,
@@ -102,7 +102,7 @@ Page({
                     paySign: res.data.paySign,
                     success: function (event) {
                       // success 
-                      console.log(event);
+                      // console.log(event);
                       wx.showToast({
                         title: '支付成功',
                         icon: 'success',
@@ -111,12 +111,12 @@ Page({
                     },
                     fail: function (error) {
                       // fail 
-                      console.log("支付失败")
-                      console.log(error)
+                      // console.log("支付失败")
+                      // console.log(error)
                     },
                     complete: function () {
                       // complete 
-                      console.log("pay complete")
+                      // console.log("pay complete")
                     }
                   });
               }

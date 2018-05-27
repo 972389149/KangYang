@@ -103,7 +103,7 @@ Page({
       title: '获取物流信息中...'
     })
     var that = this
-    console.log(options)
+    // console.log(options)
     // 把productId储存用于获取订单号
     this.setData({
       orderId: options.orderId,

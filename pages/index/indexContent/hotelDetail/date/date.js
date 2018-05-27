@@ -21,7 +21,7 @@ Page({
     distant:""
   },
   onLoad: function (options) {
-    console.log(options)
+    // console.log(options)
     this.setData({
       distant: options.distant
     })
@@ -126,7 +126,7 @@ Page({
     this.dateInit(year, month);
   },
   selectDate:function(e){
-    console.log(e)
+    // console.log(e)
     if(this.data.flag==false){
       this.setData({
         flag:true,

@@ -205,7 +205,7 @@ Page({
         'charset': 'UTF - 8'
       },
       success:function(res){
-          console.log(res.data)
+          // console.log(res.data)
           if(res.data.success == 1){
             wx.switchTab({
               url: '../order'

@@ -115,7 +115,7 @@ Page({
             // 向后台请求成功
             success: function(res){
               if(res.data != 'error'){
-                console.log(res.data.openid)
+                // console.log(res.data.openid)
                 //openid保存
                 that.setData({
                   openId_: res.data.openid
@@ -347,7 +347,7 @@ Page({
 
   // 折扣券调整
   toHotel: function(e){
-    console.log(e.currentTarget.id)
+    // console.log(e.currentTarget.id)
     wx.showToast({
       title: '折扣券功能还未开放~',
       icon: 'none',
