@@ -20,10 +20,10 @@ Page({
     flag_:true,
     flag:true,
     reviewList:[],
-    packName:"选择套餐",   //套餐名称
+    packName:"官方套餐",   //套餐名称
     count:0,              //套餐数量
     productData:{},
-    packageId:"",
+    packageId:"2",
     isScroll:true,
     hide:false,
     flagtab:false,
@@ -134,14 +134,14 @@ Page({
     })
   },
   toCommit:function(){
-    if (this.data.packName=="选择套餐"){
-      wx.showToast({
-        title:"请先选择套餐",
-        icon:"none",
-        duration:1000
-      })
-      return
-    }
+    // if (this.data.packName=="选择套餐"){
+    //   wx.showToast({
+    //     title:"请先选择套餐",
+    //     icon:"none",
+    //     duration:1000
+    //   })
+    //   return
+    // }
     if(app.data.openId.length==0){
       wx.showToast({
         title: "请先登录",
@@ -155,7 +155,8 @@ Page({
     }
     else{
       wx.navigateTo({
-        url: '../goodsCommit/goodsCommit?goodName=' + this.data.name + "&goodMoney=" + this.data.promotePrice + "&goodType=" + this.data.packName + "&productId=" + this.data.id + "&imgSrc=" + this.data.productSingleImg[0].img + "&goodCount=" + this.data.count + "&packageId=" + this.data.packageId,
+        url: '../goodsCommit/goodsCommit?goodName=' + this.data.name + "&goodMoney=" + this.data.promotePrice + "&goodType=" + this.data.packName + "&productId=" + this.data.id + "&imgSrc=" + this.data.productSingleImg[0].img + "&goodCount=" +"1" + "&packageId=" + this.data.packageId,
+        // url: 'combo/combo?goodName=' + this.data.name + "&goodMoney=" + this.data.promotePrice + "&goodType=" + this.data.packName + "&productId=" + this.data.id + "&imgSrc=" + this.data.productSingleImg[0].img + "&goodCount=" + this.data.count + "&packageId=" + this.data.packageId + "&id=" + this.data.id + "&price=" + this.data.promotePrice + "&name=" + this.data.name + "&img=" + this.data.imgUrls[0].img,
       })
     } 
   },

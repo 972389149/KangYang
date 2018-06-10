@@ -150,7 +150,7 @@ swiper{
 .footNav text{
    line-height: 60px;
 }
-.footLeft{
+/* .footLeft{
   border-right: 1px solid  #ecda75;
   height: 60px;
   background: #ecda75;
@@ -159,12 +159,12 @@ swiper{
 }
 .footLeft text{
    font-size: 20px;
-}
+} */
 .footRight{
   height: 60px;
   background: #b5b5b5;
   float: left;
-  width: 49.7%;
+  width: 100%;
 }
 .footRight text{
   font-size: 20px;

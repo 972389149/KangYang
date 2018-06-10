@@ -186,6 +186,7 @@ Page({
       method: 'POST',
       data: {
         openid: app.data.openId,
+        // openid:"wx3dedb58f5a2cf074",
         hotelId: options.hotelId,
         dateStart: options.dateIn,
         dateEnd: options.dateOut,
