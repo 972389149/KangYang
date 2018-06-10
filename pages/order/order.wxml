@@ -49,7 +49,7 @@
   </view>
 </view>
 <view class='NoLogin' wx:if='{{!_login_}}' catchtap='toLogin'>
-  <text>立即<text style='color:#EACD75'> 登录 </text>查看订单信息\n<text style='color:#EACD75'>Sign in</text> and view the order information</text>
+  <text>立即<text style='color:#87CEEB'> 登录 </text>查看订单信息\n<text style='color:#87CEEB'>Sign in</text> and view the order information</text>
 </view>
 <view class='NoLogin' wx:if='{{_noneOrder_}}'>
   <text>没有更多的订单信息\nNo more order information</text>

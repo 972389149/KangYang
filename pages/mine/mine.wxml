@@ -5,7 +5,7 @@
     <image class="userinfo-avatar" src="{{headImg_}}" background-size="cover"></image>
   </view> 
   <view class='underImage'>
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" catchtap="getUserInfo" size='mini' plain='true' style='border-color: #DCA500;color: #DCA500;'> 授权登录 </button>
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" catchtap="getUserInfo" size='mini' plain='true' style='border-color: #87CEEB;color: #87CEEB;'> 授权登录 </button>
      <text class="userinfo-nickname">{{nickName_}}</text> 
   </view>
 </view>

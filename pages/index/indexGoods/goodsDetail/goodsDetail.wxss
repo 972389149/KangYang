@@ -33,7 +33,7 @@ swiper{
 }
 .priceNew{
   display: inline-block;
-  color: rgb(255,156,0);
+  color: #87CEEB;
   font-size: 18px;
 }
 .content_intruduce{
@@ -171,7 +171,7 @@ swiper{
   color: #fff;
 }
 .toColor{
-   background: #eb9413;
+   background: #87CEEB;
    color: #fff;
 }
 .instea{
