@@ -22,8 +22,8 @@ page {
 }
 .innerNavChose{
   border-bottom: 5rpx solid #000;
-  color: #DCA500;
-  border-color: #DCA500;
+  color: #87CEEB;
+  border-color: #87CEEB;
 }
 .orderDetial{
   width: 100%;
@@ -53,8 +53,8 @@ page {
   margin-top: 12rpx;
 }
 .inExpress button{
-  border-color: #DCA500;
-  color: #DCA500;
+  border-color: #87CEEB;
+  color: #87CEEB;
 }
 .showWord{
   position: absolute;

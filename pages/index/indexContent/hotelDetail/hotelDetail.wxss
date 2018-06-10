@@ -26,13 +26,13 @@ swiper{
   display: inline-block;
   line-height: 50px;
   font-size: 24px;
-  color: rgb(255,156,0);
+  color: #87CEEB;
 }
 .good{
   display: inline-block;
   line-height: 50px;
   font-size: 18px;
-  color: rgb(255,156,0);
+  color: #87CEEB;
 }
 .content_right{
   width: 35%;
@@ -148,7 +148,7 @@ swiper{
   font-size: 16px;
 }
 .price_new{
-  color: rgb(255,156,0);
+  color:#87CEEB;
   font-size: 22px;
 }
 .room_right{
@@ -161,8 +161,8 @@ swiper{
   width: 100px;
   float: right;
   margin-top: 20px;
-  background: rgb(248,181,81);
-  border: 2px solid rgb(235,148,19);
+  background: #87CEEB;
+  border: 2px solid #87CEEB;
   color: #fff;
 }
 .modal-box{
