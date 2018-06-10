@@ -6,9 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    name:"",
-    img: '',
-    packName: "",
+    name:"",    //商品名称
+    img: '',    //商品图片
+    packName: "官方套餐",  
     price:"",
     content:"",
     packArr:[],
@@ -22,7 +22,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      // console.log(options)
+      console.log(options)
       this.setData({
         id:options.id,
         price:options.price,
@@ -103,7 +103,7 @@ Page({
        _data.push(res.data)
        _this.setData({
          packArr: _data,
-         price: _data[0].price,
+        //  price: _data[0].price,
          packName: _data[0].name,
          content: _data[0].content,
          packageId:_data[0].packageId
@@ -163,8 +163,10 @@ Page({
     })
   },
   getBack:function(){
+    console.log(this.data.price)
     wx.navigateTo({
-      url: '../goodsDetail?count='+this.data.count+"&packName="+this.data.packName+"&id="+this.data.id+"&packageId="+this.data.packageId,
+      // url: '../goodsDetail?count='+this.data.count+"&packName="+this.data.packName+"&id="+this.data.id+"&packageId="+this.data.packageId,
+      url: '../../goodsCommit/goodsCommit?goodName=' + this.data.name + "&goodMoney=" + this.data.price + "&goodType=" + this.data.packName + "&productId=" + this.data.id + "&imgSrc=" + this.data.img + "&goodCount=" + this.data.count + "&packageId=" + this.data.packageId,
     })
   },
   onPullDownRefresh: function () {

@@ -255,17 +255,17 @@ Page({
     // })
   },
   toCommit:function(e){
-    if (app.data.openId.length==0){
-      wx.showToast({
-        title: '请先登录',
-        icon:"none",
-        duration: 2000
-      })
-      wx.switchTab({
-        url: '../../../mine/mine',
-      })
-      return ;
-    }
+    // if (app.data.openId.length==0){
+    //   wx.showToast({
+    //     title: '请先登录',
+    //     icon:"none",
+    //     duration: 2000
+    //   })
+    //   wx.switchTab({
+    //     url: '../../../mine/mine',
+    //   })
+    //   return ;
+    // }
     // console.log(e)
     if (this.data.monthIn == this.data.monthOut && this.data.dayIn == this.data.dayOut){
       wx.showToast({

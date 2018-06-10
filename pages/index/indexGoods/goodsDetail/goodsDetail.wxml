@@ -50,12 +50,13 @@
         </view>
         <view style='border-bottom: 1px solid rgb(216, 216, 216)'></view>  
         <view class='footNav' hidden='{{hide}}'>
-          <view class='footLeft'> 
+          <!-- <view class='footLeft'> 
             <view>
                 <navigator url='combo/combo?id={{id}}&price={{promotePrice}}&name={{name}}&img={{imgUrls[0].img}}'><text>{{packName}}</text></navigator>
             </view>
-          </view>
-          <view class='footRight {{flagtab?"toColor":""}}' catchtap='toCommit'>
+          </view> -->
+          <!-- <view class='footRight {{flagtab?"toColor":""}}' catchtap='toCommit'> -->
+          <view class='footRight toColor' catchtap='toCommit'>
                 <text>下单</text>
           </view>
         </view>

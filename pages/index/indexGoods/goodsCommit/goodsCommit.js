@@ -45,7 +45,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // console.log(options)
+    console.log(options)
     // 从商品详情页面传过来的数据
     // 先模拟数据
     this.setData({
@@ -55,7 +55,7 @@ Page({
       packageId: options.packageId,
       productId: options.productId,
       goodCount: options.goodCount,
-      imgSrc: app.data.imgUrl + options.imgSrc
+      imgSrc:app.data.imgUrl+options.imgSrc
     })
     this.getPrice()
   },
