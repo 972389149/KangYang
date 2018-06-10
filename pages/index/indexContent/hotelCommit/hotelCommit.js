@@ -21,6 +21,8 @@ Page({
     imgBig: false,
     enterName:"请输入姓名",
     enterPhone:"请输入手机号码",
+    enterName_: '',
+    enterPhone_: '',
     orderId: '',
     controlCommit: false, //控制是否可以点击提交
     commitAgain: false //控制不能多次下单
@@ -149,17 +151,23 @@ Page({
     }
   },
   imgBig: function(){
+    var  that = this
+    this.setData({
+      enterName_: that.data.enterName,
+      enterPhone_: that.data.enterPhone
+    })
     this.setData({
       imgBig: true,
       enterName: '',
-      enterPhone: ''
+      enterPhone: '',
     })
   },
   bigImg: function(){
+    var that = this
     this.setData({
       imgBig: false,
-      enterName: "请输入姓名",
-      enterPhone: "请输入手机号码"
+      enterName: that.data.enterName_,
+      enterPhone: that.data.enterPhone_
     })
   },
   /**
@@ -202,6 +210,16 @@ Page({
           total: res.data.price,
           controlCommit: true
         })
+        if(res.data.name != ''){
+          that.setData({
+            enterName: res.data.name
+          })
+        }
+        if(res.data.phone != ''){
+          that.setData({
+            enterPhone: res.data.phone
+          })
+        }
         // 关闭模态框
         wx.hideLoading()
       },
